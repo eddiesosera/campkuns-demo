@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import './css/devices.css'
 import './App.css';
+import './fonts.css'
+import { Routes, Route } from 'react-router-dom';
+import Home from './screens/home';
+import Upload from './screens/upload';
+import Stats from './screens/stats';
+import Account from './screens/account';
+import BottomBar from './components/bottomBar';
+import CreateAccount from './screens/additional/onbarding/createAccount';
+import LogIn from './screens/additional/onbarding/login';
+import TopBar from './components/topBar';
+import Connect from './screens/connect';
+import 'antd/dist/reset.css';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{ marginTop: '60px', paddingBottom: '60px' }}>
+        <Routes >
+          <Route path="/" element={<Home />} />
+          <Route path="/connect" element={<Connect />} />
+          <Route path="/upload" element={<Upload />} />
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/create" element={<CreateAccount />} />
+          <Route path="/login" element={<LogIn />} />
+        </Routes>
+      </div>
+      <BottomBar />
     </div>
   );
 }
