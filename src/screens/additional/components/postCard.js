@@ -6,10 +6,12 @@ import './postCard.css'
 import SuggestPrice from "./suggestPrice";
 import { posts } from "../../../data/database/posts";
 import anime from 'animejs/lib/anime.es.js';
+import CardOptions from "../popup/home/options/cardOptions";
 
 
 function PostCard({ post, name, verified, date, collaborator, title, description, category, tags, price, fanAgrees, fanViews }) {
 
+  const staticss = ''
 
   const [colorOff, colorOn] = useState(['#a4a4a4', '1px solid #333333', 'ri-thumb-up-line']);
   const [colorOffSuggest, colorOnSuggest] = useState(['#a4a4a4', '1px solid #333333']);
@@ -72,14 +74,14 @@ function PostCard({ post, name, verified, date, collaborator, title, description
   useEffect(() => {
 
     //Button Logic
-    if (colorToggle === true) {
-      post.metadata.statics.fan_agrees++;
-      colorOn(['#E55C17', '1px solid #E55C17', 'ri-thumb-up-fill']);
-    }
-    else {
-      post.metadata.statics.fan_agrees--;
-      colorOn(['#a4a4a4', '1px solid #333333', 'ri-thumb-up-line'])
-    }
+    // if (colorToggle === true) {
+    //   post.metadata.statics.fan_agrees++;
+    //   colorOn(['#E55C17', '1px solid #E55C17', 'ri-thumb-up-fill']);
+    // }
+    // else {
+    //   post.metadata.statics.fan_agrees--;
+    //   colorOn(['#a4a4a4', '1px solid #333333', 'ri-thumb-up-line'])
+    // }
 
     //Suggest Button Logic
     if (suggestToggle === true) {
@@ -121,7 +123,10 @@ function PostCard({ post, name, verified, date, collaborator, title, description
     <div className='postCard-wrap' style={{ color: 'white', width: '100vw', maxWidth: '470px', margin: '0 auto', background: '#1c1c1c', borderRadius: '12pxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' }}>
 
       <div >
-        <SuggestPrice display={displaySuggestTgl} hide={clickedSuggest} Img={post?.images[0]} title={title} price={price} />
+        <SuggestPrice display={displaySuggestTgl} hide={clickedSuggest} Img={post?.images[0]} title={post?.title} price={post?.price} />
+      </div>
+      <div>
+        <CardOptions />
       </div>
 
       <div className="postCard-top-section" style={{
@@ -131,7 +136,7 @@ function PostCard({ post, name, verified, date, collaborator, title, description
       }}>
 
         <div className="postCard-top-left" style={{ display: 'flex' }}>
-          <img src={Img}
+          <img src={post?.Img}
             alt="profile" style={{ height: '40px', width: '40px', objectFit: 'cover', borderRadius: '50%', border: '1px solid #2E2E2E' }} />
           <div className="postCard-top-left-wrap" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 15px' }}>
             <div className="postCard-top-left-name" style={{ display: 'flex', fontWeight: '600' }}>
@@ -188,10 +193,10 @@ function PostCard({ post, name, verified, date, collaborator, title, description
             backgroundColor: 'rgba(12,10,9,0.8)', padding: '15px'
           }}>
           <div className="postCard-content-artcover-meta-collaborator" style={{ fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500' }}>
-            {
+            {/* {
               post?.metadata.collaborator?.length > 0 &&
               'w/' + post?.metadata.collaborator?.map((i) => ('@' + i))
-            }
+            } */}
           </div>
           <div className="postCard-content-artcover-meta-description" style={{ fontSize: '14px', fontWeight: '400' }}>{description}</div>
           <div className="postCard-content-artcover-meta-bottom-wrap">
@@ -270,7 +275,7 @@ function PostCard({ post, name, verified, date, collaborator, title, description
         }} >
         <i class="ri-price-tag-3-line" style={{ fontSize: '18px' }}></i>
         <div style={{ fontFamily: 'Roboto Condensed', fontWeight: '600', fontSize: '15px', marginLeft: '5px' }}>
-          R{price}
+          R{post?.price}
         </div>
       </div>
 
@@ -281,7 +286,7 @@ function PostCard({ post, name, verified, date, collaborator, title, description
           padding: '20px 15px', height: 'fit-content', fontFamily: 'Montserrat',
           fontWeight: '600', width: '100%', overflowY: 'clip', maxHeight: '55px', paddingBottom: '20px'
         }}>
-          {title}
+          {post?.title}
         </div >
         <div className="postCard-bottom-interactions" style={{
           display: 'flex', justifyContent: 'space-between',

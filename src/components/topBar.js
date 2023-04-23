@@ -43,7 +43,7 @@ function TopBar(e) {
             <div className="topBar" style={linkStyle}>
                 <div className="topBar-container" style={topBarStyle}>
 
-                    <i class="ri-pushpin-line" style={
+                    <i className="ri-pushpin-line" style={
                         toggle ? {
                             fontSize: '24px', fontWeight: '500',
                             color: '#FFE7D9', backgroundColor: '#292929', height: '45px', width: '45px',

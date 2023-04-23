@@ -32,7 +32,7 @@ function SuggestPrice({ display, Img, title, price, hide, submit }) {
             }}>
 
                 < i class="ri-close-line" style={{
-                    color: '#FFE7D9', padding: '5px', fontSize: '20px', backgroundColor: '#232323', display: 'flex',
+                    color: '#FFE7D9', padding: '5px', fontSize: '18px', backgroundColor: '#232323', display: 'flex',
                     borderRadius: '50px', border: '0.75px solid #363636', width: '35px', height: '40px', justifyContent: 'center',
                     alignItems: 'center'
                 }} onClick={hide}></i>

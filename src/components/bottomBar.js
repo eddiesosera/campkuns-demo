@@ -23,31 +23,31 @@ function BottomBar() {
         <div className="bottomBar-container" style={bottomBarStyle}>
             <NavLink to="/" style={linkStyle}>
                 <div className="iconNav" style={routeStyle}>
-                    <i class="ri-sparkling-fill" style={{ fontSize: '24px' }}></i>
+                    <i className="ri-sparkling-fill" style={{ fontSize: '24px' }}></i>
                     Home
                 </div>
             </NavLink>
             <NavLink to="/connect" style={linkStyle}>
                 <div className="iconNav" style={routeStyle}>
-                    < i class="ri-speak-line" style={{ fontSize: '24px' }}></i>
+                    < i className="ri-speak-line" style={{ fontSize: '24px' }}></i>
                     Connect
                 </div>
             </NavLink>
             <NavLink to="/upload" style={linkStyle}>
                 <div className="iconNav" style={routeStyle}>
-                    < i class="ri-add-box-fill" style={{ fontSize: '36px' }}></i>
+                    < i className="ri-add-box-fill" style={{ fontSize: '36px' }}></i>
 
                 </div>
             </NavLink>
             <NavLink to="/stats" style={linkStyle}>
                 <div className="iconNav" style={routeStyle}>
-                    < i class="ri-heart-line" style={{ fontSize: '24px' }}></i>
+                    < i className="ri-heart-line" style={{ fontSize: '24px' }}></i>
                     Engaged
                 </div>
             </NavLink>
             <NavLink to="/account" style={linkStyle}>
                 <div className="iconNav" style={routeStyle}>
-                    <i class="ri-user-4-line" style={{ fontSize: '24px' }}></i>
+                    <i className="ri-user-4-line" style={{ fontSize: '24px' }}></i>
                     Me
                 </div>
             </NavLink>
