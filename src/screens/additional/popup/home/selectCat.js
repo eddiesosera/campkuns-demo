@@ -127,11 +127,11 @@ function SelectCategory({ display }) {
                     <div className="popUp-heading">
                         Select Category
                     </div>
-                    < i class="ri-close-line" style={{ color: '#FFE7D9' }} onClick={openCat}></i>
+                    < i className="ri-close-line" style={{ color: '#FFE7D9' }} onClick={openCat}></i>
                 </div>
                 <div className="selectCategory-bottom-sec">
                     <ul className="selectCategory-options" style={CategoryOptions}>
-                        {filters.map((filter, i) => <li style={filter.value === selectedFilter ? activeCat : inActivedCat} onClick={() => setSelectedFilter(filter.value)}>{filter.label}</li>)}
+                        {filters.map((filter, i) => <li className="filter" key={filter.value} style={filter.value === selectedFilter ? activeCat : inActivedCat} onClick={() => setSelectedFilter(filter.value)}>{filter.label}</li>)}
                     </ul>
                 </div>
             </div>

@@ -120,7 +120,10 @@ function PostCard({ post, name, verified, date, collaborator, title, description
 
 
   return (
-    <div className='postCard-wrap' style={{ color: 'white', width: '100vw', maxWidth: '470px', margin: '0 auto', background: '#1c1c1c', borderRadius: '12pxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' }}>
+    <div className='postCard-wrap' style={{
+      color: 'white', width: '100vw', maxWidth: '470px', margin: '0 auto',
+      background: '#1c1c1c', borderRadius: '12px'
+    }}>
 
       <div >
         <SuggestPrice display={displaySuggestTgl} hide={clickedSuggest} Img={post?.images[0]} title={post?.title} price={post?.price} />

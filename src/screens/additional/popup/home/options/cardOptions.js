@@ -17,9 +17,9 @@ function CardOptions() {
 
     const optionList = [
         {
-            icon: 'ri-collage-line',
-            label: 'Save to Collection',
-            function: saveToCollection,
+            icon: 'ri-arrow-up-line',
+            label: 'Share',
+            function: sharePost,
             color: ['#FFFFFF', '#CDCDCD']
         },
         {
@@ -29,9 +29,9 @@ function CardOptions() {
             color: ['#FFFFFF', '#CDCDCD']
         },
         {
-            icon: 'ri-arrow-up-line',
-            label: 'Share',
-            function: sharePost,
+            icon: 'ri-collage-line',
+            label: 'Save to Collection',
+            function: saveToCollection,
             color: ['#FFFFFF', '#CDCDCD']
         },
         {
@@ -44,16 +44,26 @@ function CardOptions() {
 
 
     return (
-        <div>
-            <ul className='option' style={{ margin: '0', padding: '0', listStyle: 'none' }}>
+        <div style={{
+            width: '100vw', position: 'absolute', maxWidth: '470px', display: 'flex', justifyContent: 'flex-end',
+            zIndex: '5'
+        }}>
+            <ul className='option' style={{
+                margin: '0', padding: '15px', listStyle: 'none', width: '215px', borderRadius: '15px', backgroundColor: '#232323',
+                display: 'flex', flexDirection: 'column', height: '150px', justifyContent: 'space-between', marginTop: '10px',
+                marginRight: '10px'
+            }}>
                 {
                     optionList?.map((cardoption) => {
                         return (
-                            <li onClick={cardoption.function} style={{ cursor: 'pointer' }}>
-                                <div className='cardOption-wrapper' style={{ display: 'flex', alignItems: 'center' }}>
-                                    <i style={{ color: cardoption.color[0] }} className={cardoption.icon}></i>
-                                    <div style={{ color: cardoption.color[1] }}>{cardoption.label}</div>
-                                </div>
+                            <li onClick={cardoption.function} className='cardOption-wrapper'
+                                style={{ cursor: 'pointer', display: 'flex', fontFamily: 'Poppins', alignItems: 'center' }}>
+                                <i style={{ color: cardoption.color[0], fontSize: '22px' }} className={cardoption.icon}></i>
+                                <div style={{
+                                    marginLeft: '10px', height: '18px', display: 'flex', alignItems: 'center',
+                                    fontWeight: '500', fontSize: '15px', color: cardoption.color[1]
+                                }}>
+                                    {cardoption.label}</div>
                             </li>
                         )
                     })
