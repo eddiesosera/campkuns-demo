@@ -1,12 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { Navigate, useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import Search from '../../../../search';
 
 function CardOptions() {
+
+    const navigate = useNavigate()
+    const [insertSearch, setInsertSearch] = useState('')
 
     const saveToCollection = () => {
         alert('Save to Collection')
     }
     const searchSimilar = () => {
         alert('Search Similar')
+        navigate('/search')
+        setInsertSearch('Similar Item')
     };
     const sharePost = () => {
         alert('Share')
@@ -48,26 +56,32 @@ function CardOptions() {
             width: '100vw', position: 'absolute', maxWidth: '470px', display: 'flex', justifyContent: 'flex-end',
             zIndex: '5'
         }}>
+            <div style={{ display: 'none' }}><Search similarSearch={insertSearch} /></div>
             <ul className='option' style={{
                 margin: '0', padding: '15px', listStyle: 'none', width: '215px', borderRadius: '15px', backgroundColor: '#232323',
-                display: 'flex', flexDirection: 'column', height: '150px', justifyContent: 'space-between', marginTop: '10px',
+                display: 'flex', flexDirection: 'column', height: 'content-fit', justifyContent: 'space-between', marginTop: '10px',
                 marginRight: '10px'
             }}>
                 {
                     optionList?.map((cardoption) => {
                         return (
                             <li onClick={cardoption.function} className='cardOption-wrapper'
-                                style={{ cursor: 'pointer', display: 'flex', fontFamily: 'Poppins', alignItems: 'center' }}>
+                                style={{
+                                    cursor: 'pointer', display: 'flex', fontFamily: 'Poppins', alignItems: 'center',
+                                    userSelect: 'none'
+                                }}>
                                 <i style={{ color: cardoption.color[0], fontSize: '22px' }} className={cardoption.icon}></i>
                                 <div style={{
                                     marginLeft: '10px', height: '18px', display: 'flex', alignItems: 'center',
                                     fontWeight: '500', fontSize: '15px', color: cardoption.color[1]
                                 }}>
                                     {cardoption.label}</div>
+
                             </li>
                         )
                     })
                 }
+
             </ul>
         </div>
     )

@@ -12,6 +12,7 @@ import LogIn from './screens/additional/onbarding/login';
 import TopBar from './components/topBar';
 import Connect from './screens/connect';
 import 'antd/dist/reset.css';
+import Search from './screens/search';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Routes >
           <Route path="/" element={<Home />} />
           <Route path="/connect" element={<Connect />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/account" element={<Account />} />

@@ -15,7 +15,11 @@ function Upload() {
                 alert('saved')
                 navigate('/')
             })
-            .catch((error) => alert('error saving...'));
+            .catch((error) => {
+                alert('error saving...');
+                navigate('/')
+            }
+            );
     }
 
 

@@ -42,6 +42,11 @@ function SuggestPrice({ display, Img, title, price, hide, submit }) {
                 display: displayStatus, flexDirection: 'column', height: 'fit-content', width: '370px', backgroundColor: '#232323',
                 padding: '20px', border: '0.75px solid #363636', borderRadius: '15px'
             }}>
+                <div className="suggestPrice-head" style={{
+                    fontSize: '24px', fontWeight: '600', fontFamily: 'Poppins', color: '#FFE7D9', marginBottom: '20px'
+                }}>
+                    Place your Bid
+                </div>
                 <div className='artContent-wrap' style={{ padding: '15px', display: 'flex', borderRadius: '9px', background: '#2A2A2A' }}>
                     <img src={Img} alt='Suggestion' style={{ width: '75px', height: '75px', objectFit: 'cover', borderRadius: '6px' }} />
                     <div className='artMeta-wrap' style={{
@@ -60,25 +65,28 @@ function SuggestPrice({ display, Img, title, price, hide, submit }) {
                         </div>
                     </div>
                 </div>
-                <hr style={{ border: '0.75px solid #343434', width: '100%', marginTop: '20px', marginBottom: '20px', padding: '0' }} />
+
                 <div className='suggestPice-wrap'>
                     <div className="suggestPrice-top-wrap" style={{
-                        display: 'flex', fontSize: '24px', fontWeight: '600', padding: '0', color: '#FFE7D9',
-                        alignItems: 'center', justifyContent: 'space-between', fontFamily: 'Poppins'
+                        display: 'flex', padding: '0',
+                        alignItems: 'center', justifyContent: 'space-between'
                     }}>
 
-                        <div className="suggestPrice-head">
-                            Suggest Price
-                        </div>
-
                     </div>
-                    <input type='number' placeholder='Type price' required style={{
+                    <input type='number' placeholder='Suggest price' required style={{
                         height: '45px', width: '100%', border: '0.75px solid #333333', fontFamily: 'Roboto Condensed',
                         borderRadius: '12px', background: 'none', padding: '15px', marginTop: '20px', marginBottom: '10px'
                     }} />
 
-                    <div>
-                        OR
+                    <button type='submit' onClick={submit} style={{
+                        marginTop: '20px', height: '45px', border: 'none', fontWeight: '600', width: '100%',
+                        borderRadius: '12px', background: '#E55C17', fontFamily: 'Poppins', fontSize: '15px'
+                    }}>Bid Price</button>
+
+                    <hr style={{ border: '0.75px solid #343434', width: '100%', marginTop: '30px', marginBottom: '30px', padding: '0' }} />
+
+                    <div style={{ marginLeft: '15px', fontFamily: 'Poppins', color: 'rgba(117,117,117)' }}>
+                        Highest Bid
                     </div>
 
                     <div style={{
@@ -94,10 +102,7 @@ function SuggestPrice({ display, Img, title, price, hide, submit }) {
                         </Radio.Group>
                     </div>
                 </div>
-                <button type='submit' onClick={submit} style={{
-                    marginTop: '20px', height: '45px', border: 'none', fontWeight: '600',
-                    borderRadius: '12px', background: '#E55C17', fontFamily: 'Poppins', fontSize: '15px'
-                }}>Suggest Price</button>
+
             </form>
 
         </div >

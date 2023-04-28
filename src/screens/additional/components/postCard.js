@@ -278,7 +278,7 @@ function PostCard({ post, name, verified, date, collaborator, title, description
         }} >
         <i class="ri-price-tag-3-line" style={{ fontSize: '18px' }}></i>
         <div style={{ fontFamily: 'Roboto Condensed', fontWeight: '600', fontSize: '15px', marginLeft: '5px' }}>
-          R{post?.price}
+          R{price}
         </div>
       </div>
 
@@ -289,7 +289,7 @@ function PostCard({ post, name, verified, date, collaborator, title, description
           padding: '20px 15px', height: 'fit-content', fontFamily: 'Montserrat',
           fontWeight: '600', width: '100%', overflowY: 'clip', maxHeight: '55px', paddingBottom: '20px'
         }}>
-          {post?.title}
+          {title}
         </div >
         <div className="postCard-bottom-interactions" style={{
           display: 'flex', justifyContent: 'space-between',
@@ -298,7 +298,7 @@ function PostCard({ post, name, verified, date, collaborator, title, description
           <div className="postCard-bottom-interactions-left" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <i class={colorOff[2]} style={buttonDefault} onClick={clickedAgree}></i>
             <button className="postCard-bottom-interactions-suggestPrice" style={suggestDefault} onClick={clickedSuggest}>
-              Suggest Price
+              Bid Price
             </button>
           </div>
           <button className="postCard-bottom-interactions-right-less" style={detailsDefault} onClick={clickDetails}>

@@ -29,8 +29,8 @@ function BottomBar() {
             </NavLink>
             <NavLink to="/connect" style={linkStyle}>
                 <div className="iconNav" style={routeStyle}>
-                    < i className="ri-speak-line" style={{ fontSize: '24px' }}></i>
-                    Connect
+                    < i className="ri-planet-line" style={{ fontSize: '24px' }}></i>
+                    Expos
                 </div>
             </NavLink>
             <NavLink to="/upload" style={linkStyle}>
@@ -42,7 +42,7 @@ function BottomBar() {
             <NavLink to="/stats" style={linkStyle}>
                 <div className="iconNav" style={routeStyle}>
                     < i className="ri-heart-line" style={{ fontSize: '24px' }}></i>
-                    Engaged
+                    Engage
                 </div>
             </NavLink>
             <NavLink to="/account" style={linkStyle}>

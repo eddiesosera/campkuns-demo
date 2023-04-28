@@ -5,7 +5,7 @@ import campkunsLogo from '../../../../data/static/assets/campkuns-logo-draft1.sv
 function SelectCategory({ display }) {
 
     const [displayCateg, setDisplayCateg] = useState(display)
-    const [showCat, setShowCat] = useState('none')
+    const [showCat, setShowCat] = useState('none');
 
     //HEADER
     const topBarStyle = {
@@ -95,6 +95,7 @@ function SelectCategory({ display }) {
 
 
             <div className="topBar" style={linkStyle}>
+
                 <div className="topBar-container" style={topBarStyle}>
                     <i class="ri-pushpin-line" style={
                         toggle ? {

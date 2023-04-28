@@ -9,3 +9,7 @@
 html {
     resize: none;
 }
+
+button {
+    user-select: none;
+}
