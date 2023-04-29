@@ -73,16 +73,6 @@ function PostCard({ post, name, verified, date, collaborator, title, description
 
   useEffect(() => {
 
-    //Button Logic
-    // if (colorToggle === true) {
-    //   post.metadata.statics.fan_agrees++;
-    //   colorOn(['#E55C17', '1px solid #E55C17', 'ri-thumb-up-fill']);
-    // }
-    // else {
-    //   post.metadata.statics.fan_agrees--;
-    //   colorOn(['#a4a4a4', '1px solid #333333', 'ri-thumb-up-line'])
-    // }
-
     //Suggest Button Logic
     if (suggestToggle === true) {
       colorOnSuggest(['#E55C17', '1px solid #E55C17'])
@@ -101,13 +91,6 @@ function PostCard({ post, name, verified, date, collaborator, title, description
       setDetailsShow('none')
     }
 
-    //Image Tap
-    // if (priceToggle === true) {
-    //   setPriceShow('flex')
-    // } else {
-    //   setPriceShow('none')
-    // }
-
     priceToggle ? setPriceShow('flex') : setPriceShow('none')
 
     //Agree + or -
@@ -115,8 +98,6 @@ function PostCard({ post, name, verified, date, collaborator, title, description
 
 
   }, [colorToggle, suggestToggle, detailsToggle, priceToggle, displaySuggestTgl, agreeTgl])
-
-
 
 
   return (
@@ -129,7 +110,7 @@ function PostCard({ post, name, verified, date, collaborator, title, description
         <SuggestPrice display={displaySuggestTgl} hide={clickedSuggest} Img={post?.images[0]} title={post?.title} price={post?.price} />
       </div>
       <div>
-        <CardOptions />
+        <CardOptions cardTag={post?.metadata?.tags[0]} />
       </div>
 
       <div className="postCard-top-section" style={{
@@ -191,7 +172,7 @@ function PostCard({ post, name, verified, date, collaborator, title, description
         <div className="postCard-content-artcover-meta-wrap"
           style={{
             position: 'relative', bottom: '1', marginTop: '-100%', zIndex: 1,
-            width: '100vw', maxWidth: '470px', height: '100vw', maxHeight: '470px',
+            width: '100vw', maxWidth: '470px', height: '100vw', maxHeight: '470px', transition: 'display linear 3s',
             display: detailsShow, flexDirection: 'column', justifyContent: 'space-between', fontFamily: 'Roboto',
             backgroundColor: 'rgba(12,10,9,0.8)', padding: '15px'
           }}>

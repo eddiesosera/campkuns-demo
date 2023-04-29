@@ -2,3 +2,7 @@ button {
     background-color: none;
     background: none;
 }
+
+.slick-dots .slick-dots-bottom {
+    bottom: -6px !important;
+}

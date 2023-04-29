@@ -72,9 +72,10 @@ function SelectCategory({ display }) {
     }, [displayCateg])
 
     const filters = [{ label: 'All', value: 'All' }, { label: 'Illustration', value: 'Illustration' },
-    { label: 'Sculpture', value: 'Sculpture' }, { label: 'Paint', value: 'Paint' },
-    { label: 'Digital Design', value: 'Digital Design' }, { label: '3D Prints', value: '3D Prints' },
-    { label: 'Fine Art', value: 'Fine Art' }]
+    { label: ' Photography', value: 'Photography' }, { label: 'Paint', value: 'Paint' },
+    { label: 'Digital Design', value: 'Digital Design' }, { label: 'Installation', value: 'Installation' },
+    { label: 'Sculptures', value: 'Sculptures' }, { label: '3D Prints', value: '3D Prints' },
+    { label: 'New Media Art', value: 'New Media Art' }]
 
     const [selectedFilter, setSelectedFilter] = useState(filters[0].value)
     const [posts, setPosts] = useState([])
@@ -124,7 +125,7 @@ function SelectCategory({ display }) {
                 }
 
             }>
-                <div className="selectCategory-top-sec" style={{ display: 'flex', fontSize: '30px', padding: '15px 15px 0 15px', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div className="selectCategory-top-sec" style={{ display: 'flex', fontSize: '30px', padding: '15px 15px 15px 15px', alignItems: 'center', justifyContent: 'space-between' }}>
                     <div className="popUp-heading">
                         Select Category
                     </div>

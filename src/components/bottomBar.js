@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHouse, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import 'remixicon/fonts/remixicon.css'
 import { Link, NavLink } from "react-router-dom";
 import Home from "../screens/home";
 import Upload from "../screens/upload";
-import Stats from "../screens/stats";
+import Stats from "../screens/engage";
 import Account from "../screens/account";
 
 function BottomBar() {
+
+    console.log(window.location.pathname)
+
+    const currentPage = window.location.pathname
 
     //STYLE
     const bottomBarStyle = {
@@ -16,43 +20,104 @@ function BottomBar() {
         alignItems: 'center', height: '80px', width: '100%', backgroundColor: '#1F1E1D', color: 'white',
         fontFamily: 'Poppins', fontSize: '12px', fontWeight: '500', position: 'fixed', bottom: '0', zIndex: '99'
     };
-    const linkStyle = { textDecoration: 'none', textDecorationLine: 'none', color: '#685C55' }
+    const linkStyle = { textDecoration: 'none', textDecorationLine: 'none', color: '#685C55', transition: 'color 0.5s cubic-bezier(0.87, 0, 0.13, 1) 0s' }
     const routeStyle = { display: 'flex', flexDirection: 'column', alignItems: 'center' };
 
+
+    const navPage = [
+        {
+            href: '/',
+            title: 'Home',
+            icon: {
+                active: 'ri-sparkling-fill',
+                inActive: 'ri-sparkling-line'
+            },
+            link: linkStyle,
+            wrap_style: routeStyle,
+            iconSize: '24px',
+            class_name: 'navbar_home',
+        },
+        {
+            href: '/expos',
+            title: 'Expos',
+            icon: {
+                active: 'ri-planet-fill',
+                inActive: 'ri-planet-line'
+            },
+            link: linkStyle,
+            wrap_style: routeStyle,
+            iconSize: '24px',
+            class_name: 'navbar_expos',
+        },
+        {
+            href: '/upload',
+            title: '',
+            icon: {
+                active: 'ri-add-circle-fill',
+                inActive: 'ri-add-circle-fill'
+            },
+            link: linkStyle,
+            wrap_style: routeStyle,
+            iconSize: '36px',
+            class_name: 'navbar_upload',
+        },
+        {
+            href: '/engage',
+            title: 'Engage',
+            icon: {
+                active: 'ri-heart-fill',
+                inActive: 'ri-heart-line'
+            },
+            link: linkStyle,
+            wrap_style: routeStyle,
+            iconSize: '24px',
+            class_name: 'navbar_engage',
+        },
+        {
+            href: '/account',
+            title: 'Me',
+            icon: {
+                active: 'ri-user-4-fill',
+                inActive: 'ri-user-4-line'
+            },
+            link: linkStyle,
+            wrap_style: routeStyle,
+            iconSize: '24px',
+            class_name: 'navbar_account',
+        }
+    ]
+
+    const [selectedPage, setSelectedPage] = useState(navPage[0].title)
+
+    useEffect(() => {
+        //console.log(homeRef.current.className)
+        console.log('Page is ' + selectedPage)
+    }, [selectedPage])
+
+    const page = () => {
+        setSelectedPage(currentPage)
+    }
+
+
     return (
+
         <div className="bottomBar-container" style={bottomBarStyle}>
-            <NavLink to="/" style={linkStyle}>
-                <div className="iconNav" style={routeStyle}>
-                    <i className="ri-sparkling-fill" style={{ fontSize: '24px' }}></i>
-                    Home
-                </div>
-            </NavLink>
-            <NavLink to="/connect" style={linkStyle}>
-                <div className="iconNav" style={routeStyle}>
-                    < i className="ri-planet-line" style={{ fontSize: '24px' }}></i>
-                    Expos
-                </div>
-            </NavLink>
-            <NavLink to="/upload" style={linkStyle}>
-                <div className="iconNav" style={routeStyle}>
-                    < i className="ri-add-box-fill" style={{ fontSize: '36px' }}></i>
 
-                </div>
-            </NavLink>
-            <NavLink to="/stats" style={linkStyle}>
-                <div className="iconNav" style={routeStyle}>
-                    < i className="ri-heart-line" style={{ fontSize: '24px' }}></i>
-                    Engage
-                </div>
-            </NavLink>
-            <NavLink to="/account" style={linkStyle}>
-                <div className="iconNav" style={routeStyle}>
-                    <i className="ri-user-4-line" style={{ fontSize: '24px' }}></i>
-                    Me
-                </div>
-            </NavLink>
+            {navPage.map(
+                (screen) =>
+                    <NavLink to={screen.href} style={screen.link} >
+                        <div className={screen.class_name} style={screen.wrap_style} onClick={page}>
+                            <i
+                                className={window.location.pathname === screen.href ? screen.icon.active : screen.icon.inActive}
+                                style={{ fontSize: screen.iconSize }} ></i>
+                            {screen.title}
+                        </div>
+                    </NavLink >
+            )
+            }
 
-        </div>
+        </div >
+
     )
 }
 

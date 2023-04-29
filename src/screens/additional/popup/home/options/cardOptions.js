@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import Search from '../../../../search';
 
-function CardOptions() {
+function CardOptions({ cardTag }) {
 
     const navigate = useNavigate()
     const [insertSearch, setInsertSearch] = useState('')
@@ -12,9 +12,9 @@ function CardOptions() {
         alert('Save to Collection')
     }
     const searchSimilar = () => {
-        alert('Search Similar')
+        alert(cardTag)
+        sessionStorage.setItem('Similar Item', cardTag)
         navigate('/search')
-        setInsertSearch('Similar Item')
     };
     const sharePost = () => {
         alert('Share')
@@ -56,7 +56,6 @@ function CardOptions() {
             width: '100vw', position: 'absolute', maxWidth: '470px', display: 'flex', justifyContent: 'flex-end',
             zIndex: '5'
         }}>
-            <div style={{ display: 'none' }}><Search similarSearch={insertSearch} /></div>
             <ul className='option' style={{
                 margin: '0', padding: '15px', listStyle: 'none', width: '215px', borderRadius: '15px', backgroundColor: '#232323',
                 display: 'flex', flexDirection: 'column', height: 'content-fit', justifyContent: 'space-between', marginTop: '10px',
