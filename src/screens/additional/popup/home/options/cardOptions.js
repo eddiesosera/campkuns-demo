@@ -59,7 +59,7 @@ function CardOptions({ cardTag }) {
             <ul className='option' style={{
                 margin: '0', padding: '15px', listStyle: 'none', width: '215px', borderRadius: '15px', backgroundColor: '#232323',
                 display: 'flex', flexDirection: 'column', height: 'content-fit', justifyContent: 'space-between', marginTop: '10px',
-                marginRight: '10px'
+                marginRight: '10px', minHeight: '165px'
             }}>
                 {
                     optionList?.map((cardoption) => {

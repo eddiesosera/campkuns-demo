@@ -5,44 +5,43 @@ import PostCard from "./additional/components/postCard";
 // import { posts } from '../data/database/posts'
 import axios from 'axios'
 import { Form } from "antd";
+import Moments from "./additional/components/lifestyle";
 
 
 function Home() {
     const [posts, setPosts] = useState([])
+    const [latestpost, setLatestPost] = useState('')
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/v1/posts")
+            .get("http://10.0.0.106:5000/v1/posts?sortBy=createdAt:desc")
             .then((result) => {
                 console.log(result.data.results);
                 setPosts(result.data.results);
+                setLatestPost(result.data.results.length)
             })
             .catch((error) => console.log(error));
-    }, []);
+    }, [latestpost]);
+
+    const hideOptionOnScroll = false
+
+
     return (
 
-        <div className="homeScreen-wrap" style={{ marginTop: '0' }}>
+        <div className="homeScreen-wrap" style={{ marginTop: '0', }}>
 
             <TopBar />
 
+            <Moments />
 
-            <div className="posts-wrap" style={{ padding: '15px 0' }}>
+
+            <div className="posts-wrap" style={{ padding: '15px 0', overflow: 'none', height: 'fit-content' }}>
                 { }
                 {posts?.map((post, i) => {
                     return (
                         <>
-                            <PostCard post={post} description={post?.description} collaborator={['eddie', 'norton']} />
-                            {/* <PostCard post={post} name={post?.artist?.name}
-                                verified={post?.artist?.verified}
-                                date={post?.metadata.date_published}
-                                collaborator={post?.metadata.collaborator}
-                                description={post?.metadata.description}
-                                category={post?.metadata.category}
-                                tags={post?.metadata.tags}
-                                price={post?.metadata.price_tag}
-                                fanAgrees={post?.metadata.statics.fan_agrees}
-                                fanViews={post?.metadata.statics.fan_views}
-                                title={post?.metadata.title} /> */}
+                            <PostCard post={post} />
+                            {/* <PostCard post={post} /> */}
                             <br />
                             <hr style={{ border: '0.5px solid #2B2928', maxWidth: '470px' }} />
                             <br />

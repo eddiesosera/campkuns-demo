@@ -43,19 +43,6 @@ function TopBar(e) {
             <div className="topBar" style={linkStyle}>
                 <div className="topBar-container" style={topBarStyle}>
 
-                    <i className="ri-pushpin-line" style={
-                        toggle ? {
-                            fontSize: '24px', fontWeight: '500',
-                            color: '#FFE7D9', backgroundColor: '#292929', height: '45px', width: '45px',
-                            display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9px',
-                            cursor: 'pointer'
-                        }
-                            : {
-                                fontSize: '24px', fontWeight: '500', height: '45px', width: '45px',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9px',
-                                cursor: 'pointer'
-                            }
-                    } onClick={showCateg}></i>
                     <Link to="/" style={{ margin: '0 auto' }}>
                         <img src={campkunsLogo} alt="logo" />jkj
                     </Link>

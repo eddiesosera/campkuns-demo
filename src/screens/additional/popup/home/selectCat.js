@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import campkunsLogo from '../../../../data/static/assets/campkuns-logo-draft1.svg'
+import './selectCat.css'
 
 function SelectCategory({ display }) {
 
     const [displayCateg, setDisplayCateg] = useState(display)
     const [showCat, setShowCat] = useState('none');
+
+
+
 
     //HEADER
     const topBarStyle = {
@@ -20,7 +24,7 @@ function SelectCategory({ display }) {
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         width: 'fit-content', height: '36px', padding: '0 15px', border: '2px solid #E55C17',
         margin: '5px', color: '#E55C17', borderRadius: '12px', fontFamily: 'Poppins',
-        fontWeight: '600', fontSize: '12px'
+        fontWeight: '600', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
     };
 
     const inActivedCat =
@@ -28,13 +32,16 @@ function SelectCategory({ display }) {
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         width: 'fit-content', height: '36px', padding: '0 15px', border: '1px solid #464646',
         margin: '5px', color: '#9D9D9D', borderRadius: '12px', fontFamily: 'Poppins',
-        fontWeight: '600', fontSize: '12px'
+        fontWeight: '600', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
     };
 
     const CategoryOptions = {
         display: 'flex', flexWrap: 'wrap', padding: '0 15px',
-        justifyContent: 'flex-start'
+        justifyContent: 'flex-start', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
     }
+
+
+
 
     //FUNCTION
 
@@ -90,6 +97,8 @@ function SelectCategory({ display }) {
         displayCateg ? setShowCat('block') : setShowCat('none')
     }, [selectedFilter, displayCateg])
 
+    const [pushPin, setPushPin] = useState('ri-pushpin-line')
+
     return (
         <>
 
@@ -98,17 +107,17 @@ function SelectCategory({ display }) {
             <div className="topBar" style={linkStyle}>
 
                 <div className="topBar-container" style={topBarStyle}>
-                    <i class="ri-pushpin-line" style={
+                    <i class={toggle ? 'ri-pushpin-fill' : 'ri-pushpin-line'} style={
                         toggle ? {
                             fontSize: '24px', fontWeight: '500',
                             color: '#FFE7D9', backgroundColor: '#292929', height: '45px', width: '45px',
                             display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9px',
-                            cursor: 'pointer'
+                            cursor: 'pointer', position: 'absolute', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
                         }
                             : {
                                 fontSize: '24px', fontWeight: '500', height: '45px', width: '45px',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9px',
-                                cursor: 'pointer'
+                                cursor: 'pointer', position: 'absolute', color: '#685c55', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
                             }
                     }
                         onClick={openCat}></i>
@@ -121,11 +130,11 @@ function SelectCategory({ display }) {
             <div className="selectCategory-wrap" style={
                 {
                     display: showCat, backgroundColor: '#1F1E1D', borderTop: '1px solid #303030',
-                    borderRadius: '0 0 15px 15px', paddingBottom: '2px', position: 'fixed',
+                    borderRadius: '0 0 15px 15px', paddingBottom: '2px', position: 'fixed', transition: 'all 0.9s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
                 }
 
             }>
-                <div className="selectCategory-top-sec" style={{ display: 'flex', fontSize: '30px', padding: '15px 15px 15px 15px', alignItems: 'center', justifyContent: 'space-between' }}>
+                <div className="selectCategory-top-sec" style={{ display: 'flex', fontSize: '30px', padding: '15px 15px 15px 15px', alignItems: 'center', justifyContent: 'space-between', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}>
                     <div className="popUp-heading">
                         Select Category
                     </div>

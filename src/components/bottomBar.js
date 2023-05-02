@@ -90,7 +90,6 @@ function BottomBar() {
     const [selectedPage, setSelectedPage] = useState(navPage[0].title)
 
     useEffect(() => {
-        //console.log(homeRef.current.className)
         console.log('Page is ' + selectedPage)
     }, [selectedPage])
 

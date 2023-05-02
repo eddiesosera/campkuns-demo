@@ -1,0 +1,12 @@
+.selectCategory-bottom-sec .selectCategory-options {
+    display: flex;
+    gap: 2px;
+    list-style: none;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.selectCategory-bottom-sec.dragging {
+    scroll-behavior: auto;
+    cursor: grab;
+}
