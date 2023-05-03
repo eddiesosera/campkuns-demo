@@ -6,3 +6,20 @@ input[type="file" i] {
     background-color: #232323;
     color: #A7A7A7;
 }
+
+.uploadInput {
+
+    height: 45px;
+    width: 100%;
+
+    border: 1px solid #33302E;
+    border-radius: 12px;
+
+    background: none;
+    color: #FFE7D9;
+
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 14px;
+
+}

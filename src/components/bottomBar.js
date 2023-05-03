@@ -18,7 +18,8 @@ function BottomBar() {
     const bottomBarStyle = {
         display: 'flex', justifyContent: "space-around",
         alignItems: 'center', height: '80px', width: '100%', backgroundColor: '#1F1E1D', color: 'white',
-        fontFamily: 'Poppins', fontSize: '12px', fontWeight: '500', position: 'fixed', bottom: '0', zIndex: '99'
+        fontFamily: 'Poppins', fontSize: '12px', fontWeight: '500', position: 'fixed', bottom: '0', zIndex: '99',
+        borderTop: '0.75px solid #333333'
     };
     const linkStyle = { textDecoration: 'none', textDecorationLine: 'none', color: '#685C55', transition: 'color 0.5s cubic-bezier(0.87, 0, 0.13, 1) 0s' }
     const routeStyle = { display: 'flex', flexDirection: 'column', alignItems: 'center' };

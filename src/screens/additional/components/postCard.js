@@ -195,7 +195,7 @@ function PostCard({ post, optionsScrll }) {
         <div className="postCard-content-artcover-meta-wrap"
           style={{
             position: 'relative', bottom: '1', marginTop: '-100%', zIndex: 1,
-            width: '100vw', maxWidth: '470px', height: '100vw', maxHeight: '470px',
+            width: '100vw', maxWidth: '470px', height: '100vw', maxHeight: '470px', backdropFilter: 'blur(4px)',
             display: detailsShow, flexDirection: 'column', justifyContent: 'space-between', fontFamily: 'Roboto',
             backgroundColor: 'rgba(12,10,9,0.8)', padding: '15px', transition: 'display 5s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
           }}>
@@ -221,6 +221,8 @@ function PostCard({ post, optionsScrll }) {
               <ul className="postCard-content-artcover-meta-tags-wrap" style={{
                 width: '190px', display: 'flex', alignItems: 'center',
                 padding: '0', margin: '0 10px', overflowX: 'scroll'
+                // <style>
+
               }}>
 
                 {post?.tags.map((i) => {
@@ -247,7 +249,7 @@ function PostCard({ post, optionsScrll }) {
                 <div className="postCard-content-artcover-meta-bottom-2-right-agrees"
                   style={{
                     display: 'flex', alignItems: 'center', backgroundColor: 'rgba(30,30,30,0.3)', padding: '5px 10px',
-                    borderRadius: '100px'
+                    borderRadius: '9px'
                   }}>
                   <i class="ri-thumb-up-fill" style={{ fontSize: '18px' }}></i>
                   <div style={{ fontSize: '14px', marginLeft: '5px' }}>
@@ -257,7 +259,7 @@ function PostCard({ post, optionsScrll }) {
                 <div className="postCard-content-artcover-meta-bottom-2-right-views"
                   style={{
                     display: 'flex', alignItems: 'center', backgroundColor: 'rgba(30,30,30,0.3)', padding: '5px 10px',
-                    borderRadius: '100px', marginLeft: '10px'
+                    borderRadius: '9px', marginLeft: '10px'
                   }}>
                   <i class="ri-eye-line" style={{ fontSize: '18px' }}></i>
                   <div style={{ fontSize: '14px', marginLeft: '5px' }}>
@@ -305,7 +307,7 @@ function PostCard({ post, optionsScrll }) {
         </div >
         <div className="postCard-bottom-interactions" style={{
           display: 'flex', justifyContent: 'space-between',
-          padding: '0px 15px', paddingBottom: '20px'
+          padding: '20px 15px', paddingBottom: '20px'
         }}>
           <div className="postCard-bottom-interactions-left" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 

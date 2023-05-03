@@ -11,10 +11,13 @@ import TopBar from "../components/topBar";
 function UploadArt() {
 
     const navigate = useNavigate()
+    const titleInput = document.querySelector('.uploadTitle')
     const [percent, setPercent] = useState(20);
     const [i, setI] = useState(true)
     const [titleTgl, setTitleTgl] = useState(true)
     const [priceTgl, setPriceTgl] = useState(true)
+    const [img1, setImg1] = useState('')
+
 
     //ArtPost upload
     const [formData, setFormData] = useState({})
@@ -36,8 +39,8 @@ function UploadArt() {
                     setFormData({})
                     alert(formData.title)
                     //alert(formData.views + 'Suceessful Upload ')
-                    //navigate('/')
-                    //setTimeout(() => { window.location.reload() }, 10)
+                    navigate('/')
+                    setTimeout(() => { window.location.reload() }, 10)
                     console.log(formData)
 
                 })
@@ -49,7 +52,8 @@ function UploadArt() {
                 );
 
         } else {
-            return null
+            return null;
+
         }
     }
 
@@ -59,6 +63,7 @@ function UploadArt() {
     }
 
     useEffect(() => {
+        titleInput === 'a' && alert('no t')
     }, [i])
 
 
@@ -82,7 +87,7 @@ function UploadArt() {
 
     const priceProg = (e) => {
 
-        setFormData({ ...formData, price: e.target.value })
+        setFormData({ ...formData, price: e.target.value * 1.2 })
 
 
         if (priceTgl && document.querySelector('.uploadPrice').value !== '') {
@@ -95,6 +100,11 @@ function UploadArt() {
         }
     }
 
+    const categories = [{ label: 'Illustration', value: 'Illustration' },
+    { label: ' Photography', value: 'Photography' }, { label: 'Paint', value: 'Paint' },
+    { label: 'Digital Design', value: 'Digital Design' }, { label: 'Installation', value: 'Installation' },
+    { label: 'Sculptures', value: 'Sculptures' }, { label: '3D Prints', value: '3D Prints' },
+    { label: 'New Media Art', value: 'New Media Art' }]
 
     return (
         <>
@@ -117,50 +127,85 @@ function UploadArt() {
                                 <div className='uploadProgress-bar' style={{ width: '100%', height: '5px', background: '#292929', borderRadius: '100px' }}>
                                     <div className='uploadProgress-progress' style={{
                                         background: 'linear-gradient(270deg, #554D48 0%, #FFE7D9 100%)',
-                                        width: '20px', height: '5px', borderRadius: '100px'
+                                        width: (percent) + '%', height: '5px', borderRadius: '100px', transition: 'width 1s cubic-bezier(0.67, 0, 0.33, 1) 0s'
                                     }}></div>
                                 </div>
                             </div>
-                            {percent}% complete
+                            <div style={{
+                                display: 'flex', justifyContent: 'center', marginTop: '20px', fontFamily: 'Montserrat', color: '#454545', fontSize: '12px'
+                            }}>
+                                <b style={{ fontWeight: '600', marginRight: '5px' }}>{percent}%</b> complete
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div >
 
-                <form style={{ display: 'flex', flexDirection: 'column', width: '200px', color: 'black' }}>
+                <form style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
 
-                    <Widget publicKey="bc3b6c954405f4e975b2" onChange={(fileInfo) => {
-                        console.log(fileInfo)
-                        setFormData({ ...formData, images: [fileInfo?.originalUrl] })
-                    }} />
+                    <div style={{ padding: '20px' }}>
+                        <div style={{ display: 'flex', fontFamily: 'Montserrat', fontWeight: '500', fontSize: '14px', color: '#FFE7D9', marginBottom: '10px' }}>
+                            <div>Images</div>
+                            <div style={{ marginLeft: '5px', fontWeight: '400', color: '#4D4845' }}>(7 Images max)</div>
+                        </div>
 
-                    <input className="uploadTitle" type="text" placeholder='Title' onChange={e => titleProg(e)} required />
-                    <input className="uploadDescription" type="text" placeholder='Description' onChange={(e) => setFormData({ ...formData, description: e.target.value })} />
-                    <input className="uploadPrice" type="number" placeholder='Price' onChange={e => priceProg(e)} required />
+                        <div className="images-wrap" style={{ display: 'flex' }}>
+                            <div style={{ display: img1 === '' ? 'none' : 'block' }}>
+                                <img src={img1} alt="pst" className="uploadesImg" style={{
+                                    width: '75px', height: '75px', borderRadius: '12px', background: '#292625', border: 'none', objectFit: 'cover'
+                                }} />
+                                <i className="ri-close-circle-fill"></i>
+                            </div>
+                            <div style={{ width: '75px', height: '75px', borderRadius: '12px', border: 'dashed 1px #5A5451', display: 'flex', strokeDasharray: '22, 23' }}>
+                                <Widget publicKey="bc3b6c954405f4e975b2" onChange={(fileInfo) => {
+                                    console.log(fileInfo)
+                                    setFormData({
+                                        ...formData, images: [fileInfo?.originalUrl]
+                                    })
+                                    setImg1(fileInfo?.originalUrl)
+                                }} />
+                            </div>
+                        </div>
 
-                    <select required onChange={(e) => setFormData({ ...formData, category: e.target.value })}>
-                        <option>digital</option>
-                        <option>fine art</option>
-                        <option>photography</option>
-                    </select>
+                    </div>
 
-                    <select onChange={(e) => setFormData({ ...formData, tags: [e.target.value] })}>
-                        <option>2023art</option>
-                        <option>blackArt</option>
-                        <option>folk</option>
-                    </select>
+                    <div style={{ padding: '20px' }}>
+                        <input className="uploadTitle uploadInput" style={{ marginBottom: '10px', padding: "15px" }} type="text" placeholder='Title' onChange={e => titleProg(e)} required />
+                        <textarea style={{ height: '90px', marginBottom: '10px', padding: "15px" }} className="uploadDescription uploadInput" type="text" placeholder='Description' onChange={(e) => setFormData({ ...formData, description: e.target.value })} ></textarea>
+                        <div style={{ display: 'flex', marginBottom: '10px', gap: '10px' }}>
+                            <div style={{ width: '70%' }}>
+                                <input className="uploadPrice uploadInput" style={{ fontFamily: 'Roboto Mono, monospace', padding: "15px", fontWeight: '550 !important' }} type="number" placeholder='Price' onChange={e => priceProg(e)} required />
+                                <div style={{ fontSize: '12px', fontFamily: 'Roboto', color: '#4D4845', marginTop: '10px', marginLeft: '15px' }}><i>1 - 100 000</i></div>
+                            </div>
+
+                            <select className="uploadInput" style={{ padding: '0 15px' }} required onChange={(e) => setFormData({ ...formData, category: e.target.value })}>
+                                <option>Choose Category</option>
+                                {categories.map((label) => <option>{label.value}</option>)}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style={{ padding: '20px' }}>
+                        <select className="uploadInput" style={{ padding: '0 15px' }} onChange={(e) => setFormData({ ...formData, tags: [e.target.value] })}>
+                            <option>2023art</option>
+                            <option>blackArt</option>
+                            <option>folk</option>
+                        </select>
+                    </div>
 
                     <div className="submit-btnWrap">
                         <button type="submit" className="submit-btn" id="submit-btn" onClick={(e) => {
                             console.log(formData)
                             handleSubmit()
-                        }} onSubmit={e => { e.preventDefault() }}>
+                            e.preventDefault()
+
+                        }} >
                             Upload
                         </button>
                     </div>
 
-                </form>
+                </form >
 
-            </div>
+            </div >
         </>
     )
 }
