@@ -45,8 +45,6 @@ function Search() {
 
             <hr />
             Discover
-            <button onClick={addDataIntoCache}>Add Cache</button>
-
         </div>
     )
 }

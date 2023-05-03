@@ -6,6 +6,7 @@ import { IKContext, IKImage, IKUpload } from 'imagekitio-react';
 import { Widget } from "@uploadcare/react-widget";
 import uploadcare from 'uploadcare-widget/uploadcare.lang.en.min.js'
 import TopBar from "../components/topBar";
+import UploadAddTags from "../components/upload_addTags";
 
 
 function UploadArt() {
@@ -106,6 +107,9 @@ function UploadArt() {
     { label: 'Sculptures', value: 'Sculptures' }, { label: '3D Prints', value: '3D Prints' },
     { label: 'New Media Art', value: 'New Media Art' }]
 
+    const addBtn = document.querySelector('.uploadcare--widget__button uploadcare--widget__button_type_open');
+    //addBtn.innerHTML = 'uploadcare--widget__button uploadcare--widget__button_type_open'
+
     return (
         <>
 
@@ -156,13 +160,13 @@ function UploadArt() {
                                 <i className="ri-close-circle-fill"></i>
                             </div>
                             <div style={{ width: '75px', height: '75px', borderRadius: '12px', border: 'dashed 1px #5A5451', display: 'flex', strokeDasharray: '22, 23' }}>
-                                <Widget publicKey="bc3b6c954405f4e975b2" onChange={(fileInfo) => {
+                                {/* <Widget publicKey="bc3b6c954405f4e975b2" onChange={(fileInfo) => {
                                     console.log(fileInfo)
                                     setFormData({
                                         ...formData, images: [fileInfo?.originalUrl]
                                     })
                                     setImg1(fileInfo?.originalUrl)
-                                }} />
+                                }} /> */}
                             </div>
                         </div>
 
@@ -185,6 +189,7 @@ function UploadArt() {
                     </div>
 
                     <div style={{ padding: '20px' }}>
+                        <UploadAddTags />
                         <select className="uploadInput" style={{ padding: '0 15px' }} onChange={(e) => setFormData({ ...formData, tags: [e.target.value] })}>
                             <option>2023art</option>
                             <option>blackArt</option>
