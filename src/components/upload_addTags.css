@@ -1,0 +1,101 @@
+.addTag-wrap {
+    border: 0.5px solid #33302E;
+    border-radius: 12px;
+    /* background: #1F1F1F; #33302E #FFE7D9*/
+
+    height: 45px;
+    width: fit-content;
+    max-width: 200px;
+
+    padding: 10px;
+
+    font-family: 'Montserrat';
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addTag-wrap:hover,
+.addTag-wrap:active,
+.addTag-wrap:focus {
+    border: 2px solid #ED6D22;
+}
+
+.tagInput {
+    background: none;
+    border: none;
+    color: #FFE7D9;
+
+    width: 90%;
+    font-weight: 500;
+    font-size: 14px;
+
+}
+
+.tagInput:hover,
+.tagInput:active,
+.tagInput:focus,
+.tagInput:focus-visible {
+    border: none;
+    box-shadow: none;
+    outline: 0;
+}
+
+#addTag-icon-wrap {
+    background: #FDE5D7;
+    border-radius: 6px;
+    border: none;
+
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addTag-icon {
+    font-size: 20px;
+    font-weight: 600;
+
+    color: #1F1F1F;
+
+}
+
+.newTag-wrap {
+    background: #1F1F1F;
+    border-radius: 12px;
+
+    margin: 0;
+    padding: 10px;
+
+    list-style-type: none;
+    list-style: none;
+
+    width: fit-content;
+
+    font-family: 'Montserrat';
+}
+
+.newTag-txt {
+    display: flex;
+    font-size: 14px;
+}
+
+.deleteTag-icon {
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    font-weight: 600;
+    color: #685c55;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ul-parent {
+    list-style-type: none;
+    list-style: none;
+}

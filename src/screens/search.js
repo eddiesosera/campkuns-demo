@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import './css/search.css'
+import TopBar from "../components/topBar";
+import { NavLink } from "react-router-dom";
 
 function Search() {
 
@@ -24,6 +26,7 @@ function Search() {
 
     return (
         <div>
+            <TopBar />
 
             <div novalidate="novalidate" onsubmit={(e) => e.preventDefault()} class="searchbox sbx-custom" style={{
                 marginLeft: '20px'
@@ -41,6 +44,7 @@ function Search() {
                         }} ></i>
                     </button>
                 </div>
+                <div onClick={e => window.history.back()}>Cancel</div>
             </div>
 
             <hr />

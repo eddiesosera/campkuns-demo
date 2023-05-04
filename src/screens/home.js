@@ -10,18 +10,31 @@ import Moments from "./additional/components/lifestyle";
 
 function Home() {
     const [posts, setPosts] = useState([])
+    const [user, setUser] = useState([])
     const [latestpost, setLatestPost] = useState('')
 
+    //Posts
     useEffect(() => {
         axios
             .get("http://10.0.0.106:5000/v1/posts?sortBy=createdAt:desc")
             .then((result) => {
                 console.log(result.data.results);
                 setPosts(result.data.results);
-                setLatestPost(result.data.results.length)
+                setLatestPost(result.data.results)
             })
             .catch((error) => console.log(error));
-    }, [latestpost]);
+    }, [latestpost, posts]);
+
+    //Users
+    useEffect(() => {
+        axios
+            .get("http://10.0.0.106:5000/v1/users")
+            .then((result) => {
+                console.log(result.data.results);
+                setUser(result.data.results);
+            })
+            .catch((error) => console.log(error));
+    }, [latestpost, posts]);
 
     const hideOptionOnScroll = false
 
@@ -36,11 +49,10 @@ function Home() {
 
 
             <div className="posts-wrap" style={{ padding: '15px 0', overflow: 'none', height: 'fit-content' }}>
-                { }
                 {posts?.map((post, i) => {
                     return (
                         <>
-                            <PostCard post={post} />
+                            <PostCard post={post} user={user} />
                             {/* <PostCard post={post} /> */}
                             <br />
                             <hr style={{ border: '0.5px solid #2B2928', maxWidth: '470px' }} />

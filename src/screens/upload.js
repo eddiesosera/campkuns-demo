@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from 'axios';
 import './css/upload.css'
-import { Navigate, useNavigate } from "react-router-dom";
-import { IKContext, IKImage, IKUpload } from 'imagekitio-react';
+import { useNavigate } from "react-router-dom";
 import { Widget } from "@uploadcare/react-widget";
 import uploadcare from 'uploadcare-widget/uploadcare.lang.en.min.js'
 import TopBar from "../components/topBar";
@@ -18,6 +17,7 @@ function UploadArt() {
     const [titleTgl, setTitleTgl] = useState(true)
     const [priceTgl, setPriceTgl] = useState(true)
     const [img1, setImg1] = useState('')
+    const [sessTag, setSessTag] = useState([])
 
 
     //ArtPost upload
@@ -28,7 +28,6 @@ function UploadArt() {
 
         if (percent >= 60) {
 
-            setFormData({ ...formData, date: Date() })
             setFormData({ ...formData, agreeCount: 0 })
             setFormData({ ...formData, views: 0 })
 
@@ -39,7 +38,6 @@ function UploadArt() {
                     //console.log(result.data.results);
                     setFormData({})
                     alert(formData.title)
-                    //alert(formData.views + 'Suceessful Upload ')
                     navigate('/')
                     setTimeout(() => { window.location.reload() }, 10)
                     console.log(formData)
@@ -58,8 +56,9 @@ function UploadArt() {
         }
     }
 
+    //Close button function
     const back = () => {
-        navigate('/')
+        window.history.back()
         setTimeout(() => { window.location.reload() }, 10)
     }
 
@@ -67,11 +66,6 @@ function UploadArt() {
         titleInput === 'a' && alert('no t')
     }, [i])
 
-
-    // const defValues = (e) => {
-    //     setFormData({ ...formData, agreeCount: '0' })
-    //     setFormData({ ...formData, views: '0' })
-    // }
 
     const titleProg = (e) => {
 
@@ -107,8 +101,6 @@ function UploadArt() {
     { label: 'Sculptures', value: 'Sculptures' }, { label: '3D Prints', value: '3D Prints' },
     { label: 'New Media Art', value: 'New Media Art' }]
 
-    const addBtn = document.querySelector('.uploadcare--widget__button uploadcare--widget__button_type_open');
-    //addBtn.innerHTML = 'uploadcare--widget__button uploadcare--widget__button_type_open'
 
     return (
         <>
@@ -126,7 +118,7 @@ function UploadArt() {
                             <i className='ri-close-line header-icon' onClick={(e) => back()} style={{ cursor: 'pointer' }}></i>
                         </div>
 
-                        <div className='uploadProgress-wrap' style={{ paddingTop: '20px' }}>
+                        <div className='uploadProgress-wrap' style={{ paddingTop: '20px', position: 'sticky', top: 0 }}>
                             <div>
                                 <div className='uploadProgress-bar' style={{ width: '100%', height: '5px', background: '#292929', borderRadius: '100px' }}>
                                     <div className='uploadProgress-progress' style={{
@@ -136,7 +128,7 @@ function UploadArt() {
                                 </div>
                             </div>
                             <div style={{
-                                display: 'flex', justifyContent: 'center', marginTop: '20px', fontFamily: 'Montserrat', color: '#454545', fontSize: '12px'
+                                display: 'flex', justifyContent: 'flex-end', marginTop: '20px', fontFamily: 'Montserrat', color: '#454545', fontSize: '12px'
                             }}>
                                 <b style={{ fontWeight: '600', marginRight: '5px' }}>{percent}%</b> complete
                             </div>
@@ -147,7 +139,7 @@ function UploadArt() {
                 <form style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
 
                     <div style={{ padding: '20px' }}>
-                        <div style={{ display: 'flex', fontFamily: 'Montserrat', fontWeight: '500', fontSize: '14px', color: '#FFE7D9', marginBottom: '10px' }}>
+                        <div style={{ display: 'flex', fontFamily: 'Montserrat', fontWeight: '500', fontSize: '14px', color: '#FFE7D9', marginBottom: '15px' }}>
                             <div>Images</div>
                             <div style={{ marginLeft: '5px', fontWeight: '400', color: '#4D4845' }}>(7 Images max)</div>
                         </div>
@@ -174,7 +166,7 @@ function UploadArt() {
 
                     <div style={{ padding: '20px' }}>
                         <input className="uploadTitle uploadInput" style={{ marginBottom: '10px', padding: "15px" }} type="text" placeholder='Title' onChange={e => titleProg(e)} required />
-                        <textarea style={{ height: '90px', marginBottom: '10px', padding: "15px" }} className="uploadDescription uploadInput" type="text" placeholder='Description' onChange={(e) => setFormData({ ...formData, description: e.target.value })} ></textarea>
+                        <textarea style={{ height: '90px', marginBottom: '10px', padding: "15px", resize: 'none' }} className="uploadDescription uploadInput" type="text" placeholder='Description' onChange={(e) => setFormData({ ...formData, description: e.target.value })} ></textarea>
                         <div style={{ display: 'flex', marginBottom: '10px', gap: '10px' }}>
                             <div style={{ width: '70%' }}>
                                 <input className="uploadPrice uploadInput" style={{ fontFamily: 'Roboto Mono, monospace', padding: "15px", fontWeight: '550 !important' }} type="number" placeholder='Price' onChange={e => priceProg(e)} required />
@@ -188,13 +180,10 @@ function UploadArt() {
                         </div>
                     </div>
 
-                    <div style={{ padding: '20px' }}>
+                    <div style={{ padding: '20px' }}
+                    //onChange={(e) => { setFormData({ ...formData, tags: [sessTag] }); }}
+                    >
                         <UploadAddTags />
-                        <select className="uploadInput" style={{ padding: '0 15px' }} onChange={(e) => setFormData({ ...formData, tags: [e.target.value] })}>
-                            <option>2023art</option>
-                            <option>blackArt</option>
-                            <option>folk</option>
-                        </select>
                     </div>
 
                     <div className="submit-btnWrap">
@@ -202,7 +191,7 @@ function UploadArt() {
                             console.log(formData)
                             handleSubmit()
                             e.preventDefault()
-
+                            sessionStorage.clear('tags')
                         }} >
                             Upload
                         </button>

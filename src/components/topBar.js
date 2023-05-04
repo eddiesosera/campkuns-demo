@@ -44,7 +44,7 @@ function TopBar(e) {
                 <div className="topBar-container" style={topBarStyle}>
 
                     <Link to="/" style={{ margin: '0 auto' }}>
-                        <img src={campkunsLogo} alt="logo" />jkj
+                        <img src={campkunsLogo} alt="logo" />beta
                     </Link>
 
                 </div>

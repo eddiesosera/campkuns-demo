@@ -2,8 +2,9 @@ import React from 'react';
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import Search from '../../../../search';
+import axios from 'axios';
 
-function CardOptions({ cardTag }) {
+function CardOptions({ cardTag, post }) {
 
     const navigate = useNavigate()
     const [insertSearch, setInsertSearch] = useState('')
@@ -21,6 +22,26 @@ function CardOptions({ cardTag }) {
     };
     const reportPost = () => {
         alert('Report Card')
+    }
+    const deletePost = () => {
+
+        let config = {
+            method: 'delete',
+            maxBodyLength: Infinity,
+            url: 'http://10.0.0.106:5000/v1/posts/' + post?.id,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        };
+
+        axios.request(config)
+            .then((response) => {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
     }
 
     const optionList = [
@@ -46,6 +67,12 @@ function CardOptions({ cardTag }) {
             icon: 'ri-feedback-line',
             label: 'Report',
             function: reportPost,
+            color: ['#ED2615', '#ED2615']
+        },
+        {
+            icon: 'ri-delete-bin-line',
+            label: 'Delete',
+            function: deletePost,
             color: ['#ED2615', '#ED2615']
         }
     ]
