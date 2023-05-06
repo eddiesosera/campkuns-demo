@@ -28,10 +28,10 @@ function CardOptions({ cardTag, post }) {
         let config = {
             method: 'delete',
             maxBodyLength: Infinity,
-            url: 'http://10.0.0.106:5000/v1/posts/' + post?.id,
+            url: 'http://localhost:5000/v1/posts/' + post?.id,
             headers: {
                 'Content-Type': 'application/json',
-                'authorization': `Bearer ${localStorage.getItem('token')}`
+                // 'authorization': `Bearer ${localStorage.getItem('token')}`
             },
         };
 

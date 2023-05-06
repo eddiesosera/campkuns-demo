@@ -16,7 +16,7 @@ function Home() {
     //Posts
     useEffect(() => {
         axios
-            .get("http://192.168.0.128:5000/v1/posts?sortBy=createdAt:desc")
+            .get("http://localhost:5000/v1/posts?sortBy=createdAt:desc")
             .then((result) => {
                 console.log(result.data.results);
                 setPosts(result.data.results);
@@ -27,18 +27,18 @@ function Home() {
         // latestpost
     ]);
 
-    //Users
-    useEffect(() => {
-        axios
-            .get("http://192.168.0.128:5000/v1/users")
-            .then((result) => {
-                console.log(result.data.results);
-                setUser(result.data.results);
-            })
-            .catch((error) => console.log(error));
-    }, []);
+    // //Users
+    // useEffect(() => {
+    //     axios
+    //         .get("http://192.168.0.128:5000/v1/users")
+    //         .then((result) => {
+    //             console.log(result.data.results);
+    //             setUser(result.data.results);
+    //         })
+    //         .catch((error) => console.log(error));
+    // }, []);
 
-    const hideOptionOnScroll = false
+    // const hideOptionOnScroll = false
 
 
     return (

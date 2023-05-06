@@ -25,21 +25,30 @@ function UploadArt() {
 
     // Post to DB
     const handleSubmit = () => {
-
+        const user = JSON.parse(localStorage.getItem('user')).id
+        console.log(user)
         if (percent >= 60) {
 
             setFormData({ ...formData, agreeCount: 0 })
             setFormData({ ...formData, views: 0 })
+            setFormData({ ...formData, user })
+            // formData.user = user
 
             axios
-                .post("http://192.168.0.128:5000/v1/posts", formData)
+                .post("http://localhost:5000/v1/posts", formData, {
+
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                })
                 .then((result) => {
 
                     //console.log(result.data.results);
-                    setFormData({})
-                    alert(formData.title)
-                    navigate('/')
-                    setTimeout(() => { window.location.reload() }, 10)
+                    // setFormData({})
+                    //alert(formData.title)
+                    //navigate('/')
+                    //setTimeout(() => { window.location.reload() }, 10)
                     console.log(formData)
 
                 })
