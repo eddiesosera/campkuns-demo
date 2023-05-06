@@ -18,7 +18,7 @@ export default function UploadAddTags({ tagList }) {
         <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '15px' }}>
 
             <form className='addTag-wrap'>
-                <div style={{ fontWeight: '600', color: '#FDE5D7' }}>#</div>
+                <div style={{ fontWeight: '600', color: '#757575' }}>#</div>
                 <input className='tagInput' value={tagVal} onChange={e => { setTagVal(e.target.value.replace(/ /g, '')); }}
 
                     type='text' placeholder='Keyword' required />

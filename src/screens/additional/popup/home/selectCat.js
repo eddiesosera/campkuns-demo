@@ -13,7 +13,7 @@ function SelectCategory({ display }) {
 
     //HEADER
     const topBarStyle = {
-        height: '60px', width: '-webkit-fill-available', backgroundColor: '#1F1E1D', color: 'white',
+        height: '60px', width: '-webkit-fill-available', color: 'white', transition: 'top 0.5s cubic-bezier(0.5, 0.55, 0.70, 0.35)',
         display: 'flex', alignItems: 'center', position: 'fixed', top: '0', padding: '0 15px'
     }
     const linkStyle = { textDecoration: 'none', textDecorationLine: 'none' }
@@ -104,9 +104,9 @@ function SelectCategory({ display }) {
 
 
 
-            <div className="topBar" style={linkStyle}>
+            <div className="" style={linkStyle}>
 
-                <div className="topBar-container" style={topBarStyle}>
+                <div id="cat_pinIcon" style={topBarStyle}>
                     <i class={toggle ? 'ri-pushpin-fill' : 'ri-pushpin-line'} style={
                         toggle ? {
                             fontSize: '24px', fontWeight: '500',
@@ -121,15 +121,13 @@ function SelectCategory({ display }) {
                             }
                     }
                         onClick={openCat}></i>
-                    <Link to="/" style={{ margin: '0 auto' }}>
-                        <img src={campkunsLogo} alt="logo" />
-                    </Link>
+
                 </div>
             </div>
 
             <div className="selectCategory-wrap" style={
                 {
-                    display: showCat, backgroundColor: '#1F1E1D', borderTop: '1px solid #303030',
+                    display: showCat, backgroundColor: '#151515f7', borderTop: '1px solid #303030', backdropFilter: 'blur(10px)',
                     borderRadius: '0 0 15px 15px', paddingBottom: '2px', position: 'fixed', transition: 'all 0.9s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
                 }
 

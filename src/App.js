@@ -26,7 +26,7 @@ function App() {
 
   return (
     <div className="App">
-      <div style={{ marginTop: '60px', paddingBottom: '60px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}>
+      <div style={{ transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}>
         <Routes >
           <Route path="/" element={<Home />} />
           <Route path="/expos" element={<Expos />} />

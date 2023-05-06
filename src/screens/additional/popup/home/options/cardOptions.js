@@ -30,7 +30,8 @@ function CardOptions({ cardTag, post }) {
             maxBodyLength: Infinity,
             url: 'http://10.0.0.106:5000/v1/posts/' + post?.id,
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('token')}`
             },
         };
 
@@ -46,7 +47,7 @@ function CardOptions({ cardTag, post }) {
 
     const optionList = [
         {
-            icon: 'ri-arrow-up-line',
+            icon: 'ri-share-forward-fill',
             label: 'Share',
             function: sharePost,
             color: ['#FFFFFF', '#CDCDCD']
@@ -58,19 +59,19 @@ function CardOptions({ cardTag, post }) {
             color: ['#FFFFFF', '#CDCDCD']
         },
         {
-            icon: 'ri-collage-line',
+            icon: 'ri-collage-fill',
             label: 'Save to Collection',
             function: saveToCollection,
             color: ['#FFFFFF', '#CDCDCD']
         },
         {
-            icon: 'ri-feedback-line',
+            icon: 'ri-feedback-fill',
             label: 'Report',
             function: reportPost,
             color: ['#ED2615', '#ED2615']
         },
         {
-            icon: 'ri-delete-bin-line',
+            icon: 'ri-delete-bin-fill',
             label: 'Delete',
             function: deletePost,
             color: ['#ED2615', '#ED2615']
@@ -80,13 +81,13 @@ function CardOptions({ cardTag, post }) {
 
     return (
         <div style={{
-            width: '100vw', position: 'absolute', maxWidth: '470px', display: 'flex', justifyContent: 'flex-end',
-            zIndex: '5'
+            width: '93vw', position: 'absolute', maxWidth: '470px', display: 'flex', justifyContent: 'flex-end',
+            zIndex: '5',
         }}>
             <ul className='option' style={{
                 margin: '0', padding: '15px', listStyle: 'none', width: '215px', borderRadius: '15px', backgroundColor: '#232323',
                 display: 'flex', flexDirection: 'column', height: 'content-fit', justifyContent: 'space-between', marginTop: '10px',
-                marginRight: '10px', minHeight: '165px'
+                marginRight: '10px', minHeight: '200px', boxShadow: '0px 0px 6px 1px rgba(255, 255, 255, 0.05)', border: '0.75px solid rgb(54, 54, 54)'
             }}>
                 {
                     optionList?.map((cardoption) => {

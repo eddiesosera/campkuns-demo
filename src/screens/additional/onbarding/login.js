@@ -25,10 +25,10 @@ function LogIn() {
             })
     }
     return (
-        <>
+        <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
             <h1>Log in</h1>
 
-            <form>
+            <form style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center' }}>
 
                 <input type="text" placeholder="username or email" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
                 <input type="password" placeholder="password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
@@ -46,7 +46,7 @@ function LogIn() {
             <Link to="/create">
                 Create Account
             </Link>
-        </>
+        </div>
     )
 }
 

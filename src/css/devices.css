@@ -1,24 +1,45 @@
 @media (orientation: landscape) {
-    body {
-      flex-direction: collums;
-    }
+  body {
+    flex-direction: collums;
   }
-  
-  @media (orientation: portrait) {
-    body {
-      flex-direction: column;
-    }
-  }
+}
 
-  @media screen and (max-width: 470px) {
-    body {
-      background-color: #232323;
-    }
+@media (orientation: portrait) {
+  body {
+    flex-direction: column;
   }
+}
 
-  @media screen and (min-width: 768px) {
-    body {
-      background-color: red;
-    }
+@media screen and (max-width: 470px) {
+  body {
+    background-color: #1c1b1b;
   }
-  /* @media (display-mode: standalone) */
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-color: #1c1b1b;
+  }
+}
+
+/* @media (display-mode: standalone) */
+
+/* PC version */
+/* display: flex;
+justify-content: space-evenly;
+height: 300px;
+width: 350px;
+
+color: white;
+font-family: Poppins;
+font-size: 12px;
+font-weight: 500;
+position: fixed;
+top: 0px;
+bottom: 0;
+z-index: 8;
+
+flex-direction: column;
+margin: 250px 20px;
+padding: 0 20px;
+border-radius: 3px; */

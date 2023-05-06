@@ -32,7 +32,7 @@ function UploadArt() {
             setFormData({ ...formData, views: 0 })
 
             axios
-                .post("http://10.0.0.106:5000/v1/posts", formData)
+                .post("http://192.168.0.128:5000/v1/posts", formData)
                 .then((result) => {
 
                     //console.log(result.data.results);
@@ -105,9 +105,8 @@ function UploadArt() {
     return (
         <>
 
-            <TopBar />
 
-            <div style={{ maxWidth: '470px', margin: '0px auto' }}>
+            <div style={{ maxWidth: '470px', margin: '0px auto', marginTop: '-60px !important' }}>
                 <div className='uploadHeader-wrap' >
                     <div className='upload-header header-wrap'>
 
@@ -122,7 +121,7 @@ function UploadArt() {
                             <div>
                                 <div className='uploadProgress-bar' style={{ width: '100%', height: '5px', background: '#292929', borderRadius: '100px' }}>
                                     <div className='uploadProgress-progress' style={{
-                                        background: 'linear-gradient(270deg, #554D48 0%, #FFE7D9 100%)',
+                                        background: 'linear-gradient(270deg, #FFE7D9 0%, #554D48 100%)',
                                         width: (percent) + '%', height: '5px', borderRadius: '100px', transition: 'width 1s cubic-bezier(0.67, 0, 0.33, 1) 0s'
                                     }}></div>
                                 </div>
@@ -152,13 +151,13 @@ function UploadArt() {
                                 <i className="ri-close-circle-fill"></i>
                             </div>
                             <div style={{ width: '75px', height: '75px', borderRadius: '12px', border: 'dashed 1px #5A5451', display: 'flex', strokeDasharray: '22, 23' }}>
-                                {/* <Widget publicKey="bc3b6c954405f4e975b2" onChange={(fileInfo) => {
+                                <Widget publicKey="bc3b6c954405f4e975b2" onChange={(fileInfo) => {
                                     console.log(fileInfo)
                                     setFormData({
                                         ...formData, images: [fileInfo?.originalUrl]
                                     })
                                     setImg1(fileInfo?.originalUrl)
-                                }} /> */}
+                                }} />
                             </div>
                         </div>
 

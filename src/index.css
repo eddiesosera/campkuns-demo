@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #100f0e;
+  /* #080808 DARK BLACK */
+  overflow-x: hidden;
 }
 
 code {
@@ -13,5 +16,5 @@ code {
 }
 
 .active {
-  color: #E55C17 !important;
+  color: #fbd0b8 !important;
 }

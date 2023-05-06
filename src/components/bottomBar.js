@@ -17,7 +17,7 @@ function BottomBar() {
     //STYLE
     const bottomBarStyle = {
         display: 'flex', justifyContent: "space-around",
-        alignItems: 'center', height: '80px', width: '100%', backgroundColor: '#1F1E1D', color: 'white',
+        alignItems: 'center', height: '60px', width: '100%', backgroundColor: '#151515', color: 'white',
         fontFamily: 'Poppins', fontSize: '12px', fontWeight: '500', position: 'fixed', bottom: '0', zIndex: '99',
         borderTop: '0.75px solid #333333'
     };
@@ -28,10 +28,11 @@ function BottomBar() {
     const navPage = [
         {
             href: '/',
-            title: 'Home',
+            title: '',
+            // Home
             icon: {
-                active: 'ri-sparkling-fill',
-                inActive: 'ri-sparkling-line'
+                active: 'ri-home-4-fill',
+                inActive: 'ri-home-4-line'
             },
             link: linkStyle,
             wrap_style: routeStyle,
@@ -40,10 +41,11 @@ function BottomBar() {
         },
         {
             href: '/expos',
-            title: 'Expos',
+            title: '',
+            // Expos
             icon: {
-                active: 'ri-planet-fill',
-                inActive: 'ri-planet-line'
+                active: 'ri-box-2-fill',
+                inActive: 'ri-box-2-line'
             },
             link: linkStyle,
             wrap_style: routeStyle,
@@ -53,6 +55,7 @@ function BottomBar() {
         {
             href: '/upload',
             title: '',
+            // Upload
             icon: {
                 active: 'ri-add-circle-fill',
                 inActive: 'ri-add-circle-fill'
@@ -64,10 +67,11 @@ function BottomBar() {
         },
         {
             href: '/engage',
-            title: 'Engage',
+            title: '',
+            // Engage
             icon: {
-                active: 'ri-heart-fill',
-                inActive: 'ri-heart-line'
+                active: 'ri-notification-3-fill',
+                inActive: 'ri-notification-3-line'
             },
             link: linkStyle,
             wrap_style: routeStyle,
@@ -76,10 +80,11 @@ function BottomBar() {
         },
         {
             href: '/account',
-            title: 'Me',
+            title: '',
+            // Me
             icon: {
-                active: 'ri-user-4-fill',
-                inActive: 'ri-user-4-line'
+                active: 'ri-bear-smile-fill',
+                inActive: 'ri-bear-smile-line'
             },
             link: linkStyle,
             wrap_style: routeStyle,
