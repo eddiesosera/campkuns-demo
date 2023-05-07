@@ -172,7 +172,7 @@ function PostCard({ post, user, optionsScrll }) {
           <img src={post?.images[0]}
             alt="profile" style={{ height: '40px', width: '40px', objectFit: 'cover', borderRadius: '50%', border: '1px solid #2E2E2E' }} />
           <div className="postCard-top-left-wrap" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 10px' }}>
-            <div className="postCard-top-left-name" style={{ display: 'flex', fontWeight: '500', marginBottom: '3px', color: '#fef3ec', fontFamily: 'Montserrat' }}>
+            <div className="postCard-top-left-name" style={{ display: 'flex', fontWeight: '600', marginBottom: '3px', color: '#fef3ec', fontFamily: 'Montserrat' }}>
               {post?.user?.name}
               <div className="userVerification" style={{ marginLeft: '5px', color: '#2294d7' }}>
                 {post?.user?.isUserVerified ? <svg style={{ color: '#2294d7', background: '#fef3ec', borderRadius: '100px' }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -190,7 +190,7 @@ function PostCard({ post, user, optionsScrll }) {
               <div style={{ fontSize: '12px', color: '#848484', display: 'flex', fontWeight: '600', margin: '0 6px' }}>
                 ·
               </div>
-              <div className="postCard-top-left-date" style={{ fontFamily: 'Montserrat', fontSize: '12px', color: '#848484', display: 'flex', fontWeight: '400' }}>
+              <div className="postCard-top-left-date" style={{ fontFamily: 'Roboto Mono, monospace', fontSize: '12px', color: '#848484', display: 'flex', fontWeight: '400' }}>
                 {/* Day */}
                 {post?.uploadedDate.slice(8, 9) === '0' ? post?.uploadedDate.slice(9, 10) : post?.uploadedDate.slice(8, 10)}
                 {/* Month */}
