@@ -44,7 +44,7 @@ function TopBar(e) {
     const windowScrll = function () {
         var currentScrollPos = window.scrollY;
         if (prevScrollpos > currentScrollPos) {
-            document.getElementById("topBar-container").style.top = topPos;
+            document.querySelector("#topBar-container").style.top = topPos;
             document.getElementById("cat_pinIcon").style.top = topPos;
             setTopPos('0')
         } else {

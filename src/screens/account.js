@@ -1,8 +1,11 @@
 import React from "react";
+import AccountTopSection from "./myaccount/accountTopSection";
 
-function Account(){
-    return(
-        <h1>Account</h1>
+function Account() {
+    return (
+        <div style={{ maxWidth: '470px', width: '100vw', margin: '0 auto' }}>
+            <AccountTopSection />
+        </div>
     )
 }
 

@@ -39,7 +39,7 @@ export default function UploadAddTags({ tagList }) {
                 </button>
             </form>
 
-            <ul className='ul-parent' style={{ padding: 0, display: 'flex', gap: '10px', marginTop: '10px', flexFlow: 'wrap' }}>
+            <ul className='ul-parent' style={{ padding: 0, display: 'flex', gap: '10px', marginTop: '10px', flexFlow: 'wrap', marginBottom: '60px', height: 'fit-content' }}>
                 {tagsList.map((tagItem) =>
                     tagItem.tag !== '' ?
                         <li className='newTag-wrap' onClick={e => { setIndex(index - 1) }}>

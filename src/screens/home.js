@@ -16,7 +16,7 @@ function Home() {
     //Posts
     useEffect(() => {
         axios
-            .get("http://localhost:5000/v1/posts?sortBy=createdAt:desc")
+            .get("http://10.0.0.106:5000/v1/posts?sortBy=createdAt:desc")
             .then((result) => {
                 console.log(result.data.results);
                 setPosts(result.data.results);

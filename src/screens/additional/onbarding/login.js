@@ -25,7 +25,7 @@ function LogIn() {
         let config = {
             method: 'POST',
             maxBodyLength: Infinity,
-            url: 'http://localhost:5000/v1/auth/login',
+            url: 'http://10.0.0.106:5000/v1/auth/login',
             headers: {
                 'Content-Type': 'application/json'
             },
