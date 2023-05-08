@@ -19,54 +19,55 @@ function AccountTopSection() {
                 <i className='ri-more-fill' style={{ fontSize: '24px', color: '#685c55' }}></i>
             </div>
 
-            <div className='accContent' style={{ margin: '60px auto', marginTop: '60px', background: 'rgba(30,30,30)', borderRadius: '0px 0px 20px 20px' }}>
+            <div className='accContent' style={{ marginTop: '60px', background: 'rgba(30,30,30)', borderRadius: '0px 0px 0px 0px' }}>
                 <div className='userAccInfo' style={{ display: 'flex', padding: '0 20px' }}>
                     <img alt='profile' src='https://ucarecdn.com/d0989976-b3db-4d17-b2c6-3e41b45cf44d/'
-                        style={{ width: '120px', height: '120px', objectFit: 'cover', borderRadius: '100px', marginRight: '20px' }}
+                        style={{ width: '120px', height: '120px', objectFit: 'cover', borderRadius: '100px', marginRight: '20px', border: 'solid 0.5px #2E2E2E' }}
                     />
                     <div className='userInfo-wrap' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div className='username'>
-                            <div style={{ color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500' }}>Eddie</div>
-                            <div style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '13px', fontWeight: '400' }}>Artist</div>
+                            <div style={{ color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '600' }}>Eddie</div>
+                            <div style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '13px', fontWeight: '500', background: '#2d2b2b', padding: '3px 6px', borderRadius: '6px', width: 'fit-content' }}>Artist</div>
+                            <div style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '12px', fontWeight: '500' }}>NOW Gallery, Open Window</div>
                         </div>
                         <div className='user-stats' style={{ display: 'flex', marginTop: '15px', width: '51vw', maxWidth: '290px', justifyContent: 'space-between' }}>
-                            <div className='netValue statVal' style={{ display: 'flex' }}>
-                                <div className='stats-label' style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '18px', fontWeight: '400' }}>
-                                    <i class="ri-price-tag-line"></i>
-                                </div>
-                                <div className='stats-val' style={{ fontFamily: 'Roboto Mono, monospace', color: '#fef3ec', fontSize: '14px', fontWeight: '500' }}>
-                                    {/* Roboto Mono, monospace */}
-                                    R 1000
-                                </div>
-                            </div>
+
                             <div className='artworks statVal' style={{ display: 'flex' }}>
-                                <div className='stats-label' style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '18px', fontWeight: '400' }}>
-                                    <i class="ri-layout-bottom-2-line"></i>
+                                <div className='stats-label' style={{ color: '#685c55', fontFamily: 'Montserrat', fontSize: '18px', fontWeight: '400' }}>
+                                    <i class="ri-layout-bottom-2-fill"></i>
                                 </div>
                                 <div className='stats-val' style={{ fontFamily: 'Roboto Mono, monospace', color: '#fef3ec', fontSize: '14px', fontWeight: '500' }}>
                                     4
                                 </div>
                             </div>
                             <div className='followers statVal' style={{ display: 'flex' }}>
-                                <div className='stats-label' style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '18px', fontWeight: '400' }}>
-                                    <i class="ri-user-received-line"></i>
+                                <div className='stats-label' style={{ color: '#685c55', fontFamily: 'Montserrat', fontSize: '18px', fontWeight: '400' }}>
+                                    <i class="ri-user-received-fill"></i>
                                 </div>
                                 <div className='stats-val' style={{ fontFamily: 'Roboto Mono, monospace', color: '#fef3ec', fontSize: '14px', fontWeight: '500' }}>
                                     50
+                                </div>
+                            </div>
+                            <div className='followers statVal' style={{ display: 'flex' }}>
+                                <div className='stats-label' style={{ color: '#685c55', fontFamily: 'Montserrat', fontSize: '18px', fontWeight: '400' }}>
+                                    <i class="ri-user-shared-fill"></i>
+                                </div>
+                                <div className='stats-val' style={{ fontFamily: 'Roboto Mono, monospace', color: '#fef3ec', fontSize: '14px', fontWeight: '500' }}>
+                                    30
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className='userInteractionAndBio-wrap' style={{ marginTop: '30px', padding: '0 20px' }}>
-                    <div style={{ marginBottom: '30px', width: '100%', display: 'flex' }}>
-                        <button style={{ width: '90%', height: '45px', border: 'none', borderRadius: '12px', background: '#F3761C', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', color: '#FFE7D9', marginRight: '10px' }}>Following</button>
+                    <div style={{ marginBottom: '40px', width: '100%', display: 'flex' }}>
+                        <button style={{ width: '85%', height: '45px', border: 'none', borderRadius: '12px', background: '#F3761C', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', color: '#FFE7D9', marginRight: '10px' }}>Following</button>
                         <div style={{ height: '45px', width: '45px', background: '#272727', borderRadius: '12px', color: '#EFE8E8', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px' }}>< i class="ri-mail-line"></i></div>
                     </div>
-                    <div className='userInteractive-bio' style={{ paddingBottom: '60px', display: 'flex', textAlign: 'center', color: '#6C6C6C', fontFamily: 'neue-haas-grotesk-text', fontSize: '13px' }}>I’m a designer and dev/design student interested in collabs with like-minded peers.</div>
+                    <div className='userInteractive-bio' style={{ paddingBottom: '40px', display: 'flex', textAlign: 'center', color: '#6C6C6C', fontFamily: 'neue-haas-grotesk-text', fontSize: '13px' }}>I’m a designer and dev/design student interested in collabs with like-minded peers.</div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

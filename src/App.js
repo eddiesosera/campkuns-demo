@@ -17,6 +17,8 @@ import UploadArt from './screens/upload';
 import { useEffect, useState } from 'react';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import AccountGridView from './screens/myaccount/route/accGridView';
+import Error404 from './screens/404';
 
 
 function App() {
@@ -35,9 +37,12 @@ function App() {
           <Route path="/search" element={<PrivateRoute><Search /></PrivateRoute>} />
           <Route path="/upload" element={<PrivateRoute><UploadArt /></PrivateRoute>} />
           <Route path="/engage" element={<PrivateRoute><Engage /></PrivateRoute>} />
-          <Route path="/account" element={<PrivateRoute><Account /></PrivateRoute>} />
+          <Route path="/account" element={<PrivateRoute><Account /></PrivateRoute>} >
+            <Route path="/account/" index element={<PublicRoute><AccountGridView /></PublicRoute>} />
+          </Route>
           <Route path="/create" element={<PrivateRoute><CreateAccount /></PrivateRoute>} />
           <Route path="/login" element={<PublicRoute><LogIn /></PublicRoute>} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
       </div >
 
