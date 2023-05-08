@@ -19,6 +19,8 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import AccountGridView from './screens/myaccount/route/accGridView';
 import Error404 from './screens/404';
+import AccountSingleView from './screens/myaccount/route/accSingleView';
+import Gala from './screens/myaccount/route/Gala';
 
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
   const [i, setI] = useState(true)
 
   useEffect(() => {
+    console.log('checking navbar')
   }, [i])
 
   return (
@@ -38,7 +41,9 @@ function App() {
           <Route path="/upload" element={<PrivateRoute><UploadArt /></PrivateRoute>} />
           <Route path="/engage" element={<PrivateRoute><Engage /></PrivateRoute>} />
           <Route path="/account" element={<PrivateRoute><Account /></PrivateRoute>} >
-            <Route path="/account/" index element={<PublicRoute><AccountGridView /></PublicRoute>} />
+            <Route path="grid-view" index element={<AccountGridView />} />
+            <Route path="single-view" element={<AccountSingleView />} />
+            <Route path="gala-view" element={<Gala />} />
           </Route>
           <Route path="/create" element={<PrivateRoute><CreateAccount /></PrivateRoute>} />
           <Route path="/login" element={<PublicRoute><LogIn /></PublicRoute>} />

@@ -1,13 +1,16 @@
 import React from 'react'
+import PostCard from '../../additional/components/postCard'
+import { SimlarPicks } from '../../additional/components/similarPicks'
 
-function AccSingleView() {
+function AccountSingleView() {
     return (
-        <div>
-            <h1>
-                Single View
-            </h1>
+        <div style={{ marginBottom: '80px', marginTop: '20px' }}>
+            <PostCard />
+            <div style={{ marginBottom: '80px', marginTop: '20px' }}>
+                <SimlarPicks />
+            </div>
         </div>
     )
 }
 
-export default AccSingleView
+export default AccountSingleView

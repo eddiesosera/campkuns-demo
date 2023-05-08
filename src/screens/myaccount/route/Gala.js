@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Gala() {
+function Gala({ testpar }) {
   return (
     <div>Gala</div>
   )

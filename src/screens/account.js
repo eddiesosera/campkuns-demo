@@ -1,6 +1,6 @@
 import React from "react";
 import AccountTopSection from "./myaccount/accountTopSection";
-import { Route, Routes } from "react-router-dom";
+import { Link, Outlet, Route, Routes } from "react-router-dom";
 import PrivateRoute from "../PrivateRoute";
 import AccSingleView from "./myaccount/route/accSingleView";
 import AccountGridView from "./myaccount/route/accGridView";
@@ -13,13 +13,13 @@ function Account() {
         <div style={{ maxWidth: '470px', width: '100vw', margin: '0 auto' }}>
             <AccountTopSection />
             <AccountRouteCont />
-            <div>
-                <Routes>
-                    <Route path="/account/" element={<PublicRoute><AccountGridView /></PublicRoute>} />
-                    <Route path="/account/" element={<PrivateRoute><AccSingleView /></PrivateRoute>} />
-                    <Route path="/account/" element={<PrivateRoute><Gala /></PrivateRoute>} />
-                </Routes>
+            <div style={{}}>
+
+                <Link to='grid-view'></Link>
+                <Link to='single-view'></Link>
+                <Link to='gala-view'></Link>
             </div>
+            <Outlet />
         </div>
     )
 }

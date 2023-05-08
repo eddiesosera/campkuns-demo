@@ -79,7 +79,7 @@ function BottomBar() {
             class_name: 'navbar_engage',
         },
         {
-            href: '/account',
+            href: '/account/grid-view',
             title: '',
             // Me
             icon: {
