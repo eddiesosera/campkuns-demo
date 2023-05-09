@@ -33,15 +33,12 @@ function SuggestPrice({ display, Img, title, price, hide, submit }) {
 
                 < i class="ri-close-line" style={{
                     color: '#FFE7D9', padding: '5px', fontSize: '18px', backgroundColor: '#232323', display: 'flex',
-                    borderRadius: '50px', border: '0.75px solid #363636', width: '35px', height: '40px', justifyContent: 'center',
+                    borderRadius: '50px', border: '0.75px solid #363636', height: '40px', justifyContent: 'center',
                     alignItems: 'center'
                 }} onClick={hide}></i>
             </div>
 
-            <form onSubmit={(e) => e.preventDefault()} style={{
-                display: displayStatus, flexDirection: 'column', height: 'fit-content', width: '370px', backgroundColor: '#232323',
-                padding: '20px', border: '0.75px solid #363636', borderRadius: '15px'
-            }}>
+            <form onSubmit={(e) => e.preventDefault()} style={{ display: displayStatus, flexDirection: 'column', height: 'fit-content', width: '370px', backgroundColor: '#232323', padding: '20px', border: '0.75px solid #363636', borderRadius: '15px' }}>
                 <div className="suggestPrice-head" style={{
                     fontSize: '24px', fontWeight: '600', fontFamily: 'Poppins', color: '#FFE7D9', marginBottom: '20px'
                 }}>
@@ -78,21 +75,17 @@ function SuggestPrice({ display, Img, title, price, hide, submit }) {
                         borderRadius: '12px', background: 'none', padding: '15px', marginTop: '20px', marginBottom: '10px'
                     }} />
 
-                    <button type='submit' onClick={submit} style={{
-                        marginTop: '20px', height: '45px', border: 'none', fontWeight: '600', width: '100%',
-                        borderRadius: '12px', background: '#E55C17', fontFamily: 'Poppins', fontSize: '15px'
-                    }}>Bid Price</button>
+                    <button type='submit' onClick={submit} style={{ marginTop: '20px', height: '45px', border: 'none', fontWeight: '600', width: '100%', borderRadius: '12px', background: '#E55C17', fontFamily: 'Poppins', fontSize: '15px' }}>
+                        Bid Price
+                    </button>
 
-                    <hr style={{ border: '0.75px solid #343434', width: '100%', marginTop: '30px', marginBottom: '30px', padding: '0' }} />
+                    {/* <hr style={{ border: '0.75px solid #343434', width: '100%', marginTop: '30px', marginBottom: '30px', padding: '0' }} />
 
                     <div style={{ marginLeft: '15px', fontFamily: 'Poppins', color: 'rgba(117,117,117)' }}>
                         Highest Bid
                     </div>
 
-                    <div style={{
-                        display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', marginTop: '10px',
-                        fontFamily: 'Roboto Condensed !important'
-                    }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', marginTop: '10px', fontFamily: 'Roboto Condensed !important' }}>
                         <Radio.Group value={size} onChange={handleSizeChange} >
                             <Radio.Button value={price - price * 0.50}>{price - price * 0.50}</Radio.Button>
                             <Radio.Button value={price - price * 0.25}>{price - price * 0.25}</Radio.Button>
@@ -100,7 +93,7 @@ function SuggestPrice({ display, Img, title, price, hide, submit }) {
                             <Radio.Button value={price + price * 0.20}>{price + price * 0.20}</Radio.Button>
                             <Radio.Button value={price + price * 0.50}>{price + price * 0.50}</Radio.Button>
                         </Radio.Group>
-                    </div>
+                    </div> */}
                 </div>
 
             </form>

@@ -43,14 +43,16 @@ function TopBar(e) {
     var prevScrollpos = window.scrollY;
     const windowScrll = function () {
         var currentScrollPos = window.scrollY;
-        if (prevScrollpos > currentScrollPos) {
-            document.querySelector("#topBar-container").style.top = topPos;
-            document.getElementById("cat_pinIcon").style.top = topPos;
-            setTopPos('0')
-        } else {
-            document.getElementById("topBar-container").style.top = topPos;
-            document.getElementById("cat_pinIcon").style.top = topPos;
-            setTopPos('-60px')
+        if (window.location.pathname === '/') {
+            if (prevScrollpos > currentScrollPos) {
+                document.querySelector("#topBar-container").style.top = topPos;
+                document.getElementById("cat_pinIcon").style.top = topPos;
+                setTopPos('0')
+            } else {
+                document.getElementById("topBar-container").style.top = topPos;
+                document.getElementById("cat_pinIcon").style.top = topPos;
+                setTopPos('-60px')
+            }
         }
         prevScrollpos = currentScrollPos;
     }

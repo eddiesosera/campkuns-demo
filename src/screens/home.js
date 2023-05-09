@@ -6,6 +6,7 @@ import PostCard from "./additional/components/postCard";
 import axios from 'axios'
 import { Form } from "antd";
 import Moments from "./additional/components/moments";
+import { SimlarPicks } from "./additional/components/similarPicks";
 
 
 function Home() {
@@ -43,7 +44,7 @@ function Home() {
 
     return (
 
-        <div className="homeScreen-wrap" style={{ marginTop: '60px' }} >
+        <div className="homeScreen-wrap" style={{ marginTop: '60px', marginBottom: '60px', height: 'fit-content' }} >
 
             <TopBar />
 
@@ -59,8 +60,13 @@ function Home() {
                         </>
                     )
                 })}
+                <div style={{ width: '100vw', maxWidth: '470px', margin: '0 auto' }}>
+                    <SimlarPicks />
+                </div>
             </div>
+            <div style={{ paddingBottom: '60px' }}>
 
+            </div>
         </div>
     )
 }

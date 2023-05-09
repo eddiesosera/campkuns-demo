@@ -35,7 +35,7 @@ function UploadArt() {
             // formData.user = user
 
             axios
-                .post("http://10.0.0.106:5000/v1/posts", formData, {
+                .post("http://192.168.28.244:5000/v1/posts", formData, {
 
                     headers: {
                         'Content-Type': 'application/json',

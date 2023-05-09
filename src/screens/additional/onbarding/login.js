@@ -25,7 +25,7 @@ function LogIn() {
         let config = {
             method: 'POST',
             maxBodyLength: Infinity,
-            url: 'http://10.0.0.106:5000/v1/auth/login',
+            url: 'http://110.0.0.106:5000/v1/auth/login',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -67,29 +67,41 @@ function LogIn() {
 
 
     return (
-        <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center' }}>
-            <h1>Log in</h1>
+        <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center', width: '100vw', maxWidth: '470px', margin: '0 auto', height: '100vh' }}>
 
-            <form style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ background: '#171717' }}>
+                        <h1 style={{ color: '#FFE7D9', fontWeight: '600', fontFamily: 'Poppins', fontSize: '20px' }}>Log in</h1>
 
-                <input type="text" placeholder="username or email" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-                <input type="password" placeholder="password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
-                <input type="radio" placeholder="Remember me" />Remember me
+                        <form style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center' }}>
 
-                <button onClick={
-                    (e) => {
-                        e.preventDefault()
-                        console.log(formData)
-                        // logInUser()
-                        accessLogin()
-                    }
+                            <div>
+                                <input style={{ height: '45px', width: '100%', borderRadius: '12px', border: '2px solid #33302E', background: 'none', color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500', padding: '15px', outline: 'none' }} type="text" placeholder="username or email" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                                <input style={{ height: '45px', width: '100%', borderRadius: '12px', border: '2px solid #33302E', background: 'none', color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500', padding: '15px', outline: 'none' }} type="password" placeholder="password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+                            </div>
 
-                }>Log in</button>
+                            <div style={{ display: 'flex' }}>
+                                <input style={{ outline: 'none', background: 'none' }} type="checkbox" placeholder="Remember me" />Remember me
+                            </div>
 
-            </form>
-            <Link to="/create">
-                Create Account
-            </Link>
+                            <button onClick={
+                                (e) => {
+                                    e.preventDefault()
+                                    console.log(formData)
+                                    // logInUser()
+                                    accessLogin()
+                                }
+
+                            } style={{ background: '#F3761C', color: '#FFE7D9', height: '45px', width: '100%', border: 'none', borderRadius: '12px', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px' }}>Log in</button>
+
+                        </form>
+                    </div>
+                </div>
+                <Link to="/create">
+                    Create Account
+                </Link>
+            </div>
         </div>
     )
 }
