@@ -45,14 +45,14 @@ function App() {
             <Route path="single-view" element={<AccountSingleView />} />
             <Route path="gala-view" element={<Gala />} />
           </Route>
-          <Route path="/create" element={<PrivateRoute><CreateAccount /></PrivateRoute>} />
+          <Route path="/create" element={<PublicRoute><CreateAccount /></PublicRoute>} />
           <Route path="/login" element={<PublicRoute><LogIn /></PublicRoute>} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </div >
 
       <div className='nav_wrap' onClick={e => setI(!i)}>
-        {window.location.pathname !== '/upload' ? < BottomBar /> : window.location.pathname === '/login' ? <BottomBar /> : null}
+        {window.location.pathname !== '/upload' || '/login' ? < BottomBar /> : null}
       </div >
 
     </div>
