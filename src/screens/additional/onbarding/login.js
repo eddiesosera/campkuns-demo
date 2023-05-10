@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 //import campkunsLogo from '../data/static/assets/campkuns-logo-draft1.svg'
 import campkunsLogo from '../../../data/static/assets/campkuns-logo-draft1.svg'
@@ -8,12 +8,27 @@ import campkunsLogo from '../../../data/static/assets/campkuns-logo-draft1.svg'
 function LogIn() {
 
     const [formData, setFormData] = useState({})
-    const navigate = useNavigate()
+    const [iconDisplay, setIconDisplay] = useState('block');
+    const [colorIcon, setColorIcon] = useState('#33302E');
+    const [colorMain, setColorMain] = useState('#33302E');
+    const [colorBg, setColorBg] = useState('none');
+    const [rememberTgl, setRememberTgl] = useState(false)
 
-    const nav = () => {
-        navigate('/')
-        window.location.reload()
-    }
+    useEffect(() => {
+        console.log('')
+        if (rememberTgl) {
+            setColorBg('#FFE7D9')
+            setColorMain('#FFE7D9')
+            setIconDisplay('flex')
+
+
+        } else {
+            setColorBg('none')
+            setColorMain('#33302E')
+            setIconDisplay('none')
+
+        }
+    }, [colorIcon, colorBg, colorMain, rememberTgl])
 
     const accessLogin = () => {
 
@@ -43,8 +58,6 @@ function LogIn() {
                 localStorage.setItem('isLoggedIn', 'true')
                 localStorage.setItem('user', JSON.stringify(user))
 
-                navigate('/')
-
             })
             .catch((error) => {
                 console.log(error);
@@ -71,15 +84,15 @@ function LogIn() {
     return (
         <>
 
-            <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center', width: '100vw', maxWidth: '470px', margin: '0 auto', height: '100vh' }}>
+            <div style={{ display: 'flex', alignContent: 'center', alignItems: 'center', width: '100vw', maxWidth: '470px', margin: '0 auto', height: '90vh' }}>
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', }}>
 
                     <img src={campkunsLogo} alt="logo" style={{ margin: 'auto', position: 'absolute', top: '40px' }} />
 
                     <div style={{ display: 'flex', flexDirection: 'column', padding: '10px' }}>
-                        <div style={{ background: '#171717', display: 'flex', flexDirection: 'column', alignItems: 'center', borderRadius: '15px', padding: '40px 20px' }}>
-                            <h1 style={{ color: '#FFE7D9', fontWeight: '600', fontFamily: 'Poppins', fontSize: '20px', marginBottom: '40px' }}>Log in</h1>
+                        <div style={{ background: '#171717', display: 'flex', flexDirection: 'column', alignItems: 'center', borderRadius: '15px', padding: '40px 10px', marginTop: '-20px' }}>
+                            <h1 style={{ color: '#FFE7D9', fontWeight: '600', fontFamily: 'Poppins', fontSize: '20px', marginBottom: '40px', userSelect: 'none' }}>Welcome back</h1>
 
                             <form style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center', padding: '0 20px' }}>
 
@@ -88,8 +101,9 @@ function LogIn() {
                                     <input style={{ height: '45px', width: '100%', borderRadius: '12px', border: '2px solid #33302E', background: 'none', color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500', padding: '15px', outline: 'none' }} type="password" placeholder="password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
                                 </div>
 
-                                <div style={{ display: 'flex' }}>
-                                    <input style={{ outline: 'none', background: 'none' }} type="checkbox" placeholder="Remember me" />Remember me
+                                <div style={{ display: 'flex', margin: '15px 0', alignItems: 'center', width: 'fit-content', userSelect: 'none' }} onClick={(e) => { setRememberTgl(!rememberTgl) }}>
+                                    <div style={{ height: '20px', width: '20px', border: '0.75px solid ', background: colorBg, borderColor: colorMain, borderRadius: '5px', display: 'flex', justifyContent: 'center', alignItems: 'center', transition: 'all 0.15s cubic-bezier(0.2, 0.55, 0.90, 0.35)' }}><i class="ri-check-fill" style={{ color: colorIcon, fontWeight: '600', display: iconDisplay }}></i></div>
+                                    <div style={{ marginLeft: '10px', fontFamily: 'Poppins', color: colorMain, fontSize: '13px', fontWeight: '500', transition: 'all 0.15s cubic-bezier(0.2, 0.55, 0.90, 0.35)' }}>Remember me</div>
                                 </div>
 
                                 <button onClick={
@@ -100,24 +114,22 @@ function LogIn() {
                                         accessLogin()
                                     }
 
-                                } style={{ background: '#F3761C', color: '#FFE7D9', height: '45px', width: '100%', border: 'none', borderRadius: '12px', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px' }}>Log in</button>
+                                } style={{ background: '#F3761C', color: '#FFE7D9', height: '45px', width: '100%', border: 'none', borderRadius: '12px', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', marginTop: '20px' }}>Log in</button>
 
                             </form>
                         </div>
                     </div>
 
-                    <div style={{ position: 'absolute', bottom: 60, borderTop: 'solid 0.5px #343434', width: '100vw', maxWidth: '470px', padding: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '13px' }}>
+                    <div style={{ position: 'absolute', bottom: '0px', borderTop: 'solid 0.5px #343434', width: '90vw', maxWidth: '470px', padding: '40px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '13px' }}>
                         <div style={{ marginBottom: '15px' }}>
-                            <Link style={{ color: '#FFE7D9', textDecoration: 'none', fontWeight: '600', fontFamily: 'Poppins', }} to="/create">
-                                I forgot my login details
+                            <Link style={{ color: '#FFE7D9', textDecoration: 'none', fontWeight: '500', fontFamily: 'Poppins', }} to="/forgotPassword">
+                                I forgot my password
                             </Link>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            <div style={{ color: '#474747', fontFamily: 'Montserrat', fontWeight: '500', marginRight: '5px' }}>
-                                Not a memeber yet?
-                            </div>
-                            <Link style={{ color: '#FFE7D9', textDecoration: 'none', fontWeight: '600', fontFamily: 'Poppins', }} to="/create">
-                                Join Campkuns
+
+                            <Link style={{ color: '#FFE7D9', textDecoration: 'none', fontWeight: '500', fontFamily: 'Poppins', }} to="/create">
+                                Join Campkuns.
                             </Link>
                         </div>
                     </div>

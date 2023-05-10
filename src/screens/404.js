@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 function Error404() {
 
     const navigate = useNavigate()
+
     return (
         <div style={{ maxWidth: '470px', width: '100vw', margin: 'auto auto', }}>
             <div className="wrap" style={{
@@ -22,10 +23,11 @@ function Error404() {
                     </div>
                 </div>
 
+
                 <button style={{
-                    width: '72vw', maxWidth: '440px', background: '#F3761C', borderRadius: '12px', border: 'none', height: '45px',
+                    width: '72vw', maxWidth: '400px', background: '#F3761C', borderRadius: '12px', border: 'none', height: '45px',
                     fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', color: '#FFE7D9'
-                }} >
+                }} onClick={(e) => { navigate('/') }}>
                     Go home
                 </button>
             </div>

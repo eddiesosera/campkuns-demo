@@ -6,6 +6,7 @@ import { Widget } from "@uploadcare/react-widget";
 import uploadcare from 'uploadcare-widget/uploadcare.lang.en.min.js'
 import TopBar from "../components/topBar";
 import UploadAddTags from "../components/upload_addTags";
+import { BtmBarDisplay } from "../App";
 
 
 function UploadArt() {
@@ -68,7 +69,11 @@ function UploadArt() {
     //Close button function
     const back = () => {
         window.history.back()
-        setTimeout(() => { window.location.reload() }, 10)
+        setTimeout(() => {
+            if (window.location.pathname === '/uplad') {
+                navigate('/')
+            }
+        }, 10)
     }
 
     useEffect(() => {

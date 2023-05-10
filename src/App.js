@@ -14,26 +14,39 @@ import Search from './screens/search';
 import Expos from './screens/expos';
 import Engage from './screens/engage';
 import UploadArt from './screens/upload';
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import AccountGridView from './screens/myaccount/route/accGridView';
 import Error404 from './screens/404';
 import AccountSingleView from './screens/myaccount/route/accSingleView';
 import Gala from './screens/myaccount/route/Gala';
-
+import { path } from 'animejs';
 
 function App() {
 
-  const [i, setI] = useState(true)
+  const [i, setI] = useState(0)
+  const [navDisplay, setNavDisplay] = useState('none')
 
+  //Hide nav
   useEffect(() => {
-    console.log('checking navbar')
+
+    if (window.location.pathname === '/upload' || window.location.pathname === '/login' || window.location.pathname === '/create') {
+      setNavDisplay('none')
+    } else {
+      setNavDisplay('block')
+    };
+
+    setTimeout(() => {
+      setI(i + 1)
+    }, 10);
+
   }, [i])
 
   return (
-    <div className="App">
-      <div style={{ transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}>
+    <div className="App" >
+
+      <div id='appRoutes' style={{ transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}>
         <Routes >
           <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
           <Route path="/expos" element={<PrivateRoute><Expos /></PrivateRoute>} />
@@ -48,14 +61,17 @@ function App() {
           <Route path="/create" element={<PublicRoute><CreateAccount /></PublicRoute>} />
           <Route path="/login" element={<PublicRoute><LogIn /></PublicRoute>} />
           <Route path="*" element={<Error404 />} />
+
+
         </Routes>
       </div >
 
-      <div className='nav_wrap' onClick={e => setI(!i)}>
-        {window.location.pathname !== '/upload' || '/login' ? < BottomBar /> : null}
+      <div id='app_nav_wrap' style={{ display: navDisplay }} >
+        < BottomBar />
       </div >
 
-    </div>
+
+    </div >
   );
 }
 

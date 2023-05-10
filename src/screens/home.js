@@ -7,6 +7,7 @@ import axios from 'axios'
 import { Form } from "antd";
 import Moments from "./additional/components/moments";
 import { SimlarPicks } from "./additional/components/similarPicks";
+import BottomBar from "../components/bottomBar";
 
 
 function Home() {
@@ -68,6 +69,10 @@ function Home() {
 
             </div>
         </div>
+
+
+
+
     )
 }
 

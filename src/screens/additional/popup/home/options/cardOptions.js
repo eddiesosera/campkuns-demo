@@ -48,7 +48,8 @@ function CardOptions({ cardTag, post }) {
         localStorage.setItem('token', '')
         localStorage.setItem('isLoggedIn', '')
         localStorage.setItem('user', '')
-        window.location.reload()
+        //window.location.reload()
+        navigate('/login')
     }
 
     const optionList = [

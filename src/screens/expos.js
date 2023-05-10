@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Expos() {
+
     return (
         <div style={{ maxWidth: '470px', width: '100vw', margin: 'auto auto', }}>
             <div className="wrap" style={{
