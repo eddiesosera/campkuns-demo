@@ -175,15 +175,8 @@ function PostCard({ post, user, optionsScrll }) {
               </div>
             </div>
             <div style={{ display: 'flex' }}>
-              <div style={{
-                fontSize: '8px', color: '#848484', display: 'flex', justifyContent: 'center', alignItems: 'center',
-                fontWeight: '500', background: '#2d2b2b', padding: '2px 5px', borderRadius: '4px'
-              }}>
-                Best Seller
-              </div>
-              <div style={{ fontSize: '12px', color: '#848484', display: 'flex', fontWeight: '600', margin: '0 6px' }}>
-                ·
-              </div>
+
+
               <div className="postCard-top-left-date" style={{ fontFamily: 'Roboto Mono, monospace', fontSize: '12px', color: '#848484', display: 'flex', fontWeight: '400' }}>
                 {/* Day */}
                 {post?.uploadedDate.slice(8, 9) === '0' ? post?.uploadedDate.slice(9, 10) : post?.uploadedDate.slice(8, 10)}
@@ -195,7 +188,15 @@ function PostCard({ post, user, optionsScrll }) {
                 {/* Year */}
                 {post?.uploadedDate.slice(0, 4)}
               </div>
-
+              <div style={{ fontSize: '12px', color: '#848484', display: 'flex', fontWeight: '600', margin: '0 6px' }}>
+                ·
+              </div>
+              <div style={{
+                fontSize: '8px', color: '#848484', display: 'flex', justifyContent: 'center', alignItems: 'center',
+                fontWeight: '500', background: '#2d2b2b', padding: '2px 5px', borderRadius: '4px'
+              }}>
+                Best Seller
+              </div>
 
             </div>
           </div>
