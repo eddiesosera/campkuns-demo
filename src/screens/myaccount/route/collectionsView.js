@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
+import React from 'react'
 
-function Engage() {
+export const CollectionsView = () => {
 
     //Show Navbar
     document.querySelector('#app_nav_wrap').style.display = 'block'
-
     return (
-        <h1>Engage</h1>
+        <div>
+
+        </div>
     )
 }
-
-export default Engage

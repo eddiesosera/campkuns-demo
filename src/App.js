@@ -26,7 +26,8 @@ import { path } from 'animejs';
 function App() {
 
   const [i, setI] = useState(0)
-  const [navDisplay, setNavDisplay] = useState('none')
+  const [navDisplay, setNavDisplay] = useState('none');
+  const [no, setNo] = useState(0)
 
   //Hide nav
   useEffect(() => {
@@ -37,14 +38,22 @@ function App() {
       setNavDisplay('block')
     };
 
-    setTimeout(() => {
-      setI(i + 1)
-    }, 10);
-
   }, [i])
 
+  // document.querySelector('body').addEventListener('click', () => {
+  //   setI(i + 1)
+  //   for (let x = 0; x < 3; x++) {
+  //     if (x < 3) {
+  //       setI(i + 1)
+  //     } else if (x === 3) {
+  //       x = 0
+  //       alert('rendered 3 times')
+  //     }
+  //   }
+  // });
+
   return (
-    <div className="App" >
+    <div className="App" onClick={(e) => { setI(i + 1); setTimeout(() => { setI(i + 1) }, 2500); }} onLoadedData={(e) => { setI(i + 1) }} >
 
       <div id='appRoutes' style={{ transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}>
         <Routes >

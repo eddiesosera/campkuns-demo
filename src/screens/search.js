@@ -28,16 +28,16 @@ function Search() {
         <div>
             <TopBar />
 
-            <div novalidate="novalidate" onsubmit={(e) => e.preventDefault()} class="searchbox sbx-custom" style={{
+            <div novalidate="novalidate" onsubmit={(e) => e.preventDefault()} className="searchbox sbx-custom" style={{
                 marginLeft: '20px'
             }}>
-                <div role="search" class="sbx-custom__wrapper">
+                <div role="search" className="sbx-custom__wrapper">
                     <input type="search" onFocus={e => setInsertSearch(e.target.value)}
                         value={insertSearch} name="search" placeholder="Search more art" autocomplete="off"
-                        required="required" class="sbx-custom__input" />
+                        required="required" className="sbx-custom__input" />
                     {/* <button type="submit" title="Submit your search query." class="sbx-custom__submit">
                     </button> */}
-                    <button type="reset" title="Clear the search query." class="sbx-custom__reset" ref={clearBtn}>
+                    <button type="reset" title="Clear the search query." className="sbx-custom__reset" ref={clearBtn}>
                         <i role="img" aria-label="Reset" className="ri-close-line" style={{
                             fontSize: '20px', justifyContent: 'center', alignItems: 'center',
                             color: '#ED6D22'

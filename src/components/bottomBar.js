@@ -10,7 +10,7 @@ import Account from "../screens/account";
 
 function BottomBar() {
 
-    console.log(window.location.pathname)
+    //console.log(window.location.pathname)
 
     const currentPage = window.location.pathname
 
@@ -96,7 +96,7 @@ function BottomBar() {
     const [selectedPage, setSelectedPage] = useState(navPage[0].title)
 
     useEffect(() => {
-        console.log('Page is ' + selectedPage)
+        //console.log('Page is ' + selectedPage)
     }, [selectedPage])
 
     const page = () => {
@@ -111,7 +111,7 @@ function BottomBar() {
             {navPage.map(
                 (screen) =>
                     <NavLink to={screen.href} style={screen.link} >
-                        <div className={screen.class_name} style={screen.wrap_style} onClick={page}>
+                        <div key='' className={screen.class_name} style={screen.wrap_style} onClick={page}>
                             <i
                                 className={window.location.pathname === screen.href ? screen.icon.active : screen.icon.inActive}
                                 style={{ fontSize: screen.iconSize }} ></i>

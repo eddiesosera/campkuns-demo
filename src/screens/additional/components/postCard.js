@@ -115,14 +115,10 @@ function PostCard({ post, user, optionsScrll }) {
         setMonthName(months[i].name)
         i = months.length + 1
       } else {
-        console.log(months[i].name + post?.uploadedDate.slice(6, 7))
+        // console.log(months[i].name + post?.uploadedDate.slice(6, 7))
       }
     }
-
-
-  }, [
-    colorToggle, suggestToggle, detailsToggle, priceToggle, displaySuggestTgl, optionsScrll
-  ])
+  }, [colorToggle, suggestToggle, detailsToggle, priceToggle, displaySuggestTgl, optionsScrll, optionTgl, post])
 
   useEffect(() => {
     //Agree + or -
@@ -139,10 +135,8 @@ function PostCard({ post, user, optionsScrll }) {
   }, [agreeTgl])
 
   document.querySelector('body').onscroll = () => {
-    setOptionTgl(false)
+    setOptionTgl(false);
   }
-
-
 
 
   return (
@@ -298,7 +292,7 @@ function PostCard({ post, user, optionsScrll }) {
                     display: 'flex', alignItems: 'center', backgroundColor: 'rgba(30,30,30,0.3)', padding: '5px 10px',
                     borderRadius: '9px'
                   }}>
-                  <i class="ri-thumb-up-fill" style={{ fontSize: '18px' }}></i>
+                  <i className="ri-thumb-up-fill" style={{ fontSize: '18px' }}></i>
                   <div style={{ fontSize: '14px', marginLeft: '5px' }}>
                     {AgreeIncre}
                   </div>
@@ -308,7 +302,7 @@ function PostCard({ post, user, optionsScrll }) {
                     display: 'flex', alignItems: 'center', backgroundColor: 'rgba(30,30,30,0.3)', padding: '5px 10px',
                     borderRadius: '9px', marginLeft: '10px'
                   }}>
-                  <i class="ri-eye-line" style={{ fontSize: '18px' }}></i>
+                  <i className="ri-eye-line" style={{ fontSize: '18px' }}></i>
                   <div style={{ fontSize: '14px', marginLeft: '5px' }}>
                     {post?.views}
                   </div>
@@ -331,7 +325,7 @@ function PostCard({ post, user, optionsScrll }) {
           transition: 'all 2s cubic-bezier(0.5, 0.55, 0.70, 0.35)', border: '0.2px solid #e3dedb'
         }} >
 
-        <i class="ri-price-tag-line" style={{ fontSize: '18px', transition: 'all 2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}></i>
+        <i className="ri-price-tag-line" style={{ fontSize: '18px', transition: 'all 2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}></i>
         <div style={{
           fontFamily: 'Roboto Mono, monospace', fontWeight: '550', fontSize: '15px', marginLeft: '5px', display: 'flex',
           transition: 'all 2s cubic-bezier(0.5, 0.55, 0.70, 0.35)',
@@ -363,14 +357,14 @@ function PostCard({ post, user, optionsScrll }) {
                 height: '40px', width: '40px', borderRadius: '9px', transition: 'all 0.5s cubic-bezier(0.5, 0.55, 0.70, 0.35)',
                 color: colorOff[0], border: colorOff[1], background: colorOff[3]
               }}>
-                <i class={colorOff[2]} style={buttonDefault} onClick={clickedAgree}></i>
+                <i className={colorOff[2]} style={buttonDefault} onClick={clickedAgree}></i>
               </div>
 
 
             </div>
 
             <button className="postCard-bottom-interactions-suggestPrice" style={suggestDefault} onClick={clickedSuggest}>
-              {/* <i class='ri-shopping-bag-2-fill' onClick={clickedSuggest} style={{ marginRight: '10px', fontSize: '20px' }}></i> */}
+              {/* <i className='ri-shopping-bag-2-fill' onClick={clickedSuggest} style={{ marginRight: '10px', fontSize: '20px' }}></i> */}
               Add Item
             </button>
           </div>

@@ -16,28 +16,28 @@ function TopBar(e) {
 
     const [categToggle, setCategToggle] = useState(false)
     //Category Toggle
-    const [toggle, setToggle] = useState(false)
+    //const [toggle, setToggle] = useState(false)
 
-    const closeCat = () => {
-        setToggle(false)
-        if (toggle) {
-            setToggle(false)
-        }
-    }
-    const openCat = () => {
-        setToggle(true)
-        if (!toggle) {
-            setToggle(true)
-        } else {
-            setToggle(false)
-        }
-    }
+    // const closeCat = () => {
+    //     setToggle(false)
+    //     if (toggle) {
+    //         setToggle(false)
+    //     }
+    // }
+    // const openCat = () => {
+    //     setToggle(true)
+    //     if (!toggle) {
+    //         setToggle(true)
+    //     } else {
+    //         setToggle(false)
+    //     }
+    // }
 
 
-    const showCateg = () => {
-        setCategToggle(!categToggle)
-        alert('')
-    }
+    // const showCateg = () => {
+    //     setCategToggle(!categToggle)
+    //     alert('')
+    // }
 
 
     var prevScrollpos = window.scrollY;

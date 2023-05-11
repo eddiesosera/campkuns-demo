@@ -10,15 +10,17 @@ function AccountRouteCont() {
             inActive: ['ri-layout-grid-line', '#685c55']
         },
         {
-            path: '/account/single-view',
-            active: ['ri-layout-bottom-2-fill', '#fbd0b8'],
-            inActive: ['ri-layout-bottom-2-line', '#685c55']
+
+            path: '/account/gala-view',
+            active: ['ri-box-2-fill', '#fbd0b8'],
+            inActive: ['ri-box-2-line', '#685c55']
         },
         {
             path: '/account/gala-view',
             active: ['ri-collage-fill', '#fbd0b8'],
             inActive: ['ri-collage-line', '#685c55']
-        }
+        },
+
     ]
 
 
@@ -37,13 +39,13 @@ function AccountRouteCont() {
     return (
         <div style={{ height: '50px', borderTop: '1px solid #292929', borderBottom: '1px solid #292929', display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
             {/* <NavLink style={{ textDecoration: 'none' }} to='/account/grid-view'>
-                <i class="ri-layout-grid-line" style={{ fontSize: '20px', color: '#685c55' }}></i>
+                <i className="ri-layout-grid-line" style={{ fontSize: '20px', color: '#685c55' }}></i>
             </NavLink>
             <NavLink to='/account/single-view'>
-                <i class="ri-layout-bottom-2-line" style={{ fontSize: '20px', color: '#685c55' }}></i>
+                <i className="ri-layout-bottom-2-line" style={{ fontSize: '20px', color: '#685c55' }}></i>
             </NavLink >
             <NavLink to='/account/gala-view'>
-                <i class="ri-collage-line" style={{ fontSize: '20px', color: '#685c55' }}></i>
+                <i className="ri-collage-line" style={{ fontSize: '20px', color: '#685c55' }}></i>
             </NavLink> */}
             {
                 accRoutes.map((route) =>

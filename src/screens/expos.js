@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 
 function Expos() {
 
+    //Show Navbar
+    document.querySelector('#app_nav_wrap').style.display = 'block'
+
     return (
         <div style={{ maxWidth: '470px', width: '100vw', margin: 'auto auto', }}>
             <div className="wrap" style={{

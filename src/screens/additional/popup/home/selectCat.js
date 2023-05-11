@@ -21,7 +21,7 @@ function SelectCategory({ display }) {
     //STYLE 
     const activedCat =
     {
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        display: 'flex', alignItems: 'center', justifyContent: 'center', userSelect: 'none',
         width: 'fit-content', height: '36px', padding: '0 15px', border: '2px solid #E55C17',
         margin: '5px', color: '#E55C17', borderRadius: '12px', fontFamily: 'Poppins',
         fontWeight: '600', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
@@ -29,7 +29,7 @@ function SelectCategory({ display }) {
 
     const inActivedCat =
     {
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        display: 'flex', alignItems: 'center', justifyContent: 'center', userSelect: 'none', cursor: 'pointer',
         width: 'fit-content', height: '36px', padding: '0 15px', border: '1px solid #464646',
         margin: '5px', color: '#9D9D9D', borderRadius: '12px', fontFamily: 'Poppins',
         fontWeight: '600', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
@@ -88,7 +88,7 @@ function SelectCategory({ display }) {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        console.log('fetching Data with', selectedFilter)
+        //console.log('fetching Data with', selectedFilter)
         //   fetchData(selectedFilter).then((data)=>{
         //     setPosts(data)
         //   }).catch((err)=>{
@@ -107,7 +107,7 @@ function SelectCategory({ display }) {
             <div className="" style={linkStyle}>
 
                 <div id="cat_pinIcon" style={topBarStyle}>
-                    <i class={toggle ? 'ri-pushpin-fill' : 'ri-pushpin-line'} style={
+                    <i className={toggle ? 'ri-pushpin-fill' : 'ri-pushpin-line'} style={
                         toggle ? {
                             fontSize: '24px', fontWeight: '500',
                             color: '#FFE7D9', backgroundColor: '#292929', height: '45px', width: '45px',

@@ -34,7 +34,7 @@ function AccountTopSection() {
 
                             <div className='artworks statVal' style={{ display: 'flex', alignItems: 'center' }}>
                                 <div className='stats-label' style={{ color: '#685c55', fontFamily: 'Montserrat', fontSize: '18px', fontWeight: '400', marginRight: '5px' }}>
-                                    <i class="ri-layout-bottom-2-fill"></i>
+                                    <i className="ri-layout-bottom-2-fill"></i>
                                 </div>
                                 <div className='stats-val' style={{ fontFamily: 'Roboto Mono, monospace', color: '#fef3ec', fontSize: '14px', fontWeight: '500' }}>
                                     4
@@ -42,7 +42,7 @@ function AccountTopSection() {
                             </div>
                             <div className='followers statVal' style={{ display: 'flex', alignItems: 'center' }}>
                                 <div className='stats-label' style={{ color: '#685c55', fontFamily: 'Montserrat', fontSize: '18px', fontWeight: '400', marginRight: '5px' }}>
-                                    <i class="ri-user-received-fill"></i>
+                                    <i className="ri-user-received-fill"></i>
                                 </div>
                                 <div className='stats-val' style={{ fontFamily: 'Roboto Mono, monospace', color: '#fef3ec', fontSize: '14px', fontWeight: '500' }}>
                                     50
@@ -50,7 +50,7 @@ function AccountTopSection() {
                             </div>
                             <div className='followers statVal' style={{ display: 'flex', alignItems: 'center' }}>
                                 <div className='stats-label' style={{ color: '#685c55', fontFamily: 'Montserrat', fontSize: '18px', fontWeight: '400', marginRight: '5px' }}>
-                                    <i class="ri-user-shared-fill"></i>
+                                    <i className="ri-user-shared-fill"></i>
                                 </div>
                                 <div className='stats-val' style={{ fontFamily: 'Roboto Mono, monospace', color: '#fef3ec', fontSize: '14px', fontWeight: '500' }}>
                                     30

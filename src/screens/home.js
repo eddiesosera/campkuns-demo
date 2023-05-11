@@ -8,12 +8,17 @@ import { Form } from "antd";
 import Moments from "./additional/components/moments";
 import { SimlarPicks } from "./additional/components/similarPicks";
 import BottomBar from "../components/bottomBar";
+import { Loader } from "./additional/components/loader";
 
 
 function Home() {
     const [posts, setPosts] = useState([])
     const [user, setUser] = useState([])
     const [latestpost, setLatestPost] = useState('')
+    const [loaderTgl, setLoaderTgl] = useState(true)
+
+    //Show Navbar
+    document.querySelector('#app_nav_wrap').style.display = 'block'
 
     //Posts
     useEffect(() => {
@@ -23,6 +28,10 @@ function Home() {
                 console.log(result.data.results);
                 setPosts(result.data.results);
                 setLatestPost(result.data.results)
+
+                setTimeout(() => {
+                    setLoaderTgl(false)
+                }, 1000);
             })
             .catch((error) => console.log(error));
     }, [
@@ -49,13 +58,17 @@ function Home() {
 
             <TopBar />
 
+            <div style={{ display: loaderTgl ? 'block' : 'none' }}>
+                <Loader />
+            </div>
+
             <Moments />
 
-            <div className="posts-wrap" style={{ padding: '10px 0', overflow: 'none', height: 'fit-content' }}>
+            <div className="posts-wrap" style={{ padding: '10px 0', overflow: 'none', height: 'fit-content' }} >
                 {posts?.map((post, i) => {
                     return (
                         <>
-                            <PostCard post={post} user={user} />
+                            <PostCard key='' post={post} user={user} />
                             {/* <PostCard post={post} /> */}
                             <hr style={{ border: '0.5px solid #2B2928', maxWidth: '470px', width: '90vw', margin: '30px auto' }} />
                         </>

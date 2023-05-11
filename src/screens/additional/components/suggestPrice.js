@@ -31,7 +31,7 @@ function SuggestPrice({ display, Img, title, price, hide, submit }) {
                 flexWrap: 'wrap', justifyContent: 'center', marginBottom: '-20px', zIndex: '99', marginLeft: '10px', cursor: 'pointer'
             }}>
 
-                < i class="ri-close-line" style={{
+                < i className="ri-close-line" style={{
                     color: '#FFE7D9', padding: '5px', fontSize: '18px', backgroundColor: '#232323', display: 'flex',
                     borderRadius: '50px', border: '0.75px solid #363636', height: '40px', justifyContent: 'center',
                     alignItems: 'center'
@@ -57,7 +57,7 @@ function SuggestPrice({ display, Img, title, price, hide, submit }) {
                             {title}
                         </div>
                         <div className='artMeta-price-wrap' style={{ fontFamily: 'Roboto Condensed' }}>
-                            <i class="ri-price-tag-3-fill" style={{ fontSize: '18px', marginRight: '5px' }}></i>
+                            <i className="ri-price-tag-3-fill" style={{ fontSize: '18px', marginRight: '5px' }}></i>
                             R{price}
                         </div>
                     </div>

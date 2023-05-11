@@ -4,25 +4,36 @@ import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import LogIn from "./login";
 import campkunsLogo from '../../../data/static/assets/campkuns-logo-draft1.svg'
+import { message } from "antd";
 
 function CreateAccount() {
 
     const [formData, setFormData] = useState({});
     const navigate = useNavigate();
+    const [password, setPassword] = useState('')
+    const [repassword, setRePassword] = useState('')
 
-    const handleSubmit = () => {
+    const createAccount = () => {
         setFormData({ ...formData })
         axios
-            .post("http://10.0.0.106:5000/v1/users", formData)
+            .post("http://10.0.0.106:5000/v1/auth/register", formData)
             .then((result) => {
-                console.log(result.data.results);
+                console.log(result);
                 setFormData({})
-                alert('Suceessful login')
-                navigate('/account')
+                alert('Welcome')
+                navigate('/')
+
+                const token = result.data.tokens.access.token
+                const user = result.data.user
+
+                localStorage.setItem('token', token)
+                localStorage.setItem('isLoggedIn', 'true')
+                localStorage.setItem('user', JSON.stringify(user))
             })
             .catch((error) => {
-                alert('Error loggin in...');
-
+                alert(error.response.data.message);
+                console.log(error)
+                console.log(formData);
             }
             );
     }
@@ -42,10 +53,10 @@ function CreateAccount() {
                             <form style={{ display: 'flex', flexDirection: 'column', alignContent: 'center', justifyContent: 'center', padding: '0 20px' }}>
 
                                 <div>
-                                    <input style={{ height: '45px', width: '100%', borderRadius: '12px', border: '2px solid #33302E', background: 'none', color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500', padding: '15px', outline: 'none', marginBottom: '15px' }} type="text" placeholder="username" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-                                    <input style={{ height: '45px', width: '100%', borderRadius: '12px', border: '2px solid #33302E', background: 'none', color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500', padding: '15px', outline: 'none', marginBottom: '15px' }} type="email" placeholder="email" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
-                                    <input style={{ height: '45px', width: '100%', borderRadius: '12px', border: '2px solid #33302E', background: 'none', color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500', padding: '15px', outline: 'none', marginBottom: '15px' }} type="password" placeholder="password" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-                                    <input style={{ height: '45px', width: '100%', borderRadius: '12px', border: '2px solid #33302E', background: 'none', color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500', padding: '15px', outline: 'none' }} type="password" placeholder="Re-enter password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+                                    <input style={{ height: '45px', width: '100%', borderRadius: '12px', border: '2px solid #33302E', background: 'none', color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500', padding: '15px', outline: 'none', marginBottom: '15px' }} type="text" placeholder="Username" onChange={(e) => { setFormData({ ...formData, username: e.target.value }); setFormData({ ...formData, name: e.target.value }) }} />
+                                    <input style={{ height: '45px', width: '100%', borderRadius: '12px', border: '2px solid #33302E', background: 'none', color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500', padding: '15px', outline: 'none', marginBottom: '15px' }} type="email" placeholder="Email" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                                    <input style={{ height: '45px', width: '100%', borderRadius: '12px', border: '2px solid #33302E', background: 'none', color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500', padding: '15px', outline: 'none', marginBottom: '15px' }} type="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value); }} />
+                                    <input style={{ height: '45px', width: '100%', borderRadius: '12px', border: '2px solid #33302E', background: 'none', color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500', padding: '15px', outline: 'none' }} type="password" placeholder="Re-enter password" onChange={(e) => { setFormData({ ...formData, password: e.target.value }) }} />
                                 </div>
 
                                 <div style={{ display: 'flex', flexWrap: 'wrap', margin: '20px 0', fontSize: '11px', color: '#555555', fontFamily: 'neue-haas-grotesk-text', textDecoration: 'none', userSelect: 'none' }}>
@@ -56,8 +67,10 @@ function CreateAccount() {
                                 <button onClick={
                                     (e) => {
                                         e.preventDefault()
+                                        createAccount()
                                         console.log(formData)
                                         // logInUser()
+                                        setFormData({ ...formData })
                                     }
 
                                 } style={{ background: '#F3761C', color: '#FFE7D9', height: '45px', width: '100%', border: 'none', borderRadius: '12px', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', marginTop: '20px' }}>

@@ -13,6 +13,7 @@ function LogIn() {
     const [colorMain, setColorMain] = useState('#33302E');
     const [colorBg, setColorBg] = useState('none');
     const [rememberTgl, setRememberTgl] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         console.log('')
@@ -57,6 +58,8 @@ function LogIn() {
                 localStorage.setItem('token', token)
                 localStorage.setItem('isLoggedIn', 'true')
                 localStorage.setItem('user', JSON.stringify(user))
+
+                navigate('/')
 
             })
             .catch((error) => {
@@ -108,10 +111,10 @@ function LogIn() {
 
                                 <button onClick={
                                     (e) => {
+                                        accessLogin()
                                         e.preventDefault()
                                         console.log(formData)
                                         // logInUser()
-                                        accessLogin()
                                     }
 
                                 } style={{ background: '#F3761C', color: '#FFE7D9', height: '45px', width: '100%', border: 'none', borderRadius: '12px', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', marginTop: '20px' }}>Log in</button>
