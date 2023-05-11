@@ -25,10 +25,14 @@ function CreateAccount() {
 
                 const token = result.data.tokens.access.token
                 const user = result.data.user
+                const username = result.data.user.name
+
 
                 localStorage.setItem('token', token)
                 localStorage.setItem('isLoggedIn', 'true')
                 localStorage.setItem('user', JSON.stringify(user))
+                localStorage.setItem('username', username)
+
             })
             .catch((error) => {
                 alert(error.response.data.message);
@@ -84,7 +88,7 @@ function CreateAccount() {
                     <div style={{ position: 'absolute', bottom: '0px', borderTop: 'solid 0.5px #343434', width: '90vw', maxWidth: '470px', padding: '30px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '13px' }}>
                         <div style={{ marginBottom: '15px' }}>
                             <Link style={{ color: '#FFE7D9', textDecoration: 'none', fontWeight: '500', fontFamily: 'Poppins', }} to="/login">
-                                Login Instead
+                                Login instead
                             </Link>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'center' }}>

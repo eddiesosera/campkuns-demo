@@ -2,32 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { SimlarPicks } from '../../additional/components/similarPicks'
 import axios from 'axios';
 
-function AccountGridView() {
+function AccountGridView({ myPosts }) {
     //Show Navbar
-    document.querySelector('#app_nav_wrap').style.display = 'block'
+    //document.querySelector('#app_nav_wrap').style.display = 'block'
 
-    const [myPosts, setMyPosts] = useState([])
 
-    let config = {
-        method: 'get',
-        maxBodyLength: Infinity,
-        url: 'http://10.0.0.106:5000/v1/posts/my-account',
-        headers: {
-            'Content-Type': 'application/json',
-            'authorization': `Bearer ${window.localStorage.getItem('token')}`
-        },
-    };
-
-    useEffect(() => {
-        axios.request(config)
-            .then((response) => {
-                console.log(response.data);
-                setMyPosts(response.data.results)
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, [myPosts])
 
 
     return (

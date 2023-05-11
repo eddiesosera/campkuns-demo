@@ -36,7 +36,7 @@ function Account() {
 
     return (
         <div style={{ maxWidth: '470px', width: '100vw', margin: '0 auto' }}>
-            <AccountTopSection />
+            <AccountTopSection account={myPosts} />
             <AccountRouteCont />
             <div style={{}}>
 

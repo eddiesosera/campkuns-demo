@@ -18,7 +18,7 @@ function Home() {
     const [loaderTgl, setLoaderTgl] = useState(true)
 
     //Show Navbar
-    document.querySelector('#app_nav_wrap').style.display = 'block'
+    //document.querySelector('#app_nav_wrap').style.display = 'block'
 
     //Posts
     useEffect(() => {

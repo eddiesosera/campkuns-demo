@@ -38,15 +38,7 @@ function AccountRouteCont() {
 
     return (
         <div style={{ height: '50px', borderTop: '1px solid #292929', borderBottom: '1px solid #292929', display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
-            {/* <NavLink style={{ textDecoration: 'none' }} to='/account/grid-view'>
-                <i className="ri-layout-grid-line" style={{ fontSize: '20px', color: '#685c55' }}></i>
-            </NavLink>
-            <NavLink to='/account/single-view'>
-                <i className="ri-layout-bottom-2-line" style={{ fontSize: '20px', color: '#685c55' }}></i>
-            </NavLink >
-            <NavLink to='/account/gala-view'>
-                <i className="ri-collage-line" style={{ fontSize: '20px', color: '#685c55' }}></i>
-            </NavLink> */}
+
             {
                 accRoutes.map((route) =>
                     <NavLink style={{ textDecoration: 'none' }} to={route.path} >

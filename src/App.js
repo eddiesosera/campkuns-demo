@@ -22,12 +22,14 @@ import Error404 from './screens/404';
 import AccountSingleView from './screens/myaccount/route/accSingleView';
 import Gala from './screens/myaccount/route/Gala';
 import { path } from 'animejs';
+import axios from 'axios';
 
 function App() {
 
   const [i, setI] = useState(0)
   const [navDisplay, setNavDisplay] = useState('none');
   const [no, setNo] = useState(0)
+  const [myPosts, setMyPosts] = useState([])
 
   //Hide nav
   useEffect(() => {
@@ -40,17 +42,29 @@ function App() {
 
   }, [i])
 
-  // document.querySelector('body').addEventListener('click', () => {
-  //   setI(i + 1)
-  //   for (let x = 0; x < 3; x++) {
-  //     if (x < 3) {
-  //       setI(i + 1)
-  //     } else if (x === 3) {
-  //       x = 0
-  //       alert('rendered 3 times')
-  //     }
-  //   }
-  // });
+  let config = {
+    method: 'get',
+    maxBodyLength: Infinity,
+    url: 'http://10.0.0.106:5000/v1/posts/my-account',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `Bearer ${window.localStorage.getItem('token')}`
+    },
+  };
+
+  useEffect(() => {
+    axios.request(config)
+      .then((response) => {
+        console.log(response.data.results);
+
+        setMyPosts(response.data.results)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [myPosts, i])
+
+
 
   return (
     <div className="App" onClick={(e) => { setI(i + 1); setTimeout(() => { setI(i + 1) }, 2500); }} onLoadedData={(e) => { setI(i + 1) }} >
@@ -63,7 +77,7 @@ function App() {
           <Route path="/upload" element={<PrivateRoute><UploadArt /></PrivateRoute>} />
           <Route path="/engage" element={<PrivateRoute><Engage /></PrivateRoute>} />
           <Route path="/account" element={<PrivateRoute><Account /></PrivateRoute>} >
-            <Route path="grid-view" index element={<AccountGridView />} />
+            <Route path="grid-view" index element={<AccountGridView myPosts={myPosts} />} />
             <Route path="single-view" element={<AccountSingleView />} />
             <Route path="gala-view" element={<Gala />} />
           </Route>

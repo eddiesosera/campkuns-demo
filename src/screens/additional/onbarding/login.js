@@ -54,10 +54,12 @@ function LogIn() {
             .then((response) => {
                 const token = response.data.tokens.access.token
                 const user = response.data.user
+                const username = response.data.user.name
 
                 localStorage.setItem('token', token)
                 localStorage.setItem('isLoggedIn', 'true')
                 localStorage.setItem('user', JSON.stringify(user))
+                localStorage.setItem('username', username)
 
                 navigate('/')
 
@@ -124,17 +126,18 @@ function LogIn() {
                     </div>
 
                     <div style={{ position: 'absolute', bottom: '0px', borderTop: 'solid 0.5px #343434', width: '90vw', maxWidth: '470px', padding: '40px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '13px' }}>
-                        <div style={{ marginBottom: '15px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '15px' }}>
+
+                            <Link style={{ color: '#FFE7D9', textDecoration: 'none', fontWeight: '500', fontFamily: 'Poppins', }} to="/create">
+                                Join Campkuns
+                            </Link>
+                        </div>
+                        <div style={{}}>
                             <Link style={{ color: '#FFE7D9', textDecoration: 'none', fontWeight: '500', fontFamily: 'Poppins', }} to="/forgotPassword">
                                 I forgot my password
                             </Link>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
 
-                            <Link style={{ color: '#FFE7D9', textDecoration: 'none', fontWeight: '500', fontFamily: 'Poppins', }} to="/create">
-                                Join Campkuns.
-                            </Link>
-                        </div>
                     </div>
 
                 </div>
