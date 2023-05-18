@@ -110,7 +110,7 @@ function BottomBar() {
 
             {navPage.map(
                 (screen) =>
-                    <NavLink to={screen.href} style={screen.link} >
+                    <NavLink to={screen.href} style={screen.link} onClick={(e) => { window.location.reload(); window.location.replace(screen.href) }} >
                         <div key='' className={screen.class_name} style={screen.wrap_style} onClick={page}>
                             <i
                                 className={window.location.pathname === screen.href ? screen.icon.active : screen.icon.inActive}

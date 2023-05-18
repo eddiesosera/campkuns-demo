@@ -45,7 +45,7 @@ function App() {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: 'http://10.0.0.106:5000/v1/posts/my-account',
+    url: 'http://10.0.0.106:5000/v1/posts/my-account?sortBy=createdAt:desc',
     headers: {
       'Content-Type': 'application/json',
       'authorization': `Bearer ${window.localStorage.getItem('token')}`
@@ -67,7 +67,9 @@ function App() {
 
 
   return (
-    <div className="App" onClick={(e) => { setI(i + 1); setTimeout(() => { setI(i + 1) }, 2500); }} onLoadedData={(e) => { setI(i + 1) }} >
+    <div className="App"
+    // onClick={(e) => { setI(i + 1); setTimeout(() => { setI(i + 1) }, 2500); }} onLoadedData={(e) => { setI(i + 1) }} 
+    >
 
       <div id='appRoutes' style={{ transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}>
         <Routes >

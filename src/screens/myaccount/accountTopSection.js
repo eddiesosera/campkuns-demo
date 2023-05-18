@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 function AccountTopSection({ account }) {
 
     const isUserVerified = true
     console.log(localStorage.getItem('username'))
+
+    useEffect(() => {
+
+    }, [account])
 
     return (
         <div className='userAccNav-wrap'>
@@ -24,13 +28,13 @@ function AccountTopSection({ account }) {
             <div className='accContent' style={{ marginTop: '60px', background: 'rgba(30,30,30)', borderRadius: '0px 0px 0px 0px' }}>
                 <div className='userAccInfo' style={{ display: 'flex', padding: '0 20px' }}>
                     <img alt='profile' src='https://ucarecdn.com/d0989976-b3db-4d17-b2c6-3e41b45cf44d/'
-                        style={{ width: '120px', height: '120px', objectFit: 'cover', borderRadius: '100px', marginRight: '20px', border: 'solid 0.5px #2E2E2E' }}
+                        style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '100px', marginRight: '20px', border: 'solid 0.5px #2E2E2E' }}
                     />
                     <div className='userInfo-wrap' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div className='username'>
-                            <div style={{ color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '600' }}>{localStorage.getItem('username')}</div>
-                            <div style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '13px', fontWeight: '500', background: '#2d2b2b', padding: '3px 6px', borderRadius: '6px', width: 'fit-content', margin: '6px 0' }}>Artist</div>
-                            <div style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '12px', fontWeight: '500', marginTop: '10px' }}>NOW Gallery, Open Window</div>
+                            <div style={{ color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500' }}>{localStorage.getItem('username')}</div>
+                            <div style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '12px', fontWeight: '500', background: '#2d2b2b', padding: '3px 6px', borderRadius: '6px', width: 'fit-content', margin: '6px 0' }}>Artist</div>
+                            {/* <div style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '12px', fontWeight: '500', marginTop: '10px' }}>NOW Gallery, Open Window</div> */}
                         </div>
                         <div className='user-stats' style={{ display: 'flex', marginTop: '15px', width: '48vw', maxWidth: '290px', justifyContent: 'space-between' }}>
 
@@ -39,7 +43,6 @@ function AccountTopSection({ account }) {
                                     <i className="ri-layout-bottom-2-fill"></i>
                                 </div>
                                 <div className='stats-val' style={{ fontFamily: 'Roboto Mono, monospace', color: '#fef3ec', fontSize: '14px', fontWeight: '500' }}>
-
                                     {account?.length}
                                 </div>
                             </div>
@@ -48,7 +51,7 @@ function AccountTopSection({ account }) {
                                     <i className="ri-user-received-fill"></i>
                                 </div>
                                 <div className='stats-val' style={{ fontFamily: 'Roboto Mono, monospace', color: '#fef3ec', fontSize: '14px', fontWeight: '500' }}>
-                                    50
+                                    {account?.length * 5}
                                 </div>
                             </div>
                             <div className='followers statVal' style={{ display: 'flex', alignItems: 'center' }}>
@@ -56,19 +59,19 @@ function AccountTopSection({ account }) {
                                     <i className="ri-user-shared-fill"></i>
                                 </div>
                                 <div className='stats-val' style={{ fontFamily: 'Roboto Mono, monospace', color: '#fef3ec', fontSize: '14px', fontWeight: '500' }}>
-                                    30
+                                    {account?.length * 2}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className='userInteractionAndBio-wrap' style={{ marginTop: '30px', padding: '0 20px' }}>
-                    <div style={{ marginBottom: '40px', width: '100%', display: 'flex' }}>
-                        <button style={{ width: '65%', height: '45px', border: 'none', borderRadius: '12px', background: '#F3761C', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', color: '#FFE7D9', marginRight: '10px' }}>Following</button>
-                        <div style={{ height: '45px', width: '45px', background: '#272727', borderRadius: '12px', color: '#EFE8E8', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px', marginRight: '10px' }}>< i class="ri-hand-heart-line"></i></div>
-                        <div style={{ height: '45px', width: '45px', background: '#272727', borderRadius: '12px', color: '#EFE8E8', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px' }}>< i class="ri-mail-line"></i></div>
+                <div className='userInteractionAndBio-wrap' style={{ marginTop: '20px', padding: '0 20px' }}>
+                    <div style={{ marginBottom: '20px', width: '100%', display: 'flex' }}>
+                        {/* <button style={{ width: '65%', height: '45px', border: 'none', borderRadius: '12px', background: '#F3761C', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', color: '#FFE7D9', marginRight: '10px' }}>Following</button> */}
+                        <div style={{ height: '45px', width: '45px', background: '#272727', borderRadius: '12px', color: '#EFE8E8', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px', marginRight: '10px' }}>< i class="ri-hand-heart-fill"></i></div>
+                        <div style={{ height: '45px', width: 'fit-content', background: '#272727', borderRadius: '12px', color: '#EFE8E8', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px', padding: '0 15px' }}>< i style={{ marginRight: '10px' }} class="ri-mail-fill"></i><div style={{ fontSize: '14px', fontFamily: 'Poppins', fontWeight: '500' }}>Edit Contacts</div> </div>
                     </div>
-                    <div className='userInteractive-bio' style={{ paddingBottom: '40px', display: 'flex', textAlign: 'center', color: '#6C6C6C', fontFamily: 'neue-haas-grotesk-text', fontSize: '13px' }}>I’m a designer and dev/design student interested in collabs with like-minded peers.</div>
+                    <div className='userInteractive-bio' style={{ paddingBottom: '20px', display: 'flex', textAlign: 'center', color: '#6C6C6C', fontFamily: 'neue-haas-grotesk-text', fontSize: '13px' }}>Hi I'm {localStorage.getItem('username')}</div>
                 </div>
             </div>
         </div >

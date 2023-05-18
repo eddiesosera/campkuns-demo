@@ -37,7 +37,7 @@ function PostCard({ post, user, optionsScrll }) {
   };
   const suggestDefault = {
     fontSize: '14px', color: colorOffSuggest[0], border: colorOffSuggest[1], fontFamily: 'Poppins', fontWeight: '500',
-    padding: '15px 10px', borderRadius: '9px', height: '40px', marginLeft: '15px', cursor: 'pointer',
+    padding: '15px 10px', borderRadius: '9px', height: '40px', marginRight: '10px', cursor: 'pointer',
     width: 'fit-content', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.5s cubic-bezier(0.87, 0, 0.13, 1) 0s'
   }
   const detailsDefault = {
@@ -166,10 +166,10 @@ function PostCard({ post, user, optionsScrll }) {
           <img src={post?.images[0]}
             alt="profile" style={{ height: '40px', width: '40px', objectFit: 'cover', borderRadius: '50%', border: '1px solid #2E2E2E' }} />
           <div className="postCard-top-left-wrap" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 10px' }}>
-            <div className="postCard-top-left-name" style={{ display: 'flex', fontWeight: '600', marginBottom: '3px', color: '#fef3ec', fontFamily: 'Montserrat' }}>
+            <div className="postCard-top-left-name" style={{ display: 'flex', alignItems: 'center', fontWeight: '500', fontSize: '14px', marginBottom: '3px', color: '#fef3ec', fontFamily: 'Montserrat' }}>
               {post?.user?.name}
-              <div className="userVerification" style={{ marginLeft: '5px', color: '#2294d7' }}>
-                {post?.user?.isUserVerified ? <svg style={{ color: '#2294d7', background: '#fef3ec', borderRadius: '100px' }} width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className="userVerification" style={{ marginLeft: '3px', color: '#2294d7' }}>
+                {post?.user?.isUserVerified ? <svg style={{ color: '#2294d7', background: '#fef3ec', borderRadius: '100px' }} width="9" height="9" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M4.86937 0.468323C5.4938 -0.156108 6.5062 -0.156108 7.13063 0.468323L7.6001 0.937795C7.825 1.16269 8.13003 1.28904 8.44808 1.28904H9.11201C9.99509 1.28904 10.711 2.00491 10.711 2.88799V3.55192C10.711 3.86997 10.8373 4.175 11.0622 4.3999L11.5317 4.86937C12.1561 5.4938 12.1561 6.5062 11.5317 7.13063L11.0622 7.6001C10.8373 7.825 10.711 8.13003 10.711 8.44808V9.11201C10.711 9.99509 9.99509 10.711 9.11201 10.711H8.44808C8.13003 10.711 7.825 10.8373 7.6001 11.0622L7.13063 11.5317C6.5062 12.1561 5.4938 12.1561 4.86937 11.5317L4.3999 11.0622C4.175 10.8373 3.86998 10.711 3.55192 10.711H2.88799C2.00491 10.711 1.28903 9.99509 1.28903 9.11201V8.44807C1.28903 8.13002 1.16269 7.825 0.937792 7.6001L0.468323 7.13063C-0.156108 6.5062 -0.156108 5.4938 0.468323 4.86937L0.937793 4.3999C1.16269 4.175 1.28903 3.86998 1.28903 3.55193V2.88799C1.28903 2.00491 2.00491 1.28904 2.88799 1.28904H3.55192C3.86998 1.28904 4.175 1.16269 4.3999 0.937795L4.86937 0.468323ZM8.38379 4.00131L5.32179 7.06364L3.67287 5.41471L3.20184 5.88574L5.32179 8.00569L8.85515 4.47233L8.38379 4.00131Z" fill="#ed6d22" />
                 </svg> : ''}
               </div>
@@ -177,7 +177,7 @@ function PostCard({ post, user, optionsScrll }) {
             <div style={{ display: 'flex' }}>
 
 
-              <div className="postCard-top-left-date" style={{ fontFamily: 'Roboto Mono, monospace', fontSize: '12px', color: '#848484', display: 'flex', fontWeight: '400' }}>
+              <div className="postCard-top-left-date" style={{ fontFamily: 'Inter', fontSize: '11px', color: '#848484', display: 'flex', fontWeight: '400' }}>
                 {/* Day */}
                 {post?.uploadedDate.slice(8, 9) === '0' ? post?.uploadedDate.slice(9, 10) : post?.uploadedDate.slice(8, 10)}
                 {/* Month */}
@@ -188,12 +188,12 @@ function PostCard({ post, user, optionsScrll }) {
                 {/* Year */}
                 {post?.uploadedDate.slice(0, 4)}
               </div>
-              <div style={{ fontSize: '12px', color: '#848484', display: 'flex', fontWeight: '600', margin: '0 6px' }}>
+              <div style={{ fontSize: '12px', color: '#848484', display: 'flex', fontWeight: '400', margin: '0 6px' }}>
                 ·
               </div>
               <div style={{
                 fontSize: '8px', color: '#848484', display: 'flex', justifyContent: 'center', alignItems: 'center',
-                fontWeight: '500', background: '#2d2b2b', padding: '2px 5px', borderRadius: '4px'
+                fontWeight: '500', background: '#2d2b2b', padding: '2px 5px', borderRadius: '4px', fontFamily: 'Inter'
               }}>
                 Best Seller
               </div>
@@ -236,7 +236,7 @@ function PostCard({ post, user, optionsScrll }) {
 
         <div className="postCard-content-artcover-meta-wrap"
           style={{
-            position: 'relative', bottom: '-0.2.9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999px', marginTop: '-100%', zIndex: 1,
+            position: 'relative', bottom: '-0.1.9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999px', marginTop: '-100%', zIndex: 1,
             width: '93vw', maxWidth: '470px', height: '93vw', maxHeight: '470px', overflow: 'clip', backdropFilter: 'grayscale(90%)',
             display: detailsShow, flexDirection: 'column', justifyContent: 'space-between', fontFamily: 'Roboto',
             backgroundColor: 'rgba(12,10,9,0.8)', padding: '15px', transition: 'backdrop-filter 5s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
@@ -342,7 +342,7 @@ function PostCard({ post, user, optionsScrll }) {
       <div className="postCard-bottom-interaction-wrap"
         style={{ backgroundColor: '#262626', height: 'fit-content', borderRadius: '0 0 15px 15px' }}>
         <div className="postCard-bottom-title" style={{
-          padding: '20px 15px', height: 'fit-content', fontFamily: 'Montserrat', color: '#fef3ec',
+          padding: '20px 15px', height: 'fit-content', fontFamily: 'Montserrat', color: '#fef3ec', fontSize: '15px',
           fontWeight: '600', width: '100%', overflowY: 'clip', maxHeight: '55px', paddingBottom: '20px'
         }} onClick={e => setOptionTgl(false)}>
           {post?.title}
@@ -351,24 +351,25 @@ function PostCard({ post, user, optionsScrll }) {
           display: 'flex', justifyContent: 'space-between',
           padding: '20px 15px', paddingBottom: '20px'
         }}>
+
           <div className="postCard-bottom-interactions-left" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 
+            <button className="postCard-bottom-interactions-suggestPrice" style={suggestDefault} onClick={clickedSuggest}>
+              <i className='ri-shopping-bag-2-fill' onClick={clickedSuggest} style={{
+                // marginRight: '10px', 
+                fontSize: '20px'
+              }}></i>
+              {/* Add Item */}
+            </button>
+
             <div style={{ height: '40px', width: '40px', borderRadius: '9px' }}>
-              <div className="likeContainer" style={{
-                height: '40px', width: '40px', borderRadius: '9px', transition: 'all 0.5s cubic-bezier(0.5, 0.55, 0.70, 0.35)',
-                color: colorOff[0], border: colorOff[1], background: colorOff[3]
-              }}>
+              <div className="likeContainer" style={{ height: '40px', width: '40px', borderRadius: '9px', transition: 'all 0.5s cubic-bezier(0.5, 0.55, 0.70, 0.35)', color: colorOff[0], border: colorOff[1], background: colorOff[3] }}>
                 <i className={colorOff[2]} style={buttonDefault} onClick={clickedAgree}></i>
               </div>
-
-
             </div>
 
-            <button className="postCard-bottom-interactions-suggestPrice" style={suggestDefault} onClick={clickedSuggest}>
-              {/* <i className='ri-shopping-bag-2-fill' onClick={clickedSuggest} style={{ marginRight: '10px', fontSize: '20px' }}></i> */}
-              Add Item
-            </button>
           </div>
+
           <button className="postCard-bottom-interactions-right-less" style={detailsDefault} onClick={clickDetails}>
             {seeDetails}
           </button>

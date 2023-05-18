@@ -16,7 +16,7 @@ function Account() {
     let config = {
         method: 'get',
         maxBodyLength: Infinity,
-        url: 'http://10.0.0.106:5000/v1/posts/my-account',
+        url: 'http://10.0.0.106:5000/v1/posts/my-account?sortBy=createdAt:desc',
         headers: {
             'Content-Type': 'application/json',
             'authorization': `Bearer ${window.localStorage.getItem('token')}`
@@ -39,7 +39,6 @@ function Account() {
             <AccountTopSection account={myPosts} />
             <AccountRouteCont />
             <div style={{}}>
-
                 <Link to='grid-view'></Link>
                 <Link to='single-view'></Link>
                 <Link to='gala-view'></Link>

@@ -6,7 +6,7 @@ export const SimlarPicks = () => {
         <div style={{ width: '100%', padding: '15px 20px', background: '#1E1E1E', borderRadius: '12px', marginBottom: '20px' }}>
             <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
                 <i className='ri-close-line header-icon'></i>
-                <div className='' style={{ fontSize: '20px', fontWeight: '600', fontFamily: 'Poppins', color: '#9D9D9D', margin: '0 auto', paddingRight: '30px' }}>Similar Picks</div>
+                <div className='' style={{ fontSize: '20px', fontWeight: '600', fontFamily: 'Poppins', color: '#685c55', margin: '0 auto', paddingRight: '30px' }}>Similar Picks</div>
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import LogIn from "./login";
 import campkunsLogo from '../../../data/static/assets/campkuns-logo-draft1.svg'
 import { message } from "antd";
+import { LoaderTrans } from "../components/loader";
 
 function CreateAccount() {
 
@@ -12,11 +13,12 @@ function CreateAccount() {
     const navigate = useNavigate();
     const [password, setPassword] = useState('')
     const [repassword, setRePassword] = useState('')
+    const [submitTgl, setSubmitTgl] = useState(false)
 
     const createAccount = () => {
         setFormData({ ...formData })
         axios
-            .post("http://10.0.0.106:5000/v1/auth/register", formData)
+            .post("http://10.0.0.106:5000:5000/v1/auth/register", formData)
             .then((result) => {
                 console.log(result);
                 setFormData({})
@@ -27,11 +29,12 @@ function CreateAccount() {
                 const user = result.data.user
                 const username = result.data.user.name
 
-
                 localStorage.setItem('token', token)
                 localStorage.setItem('isLoggedIn', 'true')
                 localStorage.setItem('user', JSON.stringify(user))
                 localStorage.setItem('username', username)
+
+                window.location.reload()
 
             })
             .catch((error) => {
@@ -75,10 +78,12 @@ function CreateAccount() {
                                         console.log(formData)
                                         // logInUser()
                                         setFormData({ ...formData })
+                                        setSubmitTgl(true)
                                     }
 
-                                } style={{ background: '#F3761C', color: '#FFE7D9', height: '45px', width: '100%', border: 'none', borderRadius: '12px', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', marginTop: '20px' }}>
-                                    Join Campkuns
+                                } style={{ background: '#F3761C', color: '#FFE7D9', height: '45px', width: '100%', border: 'none', borderRadius: '12px', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', marginTop: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <div style={{ display: submitTgl ? 'none' : 'block' }}>Join Campkuns</div>
+                                    <div style={{ display: submitTgl ? 'block' : 'none' }}><LoaderTrans /></div>
                                 </button>
 
                             </form>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 //import campkunsLogo from '../data/static/assets/campkuns-logo-draft1.svg'
 import campkunsLogo from '../../../data/static/assets/campkuns-logo-draft1.svg'
+import { LoaderTrans } from "../components/loader";
 // import axios from 'a?xios';
 
 function LogIn() {
@@ -13,6 +14,7 @@ function LogIn() {
     const [colorMain, setColorMain] = useState('#33302E');
     const [colorBg, setColorBg] = useState('none');
     const [rememberTgl, setRememberTgl] = useState(false)
+    const [submitTgl, setSubmitTgl] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -61,7 +63,10 @@ function LogIn() {
                 localStorage.setItem('user', JSON.stringify(user))
                 localStorage.setItem('username', username)
 
+                window.location.reload()
                 navigate('/')
+
+                setSubmitTgl(true)
 
             })
             .catch((error) => {
@@ -117,9 +122,13 @@ function LogIn() {
                                         e.preventDefault()
                                         console.log(formData)
                                         // logInUser()
+                                        setSubmitTgl(true)
                                     }
 
-                                } style={{ background: '#F3761C', color: '#FFE7D9', height: '45px', width: '100%', border: 'none', borderRadius: '12px', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', marginTop: '20px' }}>Log in</button>
+                                } style={{ background: '#F3761C', color: '#FFE7D9', height: '45px', width: '100%', border: 'none', borderRadius: '12px', fontFamily: 'Poppins', fontWeight: '600', fontSize: '14px', marginTop: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                    <div style={{ display: submitTgl ? 'none' : 'block' }}>Log in</div>
+                                    <div style={{ display: submitTgl ? 'block' : 'none' }}><LoaderTrans /></div>
+                                </button>
 
                             </form>
                         </div>
