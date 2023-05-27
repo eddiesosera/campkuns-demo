@@ -11,7 +11,7 @@ function AccountTopSection({ account }) {
 
     return (
         <div className='userAccNav-wrap'>
-            <div className='userAccTop-navInfo' style={{ zIndex: '2', display: 'flex', height: '60px', width: '100vw', maxWidth: '470px', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(30, 30, 30, 0.98)', backdropFilter: 'blur(6px)', position: 'fixed', top: '0', padding: '0 20px' }}>
+            <div className='userAccTop-navInfo' style={{ zIndex: '2', display: 'flex', height: '60px', width: '100vw', maxWidth: '470px', alignItems: 'center', justifyContent: 'space-between', background: 'rgba(30, 30, 30, 0.96)', backdropFilter: 'blur(6px)', position: 'fixed', top: '0', padding: '0 20px' }}>
                 <i className='ri-arrow-left-line' style={{ fontSize: '24px', color: '#685c55' }}></i>
                 <div className='userAcc' style={{ display: 'flex', alignItems: 'center' }}>
                     <div style={{
@@ -27,20 +27,20 @@ function AccountTopSection({ account }) {
 
             <div className='accContent' style={{ marginTop: '60px', background: 'rgba(30,30,30)', borderRadius: '0px 0px 0px 0px' }}>
                 <div className='userAccInfo' style={{ display: 'flex', padding: '0 20px' }}>
-                    <img alt='profile' src='https://ucarecdn.com/d0989976-b3db-4d17-b2c6-3e41b45cf44d/'
+                    <img alt='profile' src='https://ucarecdn.com/3cfda29f-3620-4ce6-b488-7f0757853c6d/'
                         style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '100px', marginRight: '20px', border: 'solid 0.5px #2E2E2E' }}
                     />
                     <div className='userInfo-wrap' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div className='username'>
                             <div style={{ color: '#fef3ec', fontFamily: 'Montserrat', fontSize: '14px', fontWeight: '500' }}>{localStorage.getItem('username')}</div>
-                            <div style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '12px', fontWeight: '500', background: '#2d2b2b', padding: '3px 6px', borderRadius: '6px', width: 'fit-content', margin: '6px 0' }}>Artist</div>
+                            <div style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '12px', fontWeight: '500', background: 'none', padding: '3px 6px', border: 'solid 1px #2d2b2b', borderRadius: '6px', width: 'fit-content', margin: '6px 0' }}>Photographer</div>
                             {/* <div style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '12px', fontWeight: '500', marginTop: '10px' }}>NOW Gallery, Open Window</div> */}
                         </div>
                         <div className='user-stats' style={{ display: 'flex', marginTop: '15px', width: '48vw', maxWidth: '290px', justifyContent: 'space-between' }}>
 
                             <div className='artworks statVal' style={{ display: 'flex', alignItems: 'center' }}>
                                 <div className='stats-label' style={{ color: '#685c55', fontFamily: 'Montserrat', fontSize: '18px', fontWeight: '400', marginRight: '5px' }}>
-                                    <i className="ri-layout-bottom-2-fill"></i>
+                                    <i className="ri-layout-grid-fill"></i>
                                 </div>
                                 <div className='stats-val' style={{ fontFamily: 'Roboto Mono, monospace', color: '#fef3ec', fontSize: '14px', fontWeight: '500' }}>
                                     {account?.length}

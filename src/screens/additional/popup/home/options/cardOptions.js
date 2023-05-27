@@ -28,7 +28,7 @@ function CardOptions({ cardTag, post }) {
         let config = {
             method: 'delete',
             maxBodyLength: Infinity,
-            url: 'http://10.0.0.106:5000/v1/posts/' + post?.id,
+            url: 'http://192.168.9.15:5000/v1/posts/' + post?.id,
             headers: {
                 'Content-Type': 'application/json',
                 // 'authorization': `Bearer ${localStorage.getItem('token')}`

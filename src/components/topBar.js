@@ -67,12 +67,11 @@ function TopBar(e) {
 
                 <div className="topBar-container" id="topBar-container" style={topBarStyle}>
 
-                    <Link to="/" style={{
-                        margin: '0 auto', textDecoration: 'none', fontFamily: 'Montserrat', fontSize: '11px', fontWeight: '500',
-                        display: 'flex', justifyContent: 'center', color: '#848484'
-                    }}>
-                        <img src={campkunsLogo} alt="logo" />beta
+                    <Link to="/" style={{ margin: '0 auto', textDecoration: 'none', fontFamily: 'Montserrat', fontSize: '11px', fontWeight: '500', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', color: '#685c55' }}>
+                        <img src={campkunsLogo} alt="logo" /><div style={{ color: '' }}></div>beta
                     </Link>
+
+                    <i class="ri-shopping-bag-2-line" style={{ color: '#685c55', fontSize: '24px', cursor: 'pointer' }}></i>
 
                 </div>
 

@@ -45,7 +45,7 @@ function App() {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: 'http://10.0.0.106:5000/v1/posts/my-account?sortBy=createdAt:desc',
+    url: 'http://192.168.8.100:5000/v1/posts/my-account?sortBy=createdAt:desc',
     headers: {
       'Content-Type': 'application/json',
       'authorization': `Bearer ${window.localStorage.getItem('token')}`
@@ -67,7 +67,7 @@ function App() {
 
 
   return (
-    <div className="App"
+    <div className="App" style={{ overflow: 'clip' }}
     // onClick={(e) => { setI(i + 1); setTimeout(() => { setI(i + 1) }, 2500); }} onLoadedData={(e) => { setI(i + 1) }} 
     >
 

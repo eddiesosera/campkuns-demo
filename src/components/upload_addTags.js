@@ -30,8 +30,11 @@ export default function UploadAddTags({ tagList }) {
                         e.preventDefault()
                         console.log(tagsList)
                         setTagVal('')
-                        setExpSessTags(tagsList.map((tag) => tag.tag))
-                        sessionStorage.setItem('tags', expSessTags)
+
+                        // Send array to parent
+                        const rmvEmpty = tagsList.filter(tagFll => tagFll.tag !== '')
+                        tagList(rmvEmpty.map((tags) => tags.tag))
+
                     } else { return null }
 
                 }}>
@@ -48,7 +51,12 @@ export default function UploadAddTags({ tagList }) {
                                 <i onClick={e => {
                                     for (let i = 0; i < tagsList.length; i++) {
                                         tagItem.tag === tagsList[i].tag ? tagsList[i].tag = '' : tagsList[i].key = null
-                                    }
+                                    };
+
+                                    //Removing empty array
+                                    const rmvEmpty2 = tagsList.filter(tagFll => tagFll.tag !== '')
+                                    tagList(rmvEmpty2.map((tags) => tags.tag))
+
                                 }} className='ri-close-line deleteTag-icon'></i>
                             </div>
                         </li> : null

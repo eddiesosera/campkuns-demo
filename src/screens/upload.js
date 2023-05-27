@@ -36,7 +36,7 @@ function UploadArt() {
             // formData.user = user
 
             axios
-                .post("http://10.0.0.106:5000/v1/posts", formData, {
+                .post("http://192.168.8.100:5000/v1/posts", formData, {
 
                     headers: {
                         'Content-Type': 'application/json',
@@ -76,6 +76,12 @@ function UploadArt() {
         }, 10)
     }
 
+    // Get list from tags
+    const getTags = (tags) => {
+        console.log('tags LIST is: ' + tags);
+        setFormData({ ...formData, tags: tags })
+    }
+
     useEffect(() => {
         titleInput === 'a' && alert('no t')
     }, [i])
@@ -96,7 +102,7 @@ function UploadArt() {
 
     const priceProg = (e) => {
 
-        setFormData({ ...formData, price: e.target.value * 1.2 })
+        setFormData({ ...formData, price: e.target.value * 1.1 })
 
 
         if (priceTgl && document.querySelector('.uploadPrice').value !== '') {
@@ -196,7 +202,7 @@ function UploadArt() {
                     <div style={{ padding: '20px' }}
                     //onChange={(e) => { setFormData({ ...formData, tags: [sessTag] }); }}
                     >
-                        <UploadAddTags />
+                        <UploadAddTags tagList={getTags} />
                     </div>
 
                     <div className="submit-btnWrap">

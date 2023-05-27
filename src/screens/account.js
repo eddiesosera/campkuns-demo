@@ -16,7 +16,7 @@ function Account() {
     let config = {
         method: 'get',
         maxBodyLength: Infinity,
-        url: 'http://10.0.0.106:5000/v1/posts/my-account?sortBy=createdAt:desc',
+        url: 'http://192.168.8.100:5000/v1/posts/my-account?sortBy=createdAt:desc',
         headers: {
             'Content-Type': 'application/json',
             'authorization': `Bearer ${window.localStorage.getItem('token')}`

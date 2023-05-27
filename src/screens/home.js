@@ -23,7 +23,7 @@ function Home() {
     //Posts
     useEffect(() => {
         axios
-            .get("http://10.0.0.106:5000/v1/posts?sortBy=createdAt:desc")
+            .get("http://192.168.8.100:5000/v1/posts?sortBy=createdAt:desc")
             .then((result) => {
                 console.log(result.data.results);
                 setPosts(result.data.results);
@@ -72,7 +72,7 @@ function Home() {
                         <>
                             <PostCard key='' post={post} user={user} />
                             {/* <PostCard post={post} /> */}
-                            <hr style={{ border: '0.5px solid #2B2928', maxWidth: '470px', width: '100vw', margin: '20px auto' }} />
+                            <hr style={{ border: '0.3px solid #2B2928', maxWidth: '470px', width: '100vw', margin: '20px auto' }} />
                         </>
                     )
                 })}

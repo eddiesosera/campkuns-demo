@@ -41,7 +41,7 @@ function PostCard({ post, user, optionsScrll }) {
     width: 'fit-content', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.5s cubic-bezier(0.87, 0, 0.13, 1) 0s'
   }
   const detailsDefault = {
-    fontSize: '14px', color: colorDetails[0], border: colorDetails[1], fontFamily: 'Poppins', fontWeight: '500',
+    fontSize: '12px', color: colorDetails[0], border: colorDetails[1], fontFamily: 'Poppins', fontWeight: '600',
     padding: '10px', borderRadius: '9px', width: '75px', height: '40px', marginLeft: '15px', cursor: 'pointer',
     display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.5s cubic-bezier(0.87, 0, 0.13, 1) 0s'
   };
@@ -137,6 +137,11 @@ function PostCard({ post, user, optionsScrll }) {
   document.querySelector('body').onscroll = () => {
     setOptionTgl(false);
   }
+
+  //Price round down, remove decimal
+  let priceVal = post?.price;
+  let price = priceVal.toFixed(2)
+
 
 
   return (
@@ -333,7 +338,7 @@ function PostCard({ post, user, optionsScrll }) {
         }}>
 
           R
-          <div style={{ marginLeft: '2.5px' }}>{post?.price}</div>
+          <div style={{ marginLeft: '2.5px' }}>{price}</div>
 
         </div>
       </div>
@@ -342,7 +347,7 @@ function PostCard({ post, user, optionsScrll }) {
       <div className="postCard-bottom-interaction-wrap"
         style={{ backgroundColor: '#262626', height: 'fit-content', borderRadius: '0 0 15px 15px' }}>
         <div className="postCard-bottom-title" style={{
-          padding: '20px 15px', height: 'fit-content', fontFamily: 'Montserrat', color: '#fef3ec', fontSize: '15px',
+          padding: '15px 15px', height: 'fit-content', fontFamily: 'Montserrat', color: '#fef3ec', fontSize: '15px',
           fontWeight: '600', width: '100%', overflowY: 'clip', maxHeight: '55px', paddingBottom: '20px'
         }} onClick={e => setOptionTgl(false)}>
           {post?.title}
