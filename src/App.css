@@ -1,6 +1,6 @@
 .popUp-heading {
     font-size: 24px;
-    font-family: 'Poppins';
+    font-family: 'Hanken Grotesk';
     font-weight: 600;
 
     color: #FFE7D9;
@@ -25,9 +25,9 @@ html {
 }
 
 .header-text {
-    font-size: 20px;
-    font-weight: 600;
-    font-family: 'Poppins';
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Hanken Grotesk';
 
     color: #FFE7D9;
 }
@@ -74,4 +74,12 @@ button {
     font-weight: 600;
     font-size: 14px;
 
+}
+
+#noiseOverlay {
+    mix-blend-mode: overlay;
+    position: fixed;
+    z-index: -1;
+    height: 100%;
+    top: 0;
 }

@@ -9,6 +9,7 @@ import { Moments } from "./additional/components/moments";
 import { SimlarPicks } from "./additional/components/similarPicks";
 import BottomBar from "../components/bottomBar";
 import { Loader } from "./additional/components/loader";
+import { NavLink } from "react-router-dom";
 
 
 function Home() {
@@ -23,7 +24,7 @@ function Home() {
     //Posts
     useEffect(() => {
         axios
-            .get("http://192.168.8.100:5000/v1/posts?sortBy=createdAt:desc")
+            .get("http://192.168.8.107:5000/v1/posts?sortBy=createdAt:desc")
             .then((result) => {
                 console.log(result.data.results);
                 setPosts(result.data.results);
@@ -114,7 +115,12 @@ function Home() {
 
             </div>
 
-
+            {/* Link to Explore */}
+            <NavLink to="/explore">
+                <div style={{ position: 'fixed', zIndex: '100', height: 'fit-content', width: 'fit-content', padding: '10px 15px', color: '#ed6d22', background: '#151515', bottom: '0', right: '0', marginRight: '20px', marginBottom: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '12px' }}>
+                    <i style={{ color: '#ed6d22', fontSize: '24px' }} class="ri-planet-fill"></i> <div style={{ marginLeft: '5px', fontSize: '16px', fontFamily: 'Hanken Grotesk' }}>Explore</div>
+                </div>
+            </NavLink>
 
             <div style={{ paddingBottom: '10px' }}></div>
         </div>

@@ -9,7 +9,7 @@
 
     padding: 10px;
 
-    font-family: 'Montserrat';
+    font-family: 'Hanken Grotesk';
 
     display: flex;
     align-items: center;
@@ -75,7 +75,7 @@
 
     width: fit-content;
 
-    font-family: 'Montserrat';
+    font-family: 'Hanken Grotesk';
 }
 
 .newTag-txt {

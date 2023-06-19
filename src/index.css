@@ -8,6 +8,8 @@ body {
   background-color: #100f0e;
   /* #080808 DARK BLACK */
   overflow-x: hidden;
+
+  transition: all 0.2s cubic-bezier(0.5, 0.55, 0.7, 0.35) 0s;
 }
 
 html {
@@ -20,5 +22,6 @@ code {
 }
 
 .active {
-  color: #fbd0b8 !important;
+  color: #ed6d22 !important;
+  /* #ed6d22 */
 }

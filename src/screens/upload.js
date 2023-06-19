@@ -36,7 +36,7 @@ function UploadArt() {
             // formData.user = user
 
             axios
-                .post("http://192.168.8.100:5000/v1/posts", formData, {
+                .post("http://192.168.8.107:5000/v1/posts", formData, {
 
                     headers: {
                         'Content-Type': 'application/json',
@@ -158,8 +158,8 @@ function UploadArt() {
                 <form style={{ display: 'flex', flexDirection: 'column', color: 'black' }}>
 
                     <div style={{ padding: '20px' }}>
-                        <div style={{ display: 'flex', fontFamily: 'Montserrat', fontWeight: '500', fontSize: '14px', color: '#FFE7D9', marginBottom: '15px' }}>
-                            <div>Images</div>
+                        <div style={{ display: 'flex', fontFamily: 'Archive Narrow', fontWeight: '400', fontSize: '14px', color: '#FFE7D9', marginBottom: '15px' }}>
+                            <div>IMAGES</div>
                             <div style={{ marginLeft: '5px', fontWeight: '400', color: '#4D4845' }}>(7 Images max)</div>
                         </div>
 
@@ -184,12 +184,15 @@ function UploadArt() {
                     </div>
 
                     <div style={{ padding: '20px' }}>
+                        <div style={{ display: 'flex', fontFamily: 'Archive Narrow', fontWeight: '400', fontSize: '14px', color: '#FFE7D9', marginBottom: '15px' }}>
+                            <div>DETAILS</div>
+                            <div style={{ marginLeft: '5px', fontWeight: '400', color: '#4D4845' }}>(* required)</div>
+                        </div>
                         <input className="uploadTitle uploadInput" style={{ marginBottom: '10px', padding: "15px" }} type="text" placeholder='Title' onChange={e => titleProg(e)} required />
-                        <textarea style={{ height: '90px', marginBottom: '10px', padding: "15px", resize: 'none' }} className="uploadDescription uploadInput" type="text" placeholder='Description' onChange={(e) => setFormData({ ...formData, description: e.target.value })} ></textarea>
                         <div style={{ display: 'flex', marginBottom: '10px', gap: '10px' }}>
-                            <div style={{ width: '70%' }}>
-                                <input className="uploadPrice uploadInput" style={{ fontFamily: 'Roboto Mono, monospace', padding: "15px", fontWeight: '550 !important' }} type="number" placeholder='Price' onChange={e => priceProg(e)} required />
-                                <div style={{ fontSize: '12px', fontFamily: 'Roboto', color: '#4D4845', marginTop: '10px', marginLeft: '15px' }}><i>1 - 100 000</i></div>
+                            <div style={{ width: '120%' }}>
+                                <input className="uploadPrice uploadInput" style={{ fontFamily: 'Hanken Grotesk', padding: "15px", fontWeight: '550 !important' }} type="number" placeholder='Price (between 1-100k)' onChange={e => priceProg(e)} required />
+
                             </div>
 
                             <select className="uploadInput" style={{ padding: '0 15px' }} required onChange={(e) => setFormData({ ...formData, category: e.target.value })}>
@@ -197,9 +200,10 @@ function UploadArt() {
                                 {categories.map((label) => <option>{label.value}</option>)}
                             </select>
                         </div>
+                        <textarea style={{ height: '90px', marginBottom: '10px', padding: "15px", resize: 'none' }} className="uploadDescription uploadInput" type="text" placeholder='Description' onChange={(e) => setFormData({ ...formData, description: e.target.value })} ></textarea>
                     </div>
 
-                    <div style={{ padding: '20px' }}
+                    <div style={{ padding: '0 20px' }}
                     //onChange={(e) => { setFormData({ ...formData, tags: [sessTag] }); }}
                     >
                         <UploadAddTags tagList={getTags} />

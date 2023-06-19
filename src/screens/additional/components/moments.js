@@ -12,8 +12,8 @@ export const Moments = () => {
     const [momentsList, setMomentsList] = useState([
         {
             user: {
-                username: 'eddie',
-                name: 'Eddie',
+                username: 'jeffkoons',
+                name: 'jeff',
                 profile_imageURL: 'https://f4.bcbits.com/img/0029532954_10.jpg',
             },
             content_banner: 'https://i.pinimg.com/564x/3b/1f/33/3b1f33ac496be068a477361ab18dcbe8.jpg',
@@ -93,39 +93,39 @@ export const Moments = () => {
     ])
 
     return (
-        <div style={{ padding: '10px', width: '100vw', maxWidth: '470px', margin: '0 auto', borderBottom: '0.3px solid #333333', marginTop: '10px', overflow: 'clip', flexWrap: 'wrap' }}>
+        <div style={{ padding: '10px 15px', width: '100vw', maxWidth: '470px', margin: '0 auto', borderBottom: '0.3px solid #333333', marginTop: '10px', overflow: 'clip', flexWrap: 'wrap' }}>
             <MomentScreen mmntSwtch={mmntSwitch} mmntTgl={mmntTgl} />
-            <div style={{ fontFamily: 'Poppins', fontWeight: '500', display: 'flex', color: '#685c55', margin: '10px 0', marginBottom: '20px' }}>
+            <div style={{ fontFamily: 'Hanken Grotesk', fontWeight: '500', display: 'flex', color: '#FFE7D9', margin: '10px 0', marginBottom: '20px' }}>
                 <i class='ri-sparkling-fill' style={{ marginRight: '10px' }} ></i>
-                Where-its-At
+                <div>What's Happening</div>
             </div>
             <div className='moment-wrap' style={{ width: '99%', maxWidth: '470px', margin: '10px auto', overflowY: 'scroll', marginTop: '10px', display: 'flex', gap: '15px' }}>
                 <div >
-                    <div style={{ height: '240px', width: '140px', border: '2px solid #685c55', borderRadius: '15px', background: 'linear-gradient(180deg, #202020 10%, rgba(30, 30, 30, 0) 100%)', backdropFilter: 'grayscale(70%)' }}>
+                    <div style={{ height: '140px', width: '140px', border: '1px solid #685c55', borderRadius: '15px', background: 'linear-gradient(180deg, #202020 10%, rgba(30, 30, 30, 0) 100%)', backdropFilter: 'grayscale(70%)' }}>
                         <div o className='userMoment-wrap-overlay' style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', padding: '10px' }}>
                             <img src='https://fastly.picsum.photos/id/342/2896/1944.jpg?hmac=_2cYDHi2iG1XY53gvXOrhrEWIP5R5OJlP7ySYYCA0QA' alt='mimg' style={{ height: '20px', width: '20px', background: 'gray', borderRadius: '100px' }} />
-                            <div style={{ fontFamily: 'Montserrat', fontSize: '12px', fontWeight: '500', color: '#FFE7D9', marginLeft: '5px' }}>
+                            <div style={{ fontFamily: 'Archive Narrow', fontSize: '12px', fontWeight: '400', color: '#FFE7D9', marginLeft: '5px' }}>
                                 {localStorage.getItem('username')}
                             </div>
                         </div>
                     </div>
-                    <div style={{ marginTop: '-240px' }}>
-                        <div style={{ height: '234px', width: '134px', margin: '3px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', color: 'white', fontFamily: 'Poppins', fontSize: '14px', fontWeight: '500' }} >
+                    <div style={{ marginTop: '-140px' }}>
+                        <div style={{ height: '134px', width: '134px', margin: '3px', borderRadius: '12px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', color: 'white', fontFamily: 'Hanken Grotesk', fontSize: '14px', fontWeight: '500' }} >
                             < i style={{ fontSize: '30px', zIndex: '1', color: '#ed6d22' }} class="ri-add-line"></i><br />
-                            <div style={{ color: '#ed6d22', marginTop: '-10px' }}>My moment</div>
+                            <div style={{ color: '#ed6d22', marginTop: '-10px' }}>Add moment</div>
                         </div>
                     </div>
                 </div>
                 {momentsList.map((moment) => {
                     return (
                         <div onClick={mmntSwitch} style={{ cursor: 'pointer' }}>
-                            <div style={{ height: '240px', width: '140px', border: '2px solid #ed6d22', borderRadius: '15px', background: 'linear-gradient(180deg, #202020 10%, rgba(30, 30, 30, 0) 100%)', backdropFilter: 'grayscale(70%)' }}>
+                            <div style={{ height: '140px', width: '140px', border: '2px solid #ed6d22', borderRadius: '15px', background: 'linear-gradient(180deg, #202020 10%, rgba(30, 30, 30, 0) 100%)', backdropFilter: 'grayscale(70%)' }}>
                                 <div className='userMoment-wrap-overlay' style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center', padding: '10px' }}>
                                     <img src={moment.user.profile_imageURL} alt='mimg' style={{ height: '20px', width: '20px', background: 'gray', borderRadius: '100px' }} />
-                                    <div style={{ fontFamily: 'Montserrat', fontSize: '12px', fontWeight: '500', color: '#FFE7D9', marginLeft: '5px' }}>{moment.user.username}</div>
+                                    <div style={{ fontFamily: 'Archive Narrow', fontSize: '12px', fontWeight: '400', color: '#FFE7D9', marginLeft: '5px' }}>{moment.user.username}</div>
                                 </div>
                             </div>
-                            <div style={{ marginTop: '-240px' }}><img src={moment.content_banner} alt='moment' style={{ height: '234px', width: '134px', margin: '3px', objectFit: 'cover', borderRadius: '12px' }} /></div>
+                            <div style={{ marginTop: '-140px' }}><img src={moment.content_banner} alt='moment' style={{ height: '134px', width: '134px', margin: '3px', objectFit: 'cover', borderRadius: '12px' }} /></div>
 
                         </div>
                     )

@@ -22,17 +22,17 @@ function SelectCategory({ display }) {
     const activedCat =
     {
         display: 'flex', alignItems: 'center', justifyContent: 'center', userSelect: 'none',
-        width: 'fit-content', height: '36px', padding: '0 15px', border: '2px solid #E55C17',
-        margin: '5px', color: '#E55C17', borderRadius: '12px', fontFamily: 'Poppins', backgroundColor: '#261c18',
-        fontWeight: '600', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
+        width: 'fit-content', height: '36px', padding: '0 15px', border: '1px solid #E55C17',
+        margin: '5px', color: '#E55C17', borderRadius: '8px', fontFamily: 'Hanken Grotesk', backgroundColor: '#261c18',
+        fontWeight: '500', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
     };
 
     const inActivedCat =
     {
         display: 'flex', alignItems: 'center', justifyContent: 'center', userSelect: 'none', cursor: 'pointer',
-        width: 'fit-content', height: '36px', padding: '0 15px', border: '1px solid #464646',
-        margin: '5px', color: '#9D9D9D', borderRadius: '12px', fontFamily: 'Poppins',
-        fontWeight: '600', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
+        width: 'fit-content', height: '36px', padding: '0 15px', border: '0.5px solid #464646',
+        margin: '5px', color: '#9D9D9D', borderRadius: '8px', fontFamily: 'Hanken Grotesk',
+        fontWeight: '500', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
     };
 
     const CategoryOptions = {
@@ -40,8 +40,8 @@ function SelectCategory({ display }) {
         justifyContent: 'flex-start', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
     }
 
-    const inActSort = { userSelect: 'none', color: '#9D9D9D', fontFamily: 'Poppins', fontWeight: '600', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)', listStyleType: 'none', border: '1px solid #464646', padding: '9px 12px', borderRadius: '12px', width: '100%', display: 'flex', justifyContent: 'center', cursor: 'pointer' };
-    const actSort = { userSelect: 'none', color: '#E55C17', fontFamily: 'Poppins', fontWeight: '600', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)', listStyleType: 'none', border: '2px solid #E55C17', padding: '9px 12px', borderRadius: '12px', backgroundColor: '#261c18', width: '100%', display: 'flex', justifyContent: 'center', cursor: 'pointer' };
+    const inActSort = { userSelect: 'none', color: '#9D9D9D', fontFamily: 'Hanken Grotesk', fontWeight: '500', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)', listStyleType: 'none', border: '0.5px solid #464646', padding: '9px 12px', borderRadius: '8px', width: '', display: 'flex', justifyContent: 'center', cursor: 'pointer' };
+    const actSort = { userSelect: 'none', color: '#E55C17', fontFamily: 'Hanken Grotesk', fontWeight: '500', fontSize: '12px', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)', listStyleType: 'none', border: '1px solid #E55C17', padding: '9px 12px', borderRadius: '8px', backgroundColor: '#261c18', width: '', display: 'flex', justifyContent: 'center', cursor: 'pointer' };
 
 
 
@@ -85,7 +85,7 @@ function SelectCategory({ display }) {
     { label: ' Photography', value: 'Photography' }, { label: 'Paint', value: 'Paint' },
     { label: 'Digital Design', value: 'Digital Design' }, { label: 'Installation', value: 'Installation' },
     { label: 'Sculptures', value: 'Sculptures' }, { label: '3D Prints', value: '3D Prints' },
-    { label: 'New Media Art', value: 'New Media Art' }, { label: 'Explore Other Categories >', value: 'Explore Other Categories >' }]
+    { label: 'New Media Art', value: 'New Media Art' }, { label: 'Explore Various Categories', value: 'Explore Various Categories' }]
 
     const sortings = [{ label: 'All', sortFunction: 'function' }, { label: 'Top', sortFunction: 'function' }, { label: 'New', sortFunction: 'function' }]
 
@@ -111,18 +111,18 @@ function SelectCategory({ display }) {
 
 
             <div className="" style={linkStyle}>
-
+                {/* Pin Icon colour: #FFE7D9 */}
                 <div id="cat_pinIcon" style={topBarStyle}>
                     <i className={toggle ? 'ri-pushpin-fill' : 'ri-pushpin-line'} style={
                         toggle ? {
-                            fontSize: '24px', fontWeight: '500',
-                            color: '#FFE7D9', backgroundColor: '#292929', height: '45px', width: '45px',
+                            fontSize: '24px', fontWeight: '100',
+                            color: '#ed6d22', backgroundColor: '#2c2f30', height: '45px', width: '45px',
                             display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9px',
                             cursor: 'pointer', position: 'absolute', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
                         } : {
                             fontSize: '24px', fontWeight: '500', height: '45px', width: '45px',
                             display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '9px',
-                            cursor: 'pointer', position: 'absolute', color: '#685c55', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
+                            cursor: 'pointer', position: 'absolute', color: '#e8b297', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)'
                         }
                     }
                         onClick={openCat}></i>
@@ -131,7 +131,7 @@ function SelectCategory({ display }) {
             </div>
 
             <div className="selectCategory-wrap" style={{ display: showCat, backgroundColor: '#151515f7', borderTop: '1px solid #303030', backdropFilter: 'blur(10px)', borderRadius: '0 0 15px 15px', paddingBottom: '2px', position: 'fixed', transition: 'all 0.9s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}>
-                <div className="selectCategory-top-sec" style={{ display: 'flex', fontSize: '30px', padding: '15px 15px 15px 15px', alignItems: 'center', justifyContent: 'space-between', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}>
+                <div className="selectCategory-top-sec" style={{ display: 'flex', fontFamily: 'Hanken Grotesk', fontSize: '30px', padding: '15px 15px 15px 15px', alignItems: 'center', justifyContent: 'space-between', transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}>
                     <div className="popUp-heading">
                         Select Category
                     </div>
@@ -139,18 +139,18 @@ function SelectCategory({ display }) {
                 </div>
                 <div className="selectCategory-bottom-sec">
                     <ul className="selectCategory-options" style={CategoryOptions}>
-                        {filters.map((filter, i) => <li className="filter" key={filter.value} style={filter.value === selectedFilter ? activeCat : inActivedCat} onClick={() => setSelectedFilter(filter.value)}>{filter.label}</li>)}
+                        {filters.map((filter, i) => <li className="filter" key={filter.value} style={filter.value === selectedFilter ? activedCat : inActivedCat} onClick={() => setSelectedFilter(filter.value)}>{filter.label}</li>)}
                     </ul>
                 </div>
                 <div style={{ padding: '0 20px' }}>
-                    <hr style={{ border: '0.25px solid #272727', margin: '0' }} />
+                    <hr style={{ border: '0.2px solid #272727', margin: '0' }} />
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', userSelect: 'none', padding: '20px 0px' }}>
                         <div style={{ padding: '10px 15px', background: '#E55C17', borderRadius: '12px', fontFamily: 'Poppins', marginRight: '20px' }}>
-                            <Link style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }} to="/search">
-                                <i class="ri-search-2-fill" style={{ color: '#FFE7D9' }}></i><div style={{ color: '#FFE7D9', fontSize: '13px', fontWeight: 500, marginLeft: '5px' }}>Search</div>
+                            <Link style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', color: 'black' }} to="/search">
+                                <i class="ri-search-2-line" style={{}}></i><div style={{ fontSize: '13px', fontWeight: 500, marginLeft: '5px' }}>Search</div>
                             </Link>
                         </div>
-                        <ul style={{ padding: '0', margin: '0', display: 'flex', gap: '12px', width: '100%' }}>
+                        <ul style={{ padding: '0', margin: '0', display: 'flex', gap: '12px', width: '100%', justifyContent: 'flex-end' }}>
                             {sortings.map((sort) => <li style={sort.label === selectedSort ? actSort : inActSort} onClick={() => setSelectedSort(sort.label)}>{sort.label}</li>)}
                         </ul>
                     </div>

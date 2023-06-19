@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import AccountTopSection from "./myaccount/accountTopSection";
 import { Link, Outlet, Route, Routes } from "react-router-dom";
 import PrivateRoute from "../PrivateRoute";
-import AccSingleView from "./myaccount/route/accSingleView";
+import AccSingleView from "./myaccount/route/accExhibitView";
 import AccountGridView from "./myaccount/route/accGridView";
-import Gala from "./myaccount/route/Gala";
+import Gala from "./myaccount/route/accStoriesView";
 import PublicRoute from "../PublicRoute";
 import AccountRouteCont from "./myaccount/accountRouteCont";
 import axios from "axios";
@@ -16,7 +16,7 @@ function Account() {
     let config = {
         method: 'get',
         maxBodyLength: Infinity,
-        url: 'http://192.168.8.100:5000/v1/posts/my-account?sortBy=createdAt:desc',
+        url: 'http://192.168.8.107:5000/v1/posts/my-account?sortBy=createdAt:desc',
         headers: {
             'Content-Type': 'application/json',
             'authorization': `Bearer ${window.localStorage.getItem('token')}`

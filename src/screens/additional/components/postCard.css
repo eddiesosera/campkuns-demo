@@ -3,6 +3,10 @@ button {
     background: none;
 }
 
+.postCard-top-right:hover {
+    cursor: pointer;
+}
+
 .slick-dots .slick-dots-bottom {
     bottom: -6px !important;
 }

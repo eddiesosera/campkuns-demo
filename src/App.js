@@ -19,10 +19,15 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import AccountGridView from './screens/myaccount/route/accGridView';
 import Error404 from './screens/404';
-import AccountSingleView from './screens/myaccount/route/accSingleView';
-import Gala from './screens/myaccount/route/Gala';
+import AccountSingleView from './screens/myaccount/route/accExhibitView';
+import Gala from './screens/myaccount/route/accStoriesView';
 import { path } from 'animejs';
 import axios from 'axios';
+import { Explore } from './screens/explore';
+import AccountEventsView from './screens/myaccount/route/accExhibitView';
+import AccountExhibitView from './screens/myaccount/route/accExhibitView';
+import AccountStoriesView from './screens/myaccount/route/accStoriesView';
+import { AccountCollectionsView } from './screens/myaccount/route/accCollectionsView';
 
 function App() {
 
@@ -34,7 +39,7 @@ function App() {
   //Hide nav
   useEffect(() => {
 
-    if (window.location.pathname === '/upload' || window.location.pathname === '/login' || window.location.pathname === '/create') {
+    if (window.location.pathname === '/upload' || window.location.pathname === '/login' || window.location.pathname === '/create' || window.location.pathname === '/explore') {
       setNavDisplay('none')
     } else {
       setNavDisplay('block')
@@ -45,7 +50,7 @@ function App() {
   let config = {
     method: 'get',
     maxBodyLength: Infinity,
-    url: 'http://192.168.8.100:5000/v1/posts/my-account?sortBy=createdAt:desc',
+    url: 'http://192.168.8.107:5000/v1/posts/my-account?sortBy=createdAt:desc',
     headers: {
       'Content-Type': 'application/json',
       'authorization': `Bearer ${window.localStorage.getItem('token')}`
@@ -71,17 +76,31 @@ function App() {
     // onClick={(e) => { setI(i + 1); setTimeout(() => { setI(i + 1) }, 2500); }} onLoadedData={(e) => { setI(i + 1) }} 
     >
 
+      {/* <svg id='noiseOverlay' viewBox='0 0 1500 1500' xmlns='http://www.w3.org/2000/svg'>
+        <filter id='noiseFilter'>
+          <feTurbulence
+            type='fractalNoise'
+            baseFrequency='0.65'
+            numOctaves='3'
+            stitchTiles='stitch' />
+        </filter>
+
+        <rect width='1500px' height='100%' filter='url(#noiseFilter)' />
+      </svg> */}
+
       <div id='appRoutes' style={{ transition: 'all 0.2s cubic-bezier(0.5, 0.55, 0.70, 0.35)' }}>
         <Routes >
-          <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
+          <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />\
+          <Route path='/explore' element={<PrivateRoute><Explore /></PrivateRoute>} />
           <Route path="/expos" element={<PrivateRoute><Expos /></PrivateRoute>} />
           <Route path="/search" element={<PrivateRoute><Search /></PrivateRoute>} />
           <Route path="/upload" element={<PrivateRoute><UploadArt /></PrivateRoute>} />
           <Route path="/engage" element={<PrivateRoute><Engage /></PrivateRoute>} />
           <Route path="/account" element={<PrivateRoute><Account /></PrivateRoute>} >
             <Route path="grid-view" index element={<AccountGridView myPosts={myPosts} />} />
-            <Route path="single-view" element={<AccountSingleView />} />
-            <Route path="gala-view" element={<Gala />} />
+            <Route path="exhibit-view" element={<AccountExhibitView />} />
+            <Route path="stories-view" element={<AccountStoriesView />} />
+            <Route path="collections-view" element={<AccountCollectionsView />} />
           </Route>
           <Route path="/create" element={<PublicRoute><CreateAccount /></PublicRoute>} />
           <Route path="/login" element={<PublicRoute><LogIn /></PublicRoute>} />

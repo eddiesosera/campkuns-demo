@@ -18,7 +18,7 @@ function CreateAccount() {
     const createAccount = () => {
         setFormData({ ...formData })
         axios
-            .post("http://192.168.8.100:5000/v1/auth/register", formData)
+            .post("http://192.168.8.107:5000/v1/auth/register", formData)
             .then((result) => {
                 console.log(result);
                 setFormData({})

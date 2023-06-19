@@ -28,7 +28,7 @@ function CardOptions({ cardTag, post }) {
         let config = {
             method: 'delete',
             maxBodyLength: Infinity,
-            url: 'http://192.168.9.15:5000/v1/posts/' + post?.id,
+            url: 'http://192.168.8.107:5000/v1/posts/' + post?.id,
             headers: {
                 'Content-Type': 'application/json',
                 // 'authorization': `Bearer ${localStorage.getItem('token')}`
@@ -112,7 +112,7 @@ function CardOptions({ cardTag, post }) {
                 {
                     optionList?.map((cardoption) => {
                         return (
-                            <li onClick={cardoption.function} className='cardOption-wrapper' style={{ cursor: 'pointer', display: 'flex', fontFamily: 'Poppins', alignItems: 'flex-start', userSelect: 'none', flexDirection: 'column' }}>
+                            <li onClick={cardoption.function} className='cardOption-wrapper' style={{ cursor: 'pointer', display: 'flex', fontSize: '16px', fontFamily: 'Hanken Grotesk', alignItems: 'flex-start', userSelect: 'none', flexDirection: 'column' }}>
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
                                     <i style={{ color: cardoption.color[0], fontSize: '22px', }} className={cardoption.icon}></i>
                                     <div style={{ marginLeft: '10px', height: '18px', display: 'flex', alignItems: 'center', fontWeight: '500', fontSize: '15px', color: cardoption.color[1] }}>

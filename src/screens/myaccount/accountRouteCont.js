@@ -6,23 +6,26 @@ function AccountRouteCont() {
     const accRoutes = [
         {
             path: '/account/grid-view',
-            active: ['ri-layout-grid-fill', '#fbd0b8'],
-            inActive: ['ri-layout-grid-line', '#685c55']
+            active: ['ri-layout-grid-fill', '#ed6d22'],
+            inActive: ['ri-layout-grid-line', '#ad9485']
         },
         {
 
-            path: '/account/gala-view',
-            active: ['ri-box-2-fill', '#fbd0b8'],
-            inActive: ['ri-box-2-line', '#685c55']
+            path: '/account/exhibit-view',
+            active: ['ri-box-2-fill', '#ed6d22'],
+            inActive: ['ri-box-2-line', '#ad9485']
         },
         {
-            path: '/account/gala-view',
-            active: ['ri-collage-fill', '#fbd0b8'],
-            inActive: ['ri-collage-line', '#685c55']
+            path: '/account/stories-view',
+            active: ['ri-sticky-note-fill', '#ed6d22'],
+            inActive: ['ri-sticky-note-line', '#ad9485']
         },
-
+        {
+            path: '/account/collections-view',
+            active: ['ri-collage-fill', '#ed6d22'],
+            inActive: ['ri-collage-line', '#ad9485']
+        },
     ]
-
 
     const currentPage = window.location.pathname
     const [selectedPage, setSelectedPage] = useState(accRoutes[0].path)

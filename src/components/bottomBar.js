@@ -16,12 +16,12 @@ function BottomBar() {
 
     //STYLE
     const bottomBarStyle = {
-        display: 'flex', justifyContent: "space-around",
-        alignItems: 'center', height: '60px', width: '100%', backgroundColor: '#151515', color: 'white',
-        fontFamily: 'Poppins', fontSize: '12px', fontWeight: '500', position: 'fixed', bottom: '0', zIndex: '99',
+        display: 'flex', justifyContent: "space-evenly",
+        alignItems: 'center', height: '54px', width: '100%', backgroundColor: '#151515', color: 'white',
+        fontFamily: 'Poppins', fontSize: '10px', fontWeight: '500', position: 'fixed', bottom: '0', zIndex: '99',
         borderTop: '0.75px solid #333333'
     };
-    const linkStyle = { textDecoration: 'none', textDecorationLine: 'none', color: '#685C55', transition: 'color 0.5s cubic-bezier(0.87, 0, 0.13, 1) 0s' }
+    const linkStyle = { textDecoration: 'none', textDecorationLine: 'none', color: '#ad9485', transition: 'color 0.5s cubic-bezier(0.87, 0, 0.13, 1) 0s' }
     const routeStyle = { display: 'flex', flexDirection: 'column', alignItems: 'center' };
 
 
@@ -57,12 +57,12 @@ function BottomBar() {
             title: '',
             // Upload
             icon: {
-                active: 'ri-add-circle-fill',
-                inActive: 'ri-add-circle-fill'
+                active: 'ri-add-box-fill',
+                inActive: 'ri-add-line'
             },
             link: linkStyle,
             wrap_style: routeStyle,
-            iconSize: '36px',
+            iconSize: '28px',
             class_name: 'navbar_upload',
         },
         {
