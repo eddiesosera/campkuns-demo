@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export const Moments = () => {
@@ -241,7 +241,7 @@ export const MomentScreen = ({ mmntSwtch, mmntTgl }) => {
   const [ldrAnime, setLdrAnime] = useState(0);
 
   const [dsplTgl, setDsplTgl] = useState(false);
-  useEffect(
+  useLayoutEffect(
     () => {
       if (mmntTgl) {
         setTimeout(() => {
@@ -254,16 +254,19 @@ export const MomentScreen = ({ mmntSwtch, mmntTgl }) => {
         if (ldrAnime <= 90) {
           setLdrAnime(ldrAnime + 10);
         }
-      }, 15);
+      }, 10);
     },
     [dsplTgl, mmntTgl, ldrAnime]
   );
 
-  useEffect(() => {
-    if (ldrAnime === 100 || mmntTgl === true) {
-      setLdrAnime(0);
-    }
-  }, []);
+  useLayoutEffect(
+    () => {
+      if (ldrAnime === 100 || mmntTgl === true) {
+        setLdrAnime(0);
+      }
+    },
+    [ldrAnime]
+  );
 
   return (
     <div
@@ -295,12 +298,12 @@ export const MomentScreen = ({ mmntSwtch, mmntTgl }) => {
           <div style={{ width: "100%", maxWidth: "470px", margin: "0 auto" }}>
             <div
               className="mmnt-topLoader-wrap"
-              style={{ height: "2px", borderRadius: "3px", width: "100%", background: "#333333", marginBottom: "15px" }}
+              style={{ height: "4px", borderRadius: "3px", width: "100%", background: "#333333", marginBottom: "15px" }}
             >
               <div
                 className="mmnt-topLoader-percent"
                 style={{
-                  height: "2px",
+                  height: "4px",
                   borderRadius: "4px",
                   width: ldrAnime + "%",
                   background: "white",
