@@ -11,12 +11,14 @@ import axios from "axios";
 
 function Account() {
 
+    const API_URL = process.env.REACT_APP_API
+
     const [myPosts, setMyPosts] = useState([])
 
     let config = {
         method: 'get',
         maxBodyLength: Infinity,
-        url: 'http://192.168.8.107:5000/v1/posts/my-account?sortBy=createdAt:desc',
+        url: API_URL+'/posts/my-account?sortBy=createdAt:desc',
         headers: {
             'Content-Type': 'application/json',
             'authorization': `Bearer ${window.localStorage.getItem('token')}`

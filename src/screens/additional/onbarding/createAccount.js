@@ -9,6 +9,8 @@ import { LoaderTrans } from "../components/loader";
 
 function CreateAccount() {
 
+    const API_URL = process.env.REACT_APP_API
+
     const [formData, setFormData] = useState({});
     const navigate = useNavigate();
     const [password, setPassword] = useState('')
@@ -18,7 +20,7 @@ function CreateAccount() {
     const createAccount = () => {
         setFormData({ ...formData })
         axios
-            .post("http://192.168.8.107:5000/v1/auth/register", formData)
+            .post(API_URL+"/auth/register", formData)
             .then((result) => {
                 console.log(result);
                 setFormData({})
