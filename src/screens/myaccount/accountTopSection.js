@@ -147,7 +147,13 @@ function AccountTopSection({ account }) {
               </div>
               <div
                 className="stats-val"
-                style={{ fontFamily: "Hanken Grotesk", color: "#fef3ec", fontSize: "14px", fontWeight: "400" }}
+                style={{
+                  fontFamily: "Hanken Grotesk",
+                  color: "#fef3ec",
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  userSelect: "none"
+                }}
               >
                 {account?.length * 5}
               </div>
@@ -155,13 +161,26 @@ function AccountTopSection({ account }) {
             <div className="followers statVal" style={{ display: "flex", alignItems: "center" }}>
               <div
                 className="stats-label"
-                style={{ color: "#fef3ec", fontFamily: "Montserrat", fontSize: "18px", fontWeight: "400", marginRight: "5px" }}
+                style={{
+                  color: "#fef3ec",
+                  fontFamily: "Montserrat",
+                  fontSize: "18px",
+                  fontWeight: "400",
+                  marginRight: "5px",
+                  userSelect: "none"
+                }}
               >
                 <i className="ri-user-shared-fill" />
               </div>
               <div
                 className="stats-val"
-                style={{ fontFamily: "Hanken Grotesk", color: "#fef3ec", fontSize: "14px", fontWeight: "400" }}
+                style={{
+                  fontFamily: "Hanken Grotesk",
+                  color: "#fef3ec",
+                  fontSize: "14px",
+                  fontWeight: "400",
+                  userSelect: "none"
+                }}
               >
                 {account?.length * 2}
               </div>
@@ -172,7 +191,8 @@ function AccountTopSection({ account }) {
             <div
               style={{
                 height: "45px",
-                width: "45px",
+                // width: "45px",
+                width: "fit-content",
                 background: "#272727",
                 borderRadius: "12px",
                 color: "#EFE8E8",
@@ -180,10 +200,14 @@ function AccountTopSection({ account }) {
                 justifyContent: "center",
                 alignItems: "center",
                 fontSize: "20px",
-                marginRight: "10px"
+                marginRight: "10px",
+                padding: "0 15px",
+                cursor: "pointer",
+                userSelect: "none"
               }}
             >
-              <i class="ri-hand-heart-fill" />
+              <i style={{ marginRight: "10px" }} class="ri-user-add-line" />
+              <div style={{ fontSize: "14px", fontFamily: "Hanken Grotesk", fontWeight: "500" }}>Follow</div>
             </div>
             <div
               style={{
@@ -196,11 +220,13 @@ function AccountTopSection({ account }) {
                 justifyContent: "center",
                 alignItems: "center",
                 fontSize: "20px",
-                padding: "0 15px"
+                padding: "0 15px",
+                cursor: "pointer",
+                userSelect: "none"
               }}
             >
-              <i style={{ marginRight: "10px" }} class="ri-mail-fill" />
-              <div style={{ fontSize: "14px", fontFamily: "Hanken Grotesk", fontWeight: "500" }}>Edit Contacts</div>{" "}
+              <i style={{ marginRight: "10px" }} class="ri-mail-line" />
+              <div style={{ fontSize: "14px", fontFamily: "Hanken Grotesk", fontWeight: "500" }}>Edit Contacts</div>
             </div>
           </div>
 
@@ -213,7 +239,8 @@ function AccountTopSection({ account }) {
               justifyContent: "center",
               color: "#ffe7d9",
               fontFamily: "Hanken Grotesk",
-              fontSize: "14px"
+              fontSize: "14px",
+              fontWeight: "300"
             }}
           >
             Hi I'm {localStorage.getItem("username")}

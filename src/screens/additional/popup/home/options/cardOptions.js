@@ -38,8 +38,8 @@ function CardOptions({ cardTag, post }) {
     axios
       .request(config)
       .then(response => {
-        console.log(JSON.stringify(response.data));
-        window.location.reload();
+        // console.log(JSON.stringify(response.data));
+        // window.location.reload();
       })
       .catch(error => {
         console.log(error);

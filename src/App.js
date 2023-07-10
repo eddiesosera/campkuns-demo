@@ -14,7 +14,7 @@ import Search from "./screens/search";
 import Expos from "./screens/expos";
 import Engage from "./screens/engage";
 import UploadArt from "./screens/upload";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useLayoutEffect, useState } from "react";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import AccountGridView from "./screens/myaccount/route/accGridView";
@@ -39,7 +39,7 @@ function App() {
   const pg = useLocation();
 
   //Hide nav
-  useEffect(
+  useLayoutEffect(
     () => {
       if (pg.pathname === "/upload" || pg.pathname === "/login" || pg.pathname === "/create" || pg.pathname === "/explore") {
         setNavDisplay("none");
@@ -65,7 +65,7 @@ function App() {
       axios
         .request(config)
         .then(response => {
-          console.log(response.data.results);
+          // console.log(response.data.results);
 
           setMyPosts(response.data.results);
         })

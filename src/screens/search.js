@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./css/search.css";
 import TopBar from "../components/topBar";
 import { NavLink } from "react-router-dom";
+import SearchRslt from "./search/searchRslt";
 
 function Search() {
   const [insertSearch, setInsertSearch] = useState(sessionStorage.getItem("Similar Item"));
@@ -142,7 +143,7 @@ function Search() {
           Results for: <div style={{ marginLeft: "4px" }}>"{searchVal}"</div>
         </div>
       </div>
-      Discover
+      <SearchRslt />
     </div>
   );
 }

@@ -163,7 +163,7 @@ function UploadArt() {
             <div
               style={{
                 display: "flex",
-                fontFamily: "Archive Narrow",
+                fontFamily: "Archivo Narrow",
                 fontWeight: "400",
                 fontSize: "14px",
                 color: "#FFE7D9",
@@ -220,7 +220,7 @@ function UploadArt() {
             <div
               style={{
                 display: "flex",
-                fontFamily: "Archive Narrow",
+                fontFamily: "Archivo Narrow",
                 fontWeight: "400",
                 fontSize: "14px",
                 color: "#FFE7D9",

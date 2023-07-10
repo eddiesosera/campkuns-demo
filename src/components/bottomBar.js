@@ -110,7 +110,7 @@ function BottomBar() {
 
   useEffect(
     () => {
-      console.log("Page is " + selectedPage);
+      //   console.log("Page is " + selectedPage);
     },
     [selectedPage]
   );

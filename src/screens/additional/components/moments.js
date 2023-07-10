@@ -202,6 +202,7 @@ export const Moments = () => {
               >
                 <div
                   className="userMoment-wrap-overlay"
+                  key={moment.user.name}
                   style={{ display: "flex", justifyContent: "flex-start", alignItems: "center", padding: "10px" }}
                 >
                   <img
