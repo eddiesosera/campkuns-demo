@@ -117,6 +117,7 @@ export const Moments = () => {
       >
         <i className="ri-sparkling-fill" style={{ marginRight: "10px" }} />
         <div>What's Happening</div>
+        {/* Exchange with artists of the week(circular radius for border) and put to open space */}
       </div>
       <div
         className="moment-wrap"
@@ -135,23 +136,33 @@ export const Moments = () => {
             style={{
               height: "140px",
               width: "140px",
-              border: "1px solid #685c55",
+              border: "1px dashed #685c55",
               borderRadius: "15px",
               background: "linear-gradient(180deg, #202020 10%, rgba(30, 30, 30, 0) 100%)",
               backdropFilter: "grayscale(70%)"
             }}
           >
             <div
-              o
               className="userMoment-wrap-overlay"
               style={{ display: "flex", justifyContent: "flex-start", alignItems: "center", padding: "10px" }}
             >
               <img
                 src="https://fastly.picsum.photos/id/342/2896/1944.jpg?hmac=_2cYDHi2iG1XY53gvXOrhrEWIP5R5OJlP7ySYYCA0QA"
                 alt="mimg"
-                style={{ height: "20px", width: "20px", background: "gray", borderRadius: "100px" }}
+                style={{
+                  height: "70px",
+                  width: "138.5px",
+                  background: "gray",
+                  position: "absolute",
+                  marginTop: "49.5px",
+                  marginLeft: "-10px",
+                  borderRadius: "15px 15px 0px 0px",
+                  objectFit: "cover",
+                  filter: "saturate(0)"
+                  // borderRadius: "100px"
+                }}
               />
-              <div
+              {/* <div
                 style={{
                   fontFamily: "Archivo Narrow",
                   fontSize: "12px",
@@ -161,10 +172,10 @@ export const Moments = () => {
                 }}
               >
                 {localStorage.getItem("username")}
-              </div>
+              </div> */}
             </div>
           </div>
-          <div style={{ marginTop: "-140px" }}>
+          <div style={{ marginTop: "-127.5px" }}>
             <div
               style={{
                 height: "134px",
@@ -181,9 +192,25 @@ export const Moments = () => {
                 fontWeight: "500"
               }}
             >
-              <i style={{ fontSize: "30px", zIndex: "1", color: "#ed6d22" }} class="ri-add-line" />
+              <i
+                style={{
+                  fontSize: "24px",
+                  zIndex: "1",
+                  color: "#ed6d22",
+                  background: "#1c1b1b",
+                  padding: "5px",
+                  width: "36px",
+                  height: "36px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: "9px",
+                  border: "1px solid #ed6d22"
+                }}
+                class="ri-add-line"
+              />
               <br />
-              <div style={{ color: "#ed6d22", marginTop: "-10px" }}>Add moment</div>
+              <div style={{ color: "#ed6d22", marginTop: "-6px", zIndex: "1" }}>Add moment</div>
             </div>
           </div>
         </div>
@@ -195,6 +222,7 @@ export const Moments = () => {
                   height: "140px",
                   width: "140px",
                   border: "2px solid #ed6d22",
+                  strokeDashArray: "15%25%2c 13%25",
                   borderRadius: "15px",
                   background: "linear-gradient(180deg, #202020 10%, rgba(30, 30, 30, 0) 100%)",
                   backdropFilter: "grayscale(70%)"

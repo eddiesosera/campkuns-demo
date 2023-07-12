@@ -18,8 +18,9 @@ function LogIn() {
   const [submitTgl, setSubmitTgl] = useState(false);
   const navigate = useNavigate();
   const [btnOpacity, setBtnOpacity] = useState(0.5);
-  const psswdRef = useRef();
+  const [psswdRef, setPsswdRef] = useState("");
   const usernmRef = useRef();
+  const [loginStatus, setLoginStatus] = useState("");
 
   useEffect(
     () => {
@@ -34,10 +35,16 @@ function LogIn() {
         setIconDisplay("none");
       }
 
-      psswdRef.current.value === "" && setSubmitTgl(false);
-      psswdRef.current.value === "" ? setBtnOpacity(0.5) : setBtnOpacity(1);
+      psswdRef === "" && setSubmitTgl(false);
+      psswdRef === "" ? setBtnOpacity(0.5) : setBtnOpacity(1);
+
+      if (submitTgl === false) {
+        setSubmitTgl(false);
+      } else {
+        setSubmitTgl(true);
+      }
     },
-    [colorIcon, colorBg, colorMain, rememberTgl, formData.password, submitTgl]
+    [colorIcon, colorBg, colorMain, rememberTgl, formData.password, submitTgl, psswdRef, loginStatus]
   );
 
   const accessLogin = () => {
@@ -73,9 +80,16 @@ function LogIn() {
         navigate("/");
 
         setSubmitTgl(true);
+        setLoginStatus("");
       })
       .catch(error => {
         console.log(error);
+        if (error?.response?.data?.message) {
+          setLoginStatus(error.response?.data?.message + ". Kindly try again!");
+        } else {
+          setLoginStatus(error?.message + ". Kindly try again!");
+        }
+        console.log("login status: " + loginStatus);
       });
   };
 
@@ -142,8 +156,29 @@ function LogIn() {
                   padding: "0 20px"
                 }}
               >
+                <div
+                  className="error_Status"
+                  style={{
+                    color: "#ff3422",
+                    background: "#201d1d",
+                    padding: loginStatus === "" ? 0 : "10px 15px",
+                    borderRadius: "9px",
+                    marginBottom: loginStatus === "" ? "0" : "35px",
+                    fontSize: "15px",
+                    fontWeight: "300",
+                    fontFamily: "Archivo Narrow",
+                    // display: loginStatus === "" ? "none" : "block",
+                    opacity: loginStatus === "" ? 0 : 1,
+                    width: loginStatus === "" ? "0px" : "100%",
+                    height: loginStatus === "" ? "0px" : "fit-content",
+                    transition: "opacity 0.3s linear"
+                  }}
+                >
+                  {loginStatus}
+                </div>
                 <div>
                   <input
+                    required
                     style={{
                       height: "40px",
                       width: "100%",
@@ -158,12 +193,12 @@ function LogIn() {
                       outline: "none",
                       marginBottom: "15px"
                     }}
-                    type="text"
+                    type="email"
                     placeholder="Username or email"
                     onChange={e => setFormData({ ...formData, email: e.target.value })}
                   />
                   <input
-                    ref={psswdRef}
+                    required
                     style={{
                       height: "40px",
                       width: "100%",
@@ -179,7 +214,10 @@ function LogIn() {
                     }}
                     type="password"
                     placeholder="Password"
-                    onChange={e => setFormData({ ...formData, password: e.target.value })}
+                    onChange={e => {
+                      setFormData({ ...formData, password: e.target.value });
+                      setPsswdRef(e.target.value);
+                    }}
                   />
                 </div>
 
@@ -203,7 +241,7 @@ function LogIn() {
                       border: "1px solid ",
                       background: colorBg,
                       borderColor: colorMain,
-                      borderRadius: "5px",
+                      borderRadius: "4px",
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
@@ -232,14 +270,19 @@ function LogIn() {
                 <button
                   onClick={
                     e => {
-                      if (psswdRef.current.value !== "") {
+                      if (psswdRef !== "") {
                         accessLogin();
                         e.preventDefault();
                         console.log(formData);
                         // logInUser()
                         setSubmitTgl(true);
-                      } else {
-                        return null;
+                        setTimeout(() => {
+                          setSubmitTgl(false);
+                        }, 500);
+                      } else if (loginStatus === "") {
+                        // return null;
+                        // e.preventDefault();
+                        setSubmitTgl(false);
                       }
                     }
 
@@ -284,34 +327,11 @@ function LogIn() {
                         fontSize: "14px"
                       }}
                     >
-                      {" "}
-                      Or{" "}
+                      Or
                     </div>
                     <hr style={{ width: "100%", border: "0.5px solid #2b2927" }} />
                   </div>
-                  <button
-                    style={{
-                      border: "none",
-                      background: "#33302E",
-                      borderRadius: "12px",
-                      height: "40px",
-                      width: "100%",
-                      color: "#FFE7D9",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      fontFamily: "Hanken Grotesk",
-                      fontSize: "13px",
-                      fontWeight: "500"
-                    }}
-                  >
-                    <i className="ri-google-line" style={{ marginRight: "10px", fontWeight: "600" }} />
-                    Log in with Google
-                  </button>
-                  <Link
-                    style={{ color: "#FFE7D9", textDecoration: "none", fontWeight: "500", fontFamily: "Hanken Grotesk" }}
-                    to="/create"
-                  >
+                  <div className="or_btn_wrap" style={{ display: "flex" }}>
                     <button
                       style={{
                         border: "none",
@@ -325,13 +345,43 @@ function LogIn() {
                         alignItems: "center",
                         fontFamily: "Hanken Grotesk",
                         fontSize: "13px",
-                        fontWeight: "500",
-                        marginTop: "10px"
+                        fontWeight: "500"
                       }}
                     >
-                      Join Campkuns
+                      <i className="ri-google-line" style={{ marginRight: "10px", fontWeight: "600" }} />
+                      Log in with Google
                     </button>
-                  </Link>
+                    <Link
+                      style={{
+                        color: "#FFE7D9",
+                        textDecoration: "none",
+                        fontWeight: "500",
+                        fontFamily: "Hanken Grotesk",
+                        width: "100%"
+                      }}
+                      to="/create"
+                    >
+                      <button
+                        style={{
+                          border: "none",
+                          background: "#33302E",
+                          borderRadius: "12px",
+                          height: "40px",
+                          width: "100%",
+                          color: "#FFE7D9",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          fontFamily: "Hanken Grotesk",
+                          fontSize: "13px",
+                          fontWeight: "500",
+                          marginLeft: "10px"
+                        }}
+                      >
+                        Join Campkuns
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </form>
             </div>
@@ -341,7 +391,7 @@ function LogIn() {
             style={{
               position: "absolute",
               bottom: "0px",
-              borderTop: "solid 0.5px #343434",
+              // borderTop: "solid 0.5px #343434",
               width: "100vw",
               maxWidth: "470px",
               padding: "40px 20px",
