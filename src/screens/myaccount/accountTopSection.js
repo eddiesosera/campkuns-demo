@@ -1,13 +1,59 @@
 import React, { useEffect } from "react";
+import AccountOptions from "./accOptions";
+import { useState } from "react";
+import axios from "axios";
 
 function AccountTopSection({ account }) {
-  const isUserVerified = true;
+  const API_URL = process.env.REACT_APP_API;
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [img, setImg] = useState(user.profile_Img);
+  const [optTgl, setOptTgl] = useState(false);
+  const body = document.querySelector("body");
   console.log(localStorage.getItem("username"));
 
-  useEffect(() => {}, [account]);
+  const scrollPos = document.body.scrollTop;
+  useEffect(
+    () => {
+      scrollPos !== 0 && setOptTgl(false);
+      console.log("pos = " + scrollPos);
+
+      body.addEventListener("scroll", () => {
+        setOptTgl(false);
+      });
+    },
+    [optTgl, scrollPos, body]
+  );
+
+  useEffect(
+    () => {
+      let data = "";
+
+      let config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: API_URL + "/users/" + user.id,
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`
+        },
+        data: data
+      };
+
+      axios
+        .request(config)
+        .then(response => {
+          const user = response.data;
+          console.log(user);
+          setImg(user.profile_Img);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    [img, API_URL, user]
+  );
 
   return (
-    <div className="userAccNav-wrap">
+    <div className="userAccNav-wrap" onScroll={e => setOptTgl(false)}>
       <div
         className="userAccTop-navInfo"
         style={{
@@ -18,7 +64,7 @@ function AccountTopSection({ account }) {
           maxWidth: "470px",
           alignItems: "center",
           justifyContent: "space-between",
-          background: "rgba(30, 30, 30, 0.96)",
+          background: "#100f0e",
           backdropFilter: "blur(6px)",
           position: "fixed",
           top: "0",
@@ -33,8 +79,8 @@ function AccountTopSection({ account }) {
               WebkitBackgroundClip: "text",
               marginRight: "5px",
               backgroundClip: "text",
-              fontFamily: "Hanken Grotesk",
-              fontSize: "18px",
+              fontFamily: "Archivo",
+              fontSize: "16px",
               fontWeight: "500"
             }}
           >
@@ -60,10 +106,32 @@ function AccountTopSection({ account }) {
             ""
           )}
         </div>
-        <i className="ri-more-fill" style={{ fontSize: "24px", color: "#e8b297" }} />
+        <i
+          className="ri-more-fill"
+          onClick={e => setOptTgl(true)}
+          style={{ fontSize: "24px", color: "#e8b297", cursor: "pointer" }}
+        />
+      </div>
+      <div
+        className="acc_optionwrap"
+        id="optionwrap"
+        onClick={e => setOptTgl(false)}
+        onScroll={e => setOptTgl(!optTgl)}
+        style={{
+          display: optTgl ? "block" : "none",
+          position: "absolute",
+          paddingTop: "3px",
+          zIndex: "5",
+          width: "100%",
+          height: "100%",
+          maxWidth: "470px",
+          margin: "0 auto"
+        }}
+      >
+        <AccountOptions />
       </div>
 
-      <div className="accContent" style={{ marginTop: "60px", background: "rgba(30,30,30)", borderRadius: "0px 0px 0px 0px" }}>
+      <div className="accContent" style={{ marginTop: "60px", background: "#100f0e", borderRadius: "0px 0px 0px 0px" }}>
         <div
           className="userAccInfo"
           style={{
@@ -76,14 +144,14 @@ function AccountTopSection({ account }) {
         >
           <img
             alt="profile"
-            src="https://ucarecdn.com/3cfda29f-3620-4ce6-b488-7f0757853c6d/"
+            src={img === "" ? "https://ucarecdn.com/3cfda29f-3620-4ce6-b488-7f0757853c6d/" : img}
             style={{
               width: "90px",
               height: "90px",
               objectFit: "cover",
               borderRadius: "100px",
               //   marginRight: "20px",
-              border: "solid 0.5px #2E2E2E"
+              border: "solid 0.5px #3E3E3E"
             }}
           />
           <div
@@ -93,24 +161,25 @@ function AccountTopSection({ account }) {
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
-              marginTop: "20px"
+              marginTop: "8px"
             }}
           >
-            <div style={{ color: "#fef3ec", fontFamily: "Archivo Narrow", fontSize: "16px", fontWeight: "400" }}>
-              {localStorage.getItem("username")}
+            <div style={{ color: "#fef3ec", fontFamily: "Archivo", fontSize: "32px", fontWeight: "600" }}>
+              {localStorage.getItem("username")} Sosera
             </div>
             <div
               style={{
                 color: "#ffe7d9",
                 fontFamily: "Hanken Grotesk",
-                fontSize: "13px",
-                fontWeight: "400",
-                background: "none",
-                padding: "",
+                fontSize: "14px",
+                fontWeight: "500",
+                // background: "none",
+                padding: "6px 12px",
                 border: "",
-                borderRadius: "6px",
+                borderRadius: "9px",
                 width: "fit-content",
-                margin: "6px 0"
+                margin: "6px 0",
+                background: "#272727"
               }}
             >
               Photographer
@@ -119,21 +188,28 @@ function AccountTopSection({ account }) {
           </div>
         </div>
 
-        <div className="userInteractionAndBio-wrap" style={{ marginTop: "20px", padding: "0 20px" }}>
+        <div className="userInteractionAndBio-wrap" style={{ marginTop: "25px", padding: "0 20px" }}>
           <div
             className="user-stats"
-            style={{ display: "flex", marginBottom: "20px", width: "100%", maxWidth: "470px", justifyContent: "space-evenly" }}
+            style={{
+              display: "flex",
+              marginBottom: "30px",
+              width: "100%",
+              maxWidth: "470px",
+              gap: "30px",
+              justifyContent: "center"
+            }}
           >
             <div className="artworks statVal" style={{ display: "flex", alignItems: "center" }}>
               <div
                 className="stats-label"
                 style={{ color: "#fef3ec", fontFamily: "Montserrat", fontSize: "18px", fontWeight: "400", marginRight: "5px" }}
               >
-                <i className="ri-layout-grid-fill" />
+                <i className="ri-layout-grid-line" />
               </div>
               <div
                 className="stats-val"
-                style={{ fontFamily: "Hanken Grotesk", color: "#fef3ec", fontSize: "14px", fontWeight: "400" }}
+                style={{ fontFamily: "Hanken Grotesk", color: "#fef3ec", fontSize: "15px", fontWeight: "400" }}
               >
                 {account?.length}
               </div>
@@ -143,14 +219,14 @@ function AccountTopSection({ account }) {
                 className="stats-label"
                 style={{ color: "#fef3ec", fontFamily: "Montserrat", fontSize: "18px", fontWeight: "400", marginRight: "5px" }}
               >
-                <i className="ri-user-received-fill" />
+                <i className="ri-user-received-line" />
               </div>
               <div
                 className="stats-val"
                 style={{
                   fontFamily: "Hanken Grotesk",
                   color: "#fef3ec",
-                  fontSize: "14px",
+                  fontSize: "15px",
                   fontWeight: "400",
                   userSelect: "none"
                 }}
@@ -170,14 +246,14 @@ function AccountTopSection({ account }) {
                   userSelect: "none"
                 }}
               >
-                <i className="ri-user-shared-fill" />
+                <i className="ri-user-shared-line" />
               </div>
               <div
                 className="stats-val"
                 style={{
                   fontFamily: "Hanken Grotesk",
                   color: "#fef3ec",
-                  fontSize: "14px",
+                  fontSize: "15px",
                   fontWeight: "400",
                   userSelect: "none"
                 }}
@@ -193,8 +269,9 @@ function AccountTopSection({ account }) {
                 height: "45px",
                 // width: "45px",
                 width: "fit-content",
-                background: "#272727",
+                // background: "#272727",
                 borderRadius: "12px",
+                border: "1px solid #efe8e8",
                 color: "#EFE8E8",
                 display: "flex",
                 justifyContent: "center",
@@ -203,44 +280,46 @@ function AccountTopSection({ account }) {
                 marginRight: "10px",
                 padding: "0 15px",
                 cursor: "pointer",
-                userSelect: "none"
+                userSelect: "none",
+                display: "none"
               }}
             >
               <i style={{ marginRight: "10px" }} class="ri-user-add-line" />
-              <div style={{ fontSize: "14px", fontFamily: "Hanken Grotesk", fontWeight: "500" }}>Follow</div>
+              <div style={{ fontSize: "15px", fontFamily: "Hanken Grotesk", fontWeight: "500" }}>Follow</div>
             </div>
             <div
               style={{
                 height: "45px",
                 width: "fit-content",
-                background: "#272727",
-                borderRadius: "12px",
+                // background: "#272727",
+                border: "1px solid #efe8e8",
+                borderRadius: "60px",
                 color: "#EFE8E8",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 fontSize: "20px",
-                padding: "0 15px",
+                padding: "0 20px",
                 cursor: "pointer",
                 userSelect: "none"
               }}
             >
               <i style={{ marginRight: "10px" }} class="ri-mail-line" />
-              <div style={{ fontSize: "14px", fontFamily: "Hanken Grotesk", fontWeight: "500" }}>Edit Contacts</div>
+              <div style={{ fontSize: "15px", fontFamily: "Hanken Grotesk", fontWeight: "500" }}>Contact Me</div>
             </div>
           </div>
 
           <div
             className="userInteractive-bio"
             style={{
-              paddingBottom: "40px",
-              paddingTop: "20px",
+              paddingBottom: "30px",
+              paddingTop: "10px",
               display: "flex",
               justifyContent: "center",
               color: "#ffe7d9",
               fontFamily: "Hanken Grotesk",
               fontSize: "14px",
-              fontWeight: "300"
+              fontWeight: "400"
             }}
           >
             Hi I'm {localStorage.getItem("username")}

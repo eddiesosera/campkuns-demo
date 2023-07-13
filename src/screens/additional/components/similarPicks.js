@@ -31,21 +31,21 @@ export const SimlarPicks = () => {
 
   return (
     <div style={{ width: "100%", padding: "15px 20px", background: "#1E1E1E", borderRadius: "12px", marginBottom: "20px" }}>
-      <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
-        <i className="ri-close-line header-icon" />
+      <div style={{ display: "flex", alignItems: "center", width: "100%", justifyContent: "space-between" }}>
         <div
           className=""
           style={{
-            fontSize: "20px",
-            fontWeight: "600",
-            fontFamily: "Poppins",
-            color: "#685c55",
-            margin: "0 auto",
+            fontSize: "24px",
+            fontWeight: "500",
+            fontFamily: "Archivo",
+            color: "#FFE7D9",
+            // margin: "0 auto",
             paddingRight: "30px"
           }}
         >
           Similar Picks
         </div>
+        <i className="ri-close-line header-icon" />
       </div>
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -56,7 +56,7 @@ export const SimlarPicks = () => {
             justifyContent: "flex-start",
             marginTop: "20px",
             display: "flex",
-            gap: "20px",
+            gap: "10px",
             overflow: "scroll"
           }}
         >
@@ -64,9 +64,26 @@ export const SimlarPicks = () => {
             return (
               <div
                 className="similar-artist"
-                style={{ width: "fit-content", display: "flex", flexDirection: "column", alignItems: "center" }}
+                style={{
+                  width: "fit-content",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  border: "1px solid #232323",
+                  padding: "12px",
+                  borderRadius: "12px"
+                }}
               >
-                <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-end", width: "fit-content" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "flex-end",
+                    width: "fit-content",
+                    // width: "90px",
+                    height: "90px"
+                  }}
+                >
                   <img
                     src={
                       simArt.profile_Img !== ""
@@ -74,7 +91,13 @@ export const SimlarPicks = () => {
                         : "https://ucarecdn.com/3cfda29f-3620-4ce6-b488-7f0757853c6d/"
                     }
                     alt="similar-artist"
-                    style={{ width: "90px", height: "90px", borderRadius: "100px", objectFit: "cover" }}
+                    style={{
+                      width: "90px",
+                      height: "90px",
+                      borderRadius: "100px",
+                      objectFit: "cover",
+                      border: "solid 0.5px #3E3E3E"
+                    }}
                   />
                   <div
                     style={{
@@ -113,7 +136,7 @@ export const SimlarPicks = () => {
                 <div
                   style={{
                     fontFamily: "Hanken Grotesk",
-                    fontSize: "12px",
+                    fontSize: "14px",
                     fontWeight: "500",
                     color: "#fef3ec",
                     marginTop: "10px"
@@ -121,6 +144,27 @@ export const SimlarPicks = () => {
                 >
                   @{simArt.name}
                 </div>
+
+                <button
+                  style={{
+                    // height: "45px",
+                    width: "max-content",
+                    fontFamily: "Hanken Grotesk",
+                    border: "1px solid #efe8e8",
+                    borderRadius: "8px",
+                    color: "#EFE8E8",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    fontSize: "14px",
+                    padding: "10px 15px",
+                    cursor: "pointer",
+                    userSelect: "none",
+                    marginTop: "10px"
+                  }}
+                >
+                  Follow
+                </button>
               </div>
             );
           })}

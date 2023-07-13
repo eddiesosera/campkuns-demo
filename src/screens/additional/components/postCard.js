@@ -206,7 +206,7 @@ function PostCard({ post, user, optionsScrll }) {
         <CardOptions post={post} cardTag={post?.tags[0] !== undefined ? post?.tags[0] : post?.title + " " + post?.category} />
       </div>
 
-      <ShareArtwork state={false} />
+      <ShareArtwork state={true} />
 
       <div
         className="postCard-top-section"

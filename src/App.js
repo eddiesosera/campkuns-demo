@@ -28,6 +28,8 @@ import AccountEventsView from "./screens/myaccount/route/accExhibitView";
 import AccountExhibitView from "./screens/myaccount/route/accExhibitView";
 import AccountStoriesView from "./screens/myaccount/route/accStoriesView";
 import { AccountCollectionsView } from "./screens/myaccount/route/accCollectionsView";
+import SettingsProfile from "./screens/myaccount/settings/settingsProfile";
+import SettingsAccount from "./screens/myaccount/settings/settingsAccount";
 
 function App() {
   const API_URL = process.env.REACT_APP_API;
@@ -41,7 +43,13 @@ function App() {
   //Hide nav
   useLayoutEffect(
     () => {
-      if (pg.pathname === "/upload" || pg.pathname === "/login" || pg.pathname === "/create" || pg.pathname === "/explore") {
+      if (
+        pg.pathname === "/upload" ||
+        pg.pathname === "/login" ||
+        pg.pathname === "/create" ||
+        pg.pathname === "/explore" ||
+        pg.pathname === "/profile-settings"
+      ) {
         setNavDisplay("none");
       } else {
         setNavDisplay("block");
@@ -158,6 +166,8 @@ function App() {
             <Route path="stories-view" element={<AccountStoriesView />} />
             <Route path="collections-view" element={<AccountCollectionsView />} />
           </Route>
+          <Route path="profile-settings" element={<SettingsProfile />} />
+          <Route path="account-settings" element={<SettingsAccount />} />
           <Route
             path="/create"
             element={

@@ -4,6 +4,7 @@ import "./explore.css";
 
 import Masonry from "react-responsive-masonry";
 import { NavLink } from "react-router-dom";
+import { Moments } from "./additional/components/moments";
 
 export const Explore = () => {
   const API_URL = process.env.REACT_APP_API;
@@ -96,6 +97,7 @@ export const Explore = () => {
 
   return (
     <div>
+      <Moments />
       <div>
         <div
           style={{
@@ -108,7 +110,7 @@ export const Explore = () => {
             fontFamily: "Hanken Grotesk"
           }}
         >
-          Explore Artists & Galleries
+          Explore Art
         </div>
         <ul className="selectCategory-options" style={CategoryOptions}>
           {filters.map((filter, i) => (
@@ -131,15 +133,18 @@ export const Explore = () => {
           {xplrProducts.map((image, i) => (
             <div style={{}}>
               <img alt="msn" key={i} src={image} style={{ width: "100%", display: "flex", borderRadius: "12px" }} />
-              <div style={{ display: "flex", marginTop: "10px", marginBottom: "15px", marginLeft: "10px" }}>
-                <img
-                  style={{ width: "20px", height: "20px", borderRadius: "50%", objectFit: "cover", marginRight: "5px" }}
-                  src={image}
-                  alt="i"
-                />
-                <div style={{ color: "white", fontFamily: "Hanken Grotesk", fontSize: "14px" }}>
-                  {xplrProductsName[nmIndx++]}
+              <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ display: "flex", marginTop: "10px", marginBottom: "15px", marginLeft: "10px" }}>
+                  <img
+                    style={{ width: "20px", height: "20px", borderRadius: "50%", objectFit: "cover", marginRight: "5px" }}
+                    src={image}
+                    alt="i"
+                  />
+                  <div style={{ color: "white", fontFamily: "Hanken Grotesk", fontSize: "14px" }}>
+                    {xplrProductsName[nmIndx++]}
+                  </div>
                 </div>
+                <i className="ri-more-fill" style={{ fontSize: "24px", color: "#e8b297", marginRight: "10px" }} />
               </div>
             </div>
           ))}

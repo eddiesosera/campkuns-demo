@@ -1,50 +1,52 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import Search from "../../../../search";
 import axios from "axios";
 
-function CardOptions({ cardTag, post }) {
+function AccountOptions({ cardTag, account }) {
   const API_URL = process.env.REACT_APP_API;
 
   const navigate = useNavigate();
 
-  const saveToCollection = () => {
-    alert("Save to Collection");
+  const profSetting = () => {
+    navigate("/profile-settings");
   };
-  const searchSimilar = () => {
-    alert(cardTag);
-    sessionStorage.setItem("Similar Item", cardTag);
-    navigate("/search");
+  const accSetting = () => {
+    navigate("/account-settings");
   };
-  const sharePost = () => {
+  //   const searchSimilar = () => {
+  //     alert(cardTag);
+  //     sessionStorage.setItem("Similar Item", cardTag);
+  //     navigate("/search");
+  //   };
+  const shareProf = () => {
     alert("Share");
   };
   const reportPost = () => {
     alert("Report Card");
   };
-  const deletePost = () => {
-    let config = {
-      method: "delete",
-      maxBodyLength: Infinity,
-      url: API_URL + "/posts/" + post?.id,
-      headers: {
-        "Content-Type": "application/json"
-        // 'authorization': `Bearer ${localStorage.getItem('token')}`
-      }
-    };
+  //   const deletePost = () => {
+  //     let config = {
+  //       method: "delete",
+  //       maxBodyLength: Infinity,
+  //       url: API_URL + "/users/" + account?.id,
+  //       headers: {
+  //         "Content-Type": "application/json"
+  //         // 'authorization': `Bearer ${localStorage.getItem('token')}`
+  //       }
+  //     };
 
-    axios
-      .request(config)
-      .then(response => {
-        // console.log(JSON.stringify(response.data));
-        // window.location.reload();
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-  const signOut = () => {
+  //     axios
+  //       .request(config)
+  //       .then(response => {
+  //         // console.log(JSON.stringify(response.data));
+  //         // window.location.reload();
+  //       })
+  //       .catch(error => {
+  //         console.log(error);
+  //       });
+  //   };
+  const logOut = () => {
     localStorage.setItem("token", "");
     localStorage.setItem("isLoggedIn", "");
     localStorage.setItem("user", "");
@@ -54,58 +56,55 @@ function CardOptions({ cardTag, post }) {
 
   const optionList = [
     {
+      icon: "ri-account-box-line",
+      label: "Edit Profile ",
+      function: profSetting,
+      color: ["#FFFFFF", "#CDCDCD"],
+      border: "block"
+    },
+    {
+      icon: "ri-user-settings-line",
+      label: "Account Settings",
+      function: accSetting,
+      color: ["#FFFFFF", "#CDCDCD"],
+      border: "block"
+    },
+    {
       icon: "ri-share-forward-fill",
-      label: "Share",
-      function: sharePost,
+      label: "Share Profile",
+      function: shareProf,
       color: ["#FFFFFF", "#CDCDCD"],
       border: "block"
     },
     {
-      icon: "ri-search-line",
-      label: "Search Similar",
-      function: searchSimilar,
-      color: ["#FFFFFF", "#CDCDCD"],
-      border: "block"
-    },
-    {
-      icon: "ri-collage-fill",
-      label: "Save to Collection",
-      function: saveToCollection,
-      color: ["#FFFFFF", "#CDCDCD"],
-      border: "block"
-    },
-    {
-      icon: "ri-feedback-fill",
-      label: "Report",
+      icon: "ri-information-line",
+      label: "About Campkuns",
       function: reportPost,
+      color: ["#ed6d22", "#ed6d22"],
+      border: "block"
+    },
+    {
+      icon: "ri-logout-box-line",
+      label: "Logout",
+      function: logOut,
       color: ["#ED2615", "#ED2615"],
       border: "none"
     }
-    // {
-    //   icon: "ri-delete-bin-fill",
-    //   label: "Delete",
-    //   function: deletePost,
-    //   color: ["#ED2615", "#ED2615"],
-    //   border: "block"
-    // }
-    // {
-    //   icon: "ri-logout-box-fill",
-    //   label: "Sign out",
-    //   function: signOut,
-    //   color: ["#ED2615", "#ED2615"],
-    //   border: "none"
-    // }
   ];
 
   return (
     <div
       style={{
         width: "93vw",
-        position: "absolute",
+        // position: "absolute",
         maxWidth: "470px",
         display: "flex",
         justifyContent: "flex-end",
-        zIndex: "5"
+        marginTop: "-50px",
+        marginLeft: "20px"
+        // zIndex: "5",
+        // top: "0",
+        // right: "0"
       }}
     >
       <ul
@@ -169,4 +168,4 @@ function CardOptions({ cardTag, post }) {
   );
 }
 
-export default CardOptions;
+export default AccountOptions;

@@ -171,7 +171,7 @@ function LogIn() {
                     opacity: loginStatus === "" ? 0 : 1,
                     width: loginStatus === "" ? "0px" : "100%",
                     height: loginStatus === "" ? "0px" : "fit-content",
-                    transition: "opacity 0.3s linear"
+                    transition: "opacity width 0.4s linear"
                   }}
                 >
                   {loginStatus}

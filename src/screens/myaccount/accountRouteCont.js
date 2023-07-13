@@ -47,7 +47,10 @@ function AccountRouteCont() {
         borderBottom: "1px solid #292929",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+        position: "sticky",
+        top: "60px",
+        background: "rgba(16, 15, 14, 0.99)"
       }}
     >
       {accRoutes.map(route => (

@@ -53,7 +53,7 @@ function AccountGridView({ myPosts }) {
             style={{
               fontSize: "36px",
               fontWeight: "500",
-              fontFamily: "Montserrat",
+              fontFamily: "Hanken Grotesk",
               color: "#2b2b2b",
               margin: "0 auto",
               userSelect: "none"

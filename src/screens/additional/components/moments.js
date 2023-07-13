@@ -151,7 +151,7 @@ export const Moments = () => {
                 alt="mimg"
                 style={{
                   height: "70px",
-                  width: "138.5px",
+                  width: "139.5px",
                   background: "gray",
                   position: "absolute",
                   marginTop: "49.5px",
@@ -197,15 +197,15 @@ export const Moments = () => {
                   fontSize: "24px",
                   zIndex: "1",
                   color: "#ed6d22",
-                  background: "#1c1b1b",
+                  background: "#262626",
                   padding: "5px",
                   width: "36px",
                   height: "36px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  borderRadius: "9px",
-                  border: "1px solid #ed6d22"
+                  borderRadius: "9px"
+                  // border: "1px solid #ed6d22"
                 }}
                 class="ri-add-line"
               />
