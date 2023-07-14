@@ -15,9 +15,14 @@ function UploadArt() {
   const titleInput = document.querySelector(".uploadTitle");
   const [percent, setPercent] = useState(20);
   const [i, setI] = useState(true);
+  const [imgTgl, setImgTgl] = useState(true);
+  const [imgUpldrTgl1, setImgUpldrTgl1] = useState(true);
+  const [imgUpldrTgl2, setImgUpldrTgl2] = useState(false);
+  const [imgArr, setimgArr] = useState([""]);
   const [titleTgl, setTitleTgl] = useState(true);
   const [priceTgl, setPriceTgl] = useState(true);
   const [img1, setImg1] = useState("");
+  const [img12, setImg2] = useState("");
   const [sessTag, setSessTag] = useState([]);
 
   //ArtPost upload
@@ -79,6 +84,18 @@ function UploadArt() {
     [i]
   );
 
+  // Image progress
+  const imgProg = e => {
+    if (imgTgl && document.querySelector(".uploadesImg").src !== "") {
+      setPercent(percent + 20);
+      setImgTgl(false);
+    } else if (document.querySelector(".uploadTitle").src === "") {
+      setPercent(percent - 20);
+      setImgTgl(true);
+    }
+  };
+
+  // Title progress
   const titleProg = e => {
     setFormData({ ...formData, title: e.target.value });
 
@@ -91,6 +108,7 @@ function UploadArt() {
     }
   };
 
+  // Price progress
   const priceProg = e => {
     setFormData({ ...formData, price: e.target.value * 1.1 });
 
@@ -101,6 +119,19 @@ function UploadArt() {
       setPercent(percent - 20);
       setPriceTgl(true);
     }
+  };
+
+  // Year progress
+  const yearProg = e => {
+    setFormData({ ...formData, year: e.target.value });
+
+    // if (titleTgl && document.querySelector(".uploadTitle").value !== "") {
+    //   setPercent(percent + 10);
+    //   setTitleTgl(false);
+    // } else if (document.querySelector(".uploadTitle").value === "") {
+    //   setPercent(percent - 10);
+    //   setTitleTgl(true);
+    // }
   };
 
   const categories = [
@@ -147,7 +178,7 @@ function UploadArt() {
                   display: "flex",
                   justifyContent: "flex-end",
                   marginTop: "20px",
-                  fontFamily: "Montserrat",
+                  fontFamily: "Hanken Grotesk",
                   color: "#454545",
                   fontSize: "12px"
                 }}
@@ -174,8 +205,12 @@ function UploadArt() {
               <div style={{ marginLeft: "5px", fontWeight: "400", color: "#4D4845" }}>(7 Images max)</div>
             </div>
 
-            <div className="images-wrap" style={{ display: "flex" }}>
-              <div style={{ display: img1 === "" ? "none" : "block" }}>
+            {formData?.images?.map(i => {
+              return <div style={{ color: "red" }}>iiii</div>;
+            })}
+
+            <div className="images-wrap" style={{ display: "flex", gap: "10px" }}>
+              <div style={{ display: img1 === "" ? "none" : "flex", justifyContent: "flex-end" }}>
                 <img
                   src={img1}
                   alt="pst"
@@ -185,11 +220,37 @@ function UploadArt() {
                     height: "75px",
                     borderRadius: "12px",
                     background: "#292625",
-                    border: "none",
+                    border: "solid 0.75px #3e3e3e",
                     objectFit: "cover"
                   }}
                 />
-                <i className="ri-close-circle-fill" />
+                <i
+                  className="ri-close-circle-line"
+                  style={{
+                    color: "#FFE7D9",
+                    fontSize: "21px",
+                    // border: "2px solid white",
+                    background: "#100f0e",
+                    width: "24px",
+                    height: "24px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    cursor: "pointer",
+                    borderRadius: "30px",
+                    position: "absolute",
+                    margin: "-7px -7px 0 0"
+                  }}
+                  onClick={e => {
+                    setFormData({
+                      ...formData,
+                      images: ""
+                    });
+                    // setImg1("");
+                    setimgArr([]);
+                    imgProg(e);
+                  }}
+                />
               </div>
               <div
                 style={{
@@ -201,17 +262,40 @@ function UploadArt() {
                   strokeDasharray: "22, 23"
                 }}
               >
-                <Widget
-                  publicKey="bc3b6c954405f4e975b2"
-                  onChange={fileInfo => {
-                    console.log(fileInfo);
-                    setFormData({
-                      ...formData,
-                      images: [fileInfo?.originalUrl]
-                    });
-                    setImg1(fileInfo?.originalUrl);
-                  }}
-                />
+                <div className="imgUpldr" style={{ display: imgUpldrTgl1 === true ? "block" : "none" }}>
+                  <Widget
+                    publicKey="bc3b6c954405f4e975b2"
+                    onChange={fileInfo => {
+                      console.log(fileInfo);
+                      console.log(formData);
+                      console.log(imgArr);
+                      setimgArr([fileInfo?.originalUrl]);
+                      imgProg(fileInfo);
+                      setFormData({
+                        ...formData,
+                        images: imgArr
+                      });
+                      setImg1(fileInfo?.originalUrl);
+                      setImgUpldrTgl1(false);
+                      setImgUpldrTgl2(true);
+                    }}
+                  />
+                </div>
+                <div className="imgUpldr" style={{ display: imgUpldrTgl2 === true ? "block" : "none" }}>
+                  <Widget
+                    publicKey="bc3b6c954405f4e975b2"
+                    onChange={fileInfo => {
+                      // console.log(fileInfo);
+                      setimgArr([imgArr[0], fileInfo?.originalUrl]);
+                      imgProg(fileInfo);
+                      setFormData({
+                        ...formData,
+                        images: imgArr
+                      });
+                      setImg2(fileInfo?.originalUrl);
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -262,6 +346,14 @@ function UploadArt() {
                 ))}
               </select>
             </div>
+            <input
+              className="uploadTitle uploadInput"
+              style={{ marginBottom: "10px", padding: "15px" }}
+              type="text"
+              placeholder="Year"
+              onChange={e => yearProg(e)}
+              required
+            />
             <textarea
               style={{ height: "90px", marginBottom: "10px", padding: "15px", resize: "none" }}
               className="uploadDescription uploadInput"

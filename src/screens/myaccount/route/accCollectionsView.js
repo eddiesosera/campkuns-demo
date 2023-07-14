@@ -50,11 +50,11 @@ export const AccountCollectionsView = () => {
           fontFamily: "Hanken Grotesk"
         }}
       >
-        eddie's collection
+        {user.name.toLocaleLowerCase() + "'s collection"}
       </div>
       <div>
         <div style={{ padding: "0 10px", paddingBottom: "60px" }}>
-          <Masonry columnsCount={window.screen.width > 470 ? 8 : 2} gutter="7.5px">
+          <Masonry columnsCount={window.screen.width > 470 ? 3 : 2} gutter="7.5px">
             {xplrProducts.map((image, i) => (
               <div style={{}}>
                 <img alt="msn" key={i} src={image} style={{ width: "100%", display: "flex", borderRadius: "12px" }} />

@@ -5,6 +5,7 @@ input[type="file" i] {
 .uploadcare--widget__button.uploadcare--widget__button_type_open {
     background-color: #232323;
     color: #A7A7A7;
+    border:'1px solid red'
 }
 
 .uploadInput {
