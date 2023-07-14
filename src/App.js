@@ -48,7 +48,8 @@ function App() {
         pg.pathname === "/login" ||
         pg.pathname === "/create" ||
         pg.pathname === "/explore" ||
-        pg.pathname === "/profile-settings"
+        pg.pathname === "/profile-settings" ||
+        pg.pathname === "/account-settings"
       ) {
         setNavDisplay("none");
       } else {

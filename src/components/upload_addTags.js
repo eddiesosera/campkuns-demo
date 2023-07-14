@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import "./upload_addTags.css";
 
-export default function UploadAddTags({ tagList }) {
+export default function UploadAddTags({ tagList, type, symbol }) {
   const [index, setIndex] = useState(0);
   const [tagVal, setTagVal] = useState("");
   const [deleteTag, setDeleteTag] = useState(true);
@@ -19,7 +19,7 @@ export default function UploadAddTags({ tagList }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", marginBottom: "15px" }}>
       <form className="addTag-wrap">
-        <div style={{ fontWeight: "600", color: "#757575" }}>#</div>
+        <div style={{ fontWeight: "600", color: "#757575" }}>{symbol}</div>
         <input
           className="tagInput"
           value={tagVal}
@@ -27,7 +27,7 @@ export default function UploadAddTags({ tagList }) {
             setTagVal(e.target.value.replace(/ /g, ""));
           }}
           type="text"
-          placeholder="Keyword"
+          placeholder={type}
           required
         />
         <button
@@ -79,11 +79,12 @@ export default function UploadAddTags({ tagList }) {
                   className="newTag-txt"
                   style={{ marginRight: "5px", color: "#FDE5D7", display: "flex", alignItems: "center", fontWeight: "600" }}
                 >
-                  #{tagItem.tag}
+                  <div>{symbol}</div>
+                  {tagItem.tag}
                 </div>
                 <i
                   onClick={e => {
-                    for (let i = 0; i < tagsList.length; i++) {
+                    for (let i = 0; i <= tagsList.length; i++) {
                       tagItem.tag === tagsList[i].tag ? (tagsList[i].tag = "") : (tagsList[i].key = null);
                     }
 

@@ -25,7 +25,7 @@ function SettingsAccount() {
               sessionStorage.clear("tags");
             }}
           >
-            Upload
+            Save Changes
           </button>
         </div>
       </form>

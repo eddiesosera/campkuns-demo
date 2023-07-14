@@ -2,15 +2,23 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Widget } from "@uploadcare/react-widget";
 import axios from "axios";
+import UploadAddTags from "../../../components/upload_addTags";
 
 function SettingsProfile() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [formData, setFormData] = useState({});
   const [img, setImg] = useState(user.profile_Img);
+  const [name, setName] = useState(user.name);
+  const [username, setUserame] = useState(user.name);
   const API_URL = process.env.REACT_APP_API;
   const navigate = useNavigate("/");
   const [userUpdate, setUserUpdate] = useState(user);
   const [detectChange, setDetectChange] = useState(false);
+
+  // Get list from tags
+  const getTags = tags => {
+    // setFormData({ ...formData, tags: tags });
+  };
 
   console.log(user.profile_Img);
   console.log(user);
@@ -91,7 +99,7 @@ function SettingsProfile() {
           <div className="header-text uploadHeader-text">Edit Profile</div>
         </div>
       </div>
-      <form style={{ padding: "20px 20px 20px 0" }}>
+      <form style={{ padding: "20px 20px 20px 20px" }}>
         <div
           className="edit_img"
           style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}
@@ -113,23 +121,32 @@ function SettingsProfile() {
             }}
           />
         </div>
-        <div className="section1_wrap">
+        <div className="section1_wrap" style={{ marginTop: "20px" }}>
           <input
             className="uploadTitle uploadInput"
             style={{ marginBottom: "10px", padding: "15px" }}
             type="text"
             placeholder="Profile Name"
+            value={name}
+            onChange={e => setName(e.target.value)}
             // onChange={e => titleProg(e)}
             required
           />
-          <input
+          <div
             className="uploadTitle uploadInput"
-            style={{ marginBottom: "10px", padding: "15px" }}
-            type="text"
-            placeholder="Username"
-            // onChange={e => titleProg(e)}
-            required
-          />
+            style={{ marginBottom: "10px", padding: "15px", display: "flex", alignItems: "center" }}
+          >
+            <div>@</div>
+            <input
+              style={{ background: "none", outline: "none", border: "none", width: "100%" }}
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={e => setUserame(e.target.value.replace(/[^\w]/g, ""))}
+              // onChange={e => titleProg(e)}
+              required
+            />
+          </div>
           <textarea
             style={{ height: "90px", marginBottom: "10px", padding: "15px", resize: "none" }}
             className="uploadDescription uploadInput"
@@ -137,8 +154,9 @@ function SettingsProfile() {
             placeholder="Bio"
             // onChange={e => setFormData({ ...formData, description: e.target.value })}
           />
+          <UploadAddTags tagList={getTags} type={"Contact"} symbol={"Link: "} />
         </div>
-        <div className="submit-btnWrap">
+        <div className="submit-btnWrap" style={{ marginLeft: "-20px" }}>
           <button
             type="submit"
             className="submit-btn"
@@ -148,7 +166,7 @@ function SettingsProfile() {
               e.preventDefault();
             }}
           >
-            Upload
+            Save Changes
           </button>
         </div>
       </form>

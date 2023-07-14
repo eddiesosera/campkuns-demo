@@ -275,7 +275,7 @@ function UploadArt() {
             style={{ padding: "0 20px" }}
             //onChange={(e) => { setFormData({ ...formData, tags: [sessTag] }); }}
           >
-            <UploadAddTags tagList={getTags} />
+            <UploadAddTags tagList={getTags} type={"Keyword"} symbol={"#"} />
           </div>
 
           <div className="submit-btnWrap">
