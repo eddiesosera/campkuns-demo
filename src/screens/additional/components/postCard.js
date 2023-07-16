@@ -223,7 +223,11 @@ function PostCard({ post, user, optionsScrll }) {
       >
         <div className="postCard-top-left" style={{ display: "flex" }}>
           <img
-            src={post?.images[0]}
+            src={
+              post?.user?.profile_Img !== ""
+                ? post?.user?.profile_Img
+                : "https://ucarecdn.com/3cfda29f-3620-4ce6-b488-7f0757853c6d/"
+            }
             alt="profile"
             style={{ height: "40px", width: "40px", objectFit: "cover", borderRadius: "50%", border: "1px solid #2E2E2E" }}
           />
@@ -237,10 +241,10 @@ function PostCard({ post, user, optionsScrll }) {
                 display: "flex",
                 alignItems: "center",
                 fontWeight: "400",
-                fontSize: "14px",
+                fontSize: "16px",
                 marginBottom: "3px",
                 color: "white",
-                fontFamily: "Archivo Narrow"
+                fontFamily: "Archivo"
               }}
             >
               {post?.user?.name}
