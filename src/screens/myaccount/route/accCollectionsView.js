@@ -76,6 +76,30 @@ export const AccountCollectionsView = () => {
           </Masonry>
         </div>
       </div>
+      <div to="/explore">
+        <div
+          style={{
+            position: "fixed",
+            zIndex: "100",
+            height: "fit-content",
+            width: "fit-content",
+            padding: "10px 15px",
+            color: "#ed6d22",
+            background: "#151515",
+            bottom: "0",
+            right: "0",
+            marginRight: "20px",
+            marginBottom: "70px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "12px"
+          }}
+        >
+          <i style={{ color: "#ed6d22", fontSize: "24px" }} className="ri-add-line" />{" "}
+          <div style={{ marginLeft: "5px", fontSize: "16px", fontFamily: "Hanken Grotesk" }}>New Collection</div>
+        </div>
+      </div>
     </div>
   );
 };

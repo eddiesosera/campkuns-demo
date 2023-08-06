@@ -12,6 +12,19 @@ function AccountStoriesView({ testpar }) {
   ];
   return (
     <div style={{ paddingBottom: "60px" }}>
+      <div
+        style={{
+          marginBottom: "20px",
+          marginTop: "20px",
+          marginLeft: "20px",
+          fontSize: "24px",
+          fontWeight: "600",
+          color: "#ffe7d9",
+          fontFamily: "Hanken Grotesk"
+        }}
+      >
+        {user.name.toLocaleLowerCase() + "'s diary"}
+      </div>
       <div className="storiesWrap" style={{ display: "flex", flexDirection: "column", gap: "8px", padding: "8px" }}>
         {stories.map(str => {
           return (
@@ -71,7 +84,7 @@ function AccountStoriesView({ testpar }) {
                   />
                 </div>
               </div>
-              <div className="story_content" style={{ fontFamily: "Crimson Text", fontSize: "18px" }}>
+              <div className="story_content" style={{ fontFamily: "Hanken Grotesk", fontSize: "14px", fontWeight: "300" }}>
                 {str}
               </div>
               <div className="story_content_interaction" style={{ display: "flex", gap: "20px", color: "#a3968f" }}>
@@ -82,6 +95,30 @@ function AccountStoriesView({ testpar }) {
             </div>
           );
         })}
+      </div>
+      <div to="/explore">
+        <div
+          style={{
+            position: "fixed",
+            zIndex: "100",
+            height: "fit-content",
+            width: "fit-content",
+            padding: "10px 15px",
+            color: "#ed6d22",
+            background: "#151515",
+            bottom: "0",
+            right: "0",
+            marginRight: "20px",
+            marginBottom: "70px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "12px"
+          }}
+        >
+          <i style={{ color: "#ed6d22", fontSize: "24px" }} className="ri-edit-2-line" />{" "}
+          <div style={{ marginLeft: "5px", fontSize: "16px", fontFamily: "Hanken Grotesk" }}>Write</div>
+        </div>
       </div>
     </div>
   );

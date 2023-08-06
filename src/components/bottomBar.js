@@ -96,8 +96,10 @@ function BottomBar() {
       title: "",
       // Me
       icon: {
-        active: "ri-bear-smile-fill",
-        inActive: "ri-bear-smile-line"
+        // active: "ri-bear-smile-fill",
+        // inActive: "ri-bear-smile-line"
+        active: "ri-user-3-fill",
+        inActive: "ri-user-3-line"
       },
       link: linkStyle,
       wrap_style: routeStyle,

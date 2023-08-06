@@ -5,8 +5,8 @@ function AccountRouteCont() {
   const accRoutes = [
     {
       path: "/account/grid-view",
-      active: ["ri-layout-grid-fill", "#ed6d22"],
-      inActive: ["ri-layout-grid-line", "#ad9485"]
+      active: ["ri-shopping-bag-3-fill", "#ed6d22"],
+      inActive: ["ri-shopping-bag-3-line", "#ad9485"]
     },
     {
       path: "/account/exhibit-view",

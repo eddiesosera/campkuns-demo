@@ -7,6 +7,7 @@ export default function UploadAddTags({ tagList, type, symbol }) {
   const [deleteTag, setDeleteTag] = useState(true);
   const [tagsList, setTagsList] = useState([{ tag: "", key: "" }]);
   const [expSessTags, setExpSessTags] = useState([]);
+  const [symblTgl, setSymblTgl] = useState(false);
 
   useEffect(
     () => {
@@ -24,10 +25,12 @@ export default function UploadAddTags({ tagList, type, symbol }) {
           className="tagInput"
           value={tagVal}
           onChange={e => {
-            setTagVal(e.target.value.replace(/ /g, ""));
+            setTagVal(e.target.value.replace(/ /g, "").toLowerCase());
           }}
+          onFocus={e => setSymblTgl(true)}
+          onBlur={e => setSymblTgl(false)}
           type="text"
-          placeholder={type}
+          placeholder={"enter-" + type.toLowerCase() + "-link.com"}
           required
         />
         <button
@@ -77,10 +80,21 @@ export default function UploadAddTags({ tagList, type, symbol }) {
               <div style={{ display: "flex" }}>
                 <div
                   className="newTag-txt"
-                  style={{ marginRight: "5px", color: "#FDE5D7", display: "flex", alignItems: "center", fontWeight: "600" }}
+                  style={{
+                    marginRight: "5px",
+                    color: "#FDE5D7",
+                    display: "flex",
+                    alignItems: "center",
+                    fontWeight: "600",
+                    textDecoration: "underline"
+                  }}
                 >
                   <div>{symbol}</div>
-                  {tagItem.tag}
+                  {
+                    <a style={{ color: "#FFE7D9" }} href={"https://www." + tagItem.tag.toLowerCase()}>
+                      {tagItem.tag.toLowerCase()}
+                    </a>
+                  }
                 </div>
                 <i
                   onClick={e => {

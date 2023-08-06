@@ -12,8 +12,8 @@ import { months } from "./dates";
 import { ShareArtwork } from "../popup/artwork/shareArtwork";
 
 function PostCard({ post, user, optionsScrll }) {
-  const [colorOff, colorOn] = useState(["#876A5A", "0px solid #876A5A", "ri-thumb-up-line"]);
-  const [colorOffSuggest, colorOnSuggest] = useState(["#876A5A", "1px solid #876A5A"]);
+  const [colorOff, colorOn] = useState(["#96cde8", "0px solid #876A5A", "ri-thumb-up-line"]);
+  const [colorOffSuggest, colorOnSuggest] = useState(["#876A5A", "1px solid #303436"]);
   const [seeDetails, setSeeDetails] = useState("Details");
   const [colorDetails, setColorDetails] = useState(["#876A5A", "1px solid #876A5A"]);
   const [detailsShow, setDetailsShow] = useState("none");
@@ -61,11 +61,11 @@ function PostCard({ post, user, optionsScrll }) {
     transition: "all 0.5s cubic-bezier(0.87, 0, 0.13, 1) 0s"
   };
   const detailsDefault = {
-    fontSize: "12px",
+    fontSize: "14px",
     color: colorDetails[0],
     border: colorDetails[1],
-    fontFamily: "Poppins",
-    fontWeight: "500",
+    fontFamily: "Hanken Grotesk",
+    fontWeight: "400",
     padding: "20px",
     borderRadius: "9px",
     maxWidth: "130px",
@@ -117,9 +117,9 @@ function PostCard({ post, user, optionsScrll }) {
     () => {
       //Suggest Button Logic
       if (suggestToggle) {
-        colorOnSuggest(["#8fc2db", "2px solid #2c2f30"]);
+        colorOnSuggest(["#96cde8", "2px solid #2c2f30"]);
       } else {
-        colorOnSuggest(["#8fc2db", "1px solid #363331"]);
+        colorOnSuggest(["#96cde8", "1px solid #303436"]);
       }
 
       //Details Toggle
@@ -211,7 +211,7 @@ function PostCard({ post, user, optionsScrll }) {
       <div
         className="postCard-top-section"
         style={{
-          backgroundColor: "#262626",
+          backgroundColor: "#121212",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -240,11 +240,11 @@ function PostCard({ post, user, optionsScrll }) {
               style={{
                 display: "flex",
                 alignItems: "center",
-                fontWeight: "400",
-                fontSize: "16px",
+                fontWeight: "300",
+                fontSize: "13px",
                 marginBottom: "3px",
                 color: "white",
-                fontFamily: "Archivo"
+                fontFamily: "Hanken Grotesk"
               }}
             >
               {post?.user?.name}
@@ -252,8 +252,8 @@ function PostCard({ post, user, optionsScrll }) {
                 {post?.user?.isUserVerified ? (
                   <svg
                     style={{ color: "#2294d7", background: "#fef3ec", borderRadius: "100px" }}
-                    width="9"
-                    height="9"
+                    width="12"
+                    height="12"
                     viewBox="0 0 12 12"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -527,7 +527,7 @@ function PostCard({ post, user, optionsScrll }) {
 
       <div
         className="postCard-bottom-interaction-wrap"
-        style={{ backgroundColor: "#262626", height: "fit-content", borderRadius: "0 0 15px 15px" }}
+        style={{ backgroundColor: "#121212", height: "fit-content", borderRadius: "0 0 15px 15px" }}
       >
         <div
           className="postCard-bottom-title"
@@ -569,6 +569,10 @@ function PostCard({ post, user, optionsScrll }) {
                   fontSize: "20px"
                 }}
               />
+              <div style={{ fontFamily: "Hanken Grotesk", fontSize: "16px", fontWeight: "400", marginLeft: "5px" }}>
+                Collect
+              </div>
+
               {/* Add Item */}
             </button>
 
@@ -596,16 +600,30 @@ function PostCard({ post, user, optionsScrll }) {
             <i class="ri-chat-2-line"></i>
             <i class="ri-information-line"></i>
           </button> */}
-          <button className="postCard-bottom-interactions-right-less" style={detailsDefault} onClick={clickDetails}>
+          {/* <button className="postCard-bottom-interactions-right-less" style={detailsDefault} onClick={clickDetails}>
             <i className="ri-sticky-note-line" />
-          </button>
-          <button className="postCard-bottom-interactions-right-less" style={detailsDefault} onClick={clickDetails}>
-            {seeDetails}
-            {/* <i class="ri-information-line"></i> */}
-          </button>
-          <button className="postCard-bottom-interactions-right-less" style={detailsDefault} onClick={clickDetails}>
-            <i className="ri-star-half-line" />
-          </button>
+          </button> */}
+          <div style={{ display: "flex", gap: "10px" }}>
+            <button className="postCard-bottom-interactions-right-less" style={detailsDefault} onClick={clickDetails}>
+              {seeDetails}
+              {/* <i class="ri-information-line"></i> */}
+            </button>
+            <button
+              className="postCard-bottom-interactions-right-less"
+              style={{
+                height: "40px",
+                width: "40px",
+                borderRadius: "9px",
+                transition: "all 0.5s cubic-bezier(0.5, 0.55, 0.70, 0.35)",
+                color: colorOff[0],
+                border: colorOff[1],
+                background: colorOff[3]
+              }}
+              onClick={clickDetails}
+            >
+              <i className="ri-arrow-right-line" />
+            </button>
+          </div>
         </div>
       </div>
     </div>

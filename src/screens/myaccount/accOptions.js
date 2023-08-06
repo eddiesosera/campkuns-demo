@@ -22,8 +22,8 @@ function AccountOptions({ cardTag, account }) {
   const shareProf = () => {
     alert("Share");
   };
-  const reportPost = () => {
-    alert("Report Card");
+  const about = () => {
+    navigate("/about");
   };
   //   const deletePost = () => {
   //     let config = {
@@ -79,7 +79,7 @@ function AccountOptions({ cardTag, account }) {
     {
       icon: "ri-information-line",
       label: "About Campkuns",
-      function: reportPost,
+      function: about,
       color: ["#ed6d22", "#ed6d22"],
       border: "block"
     },

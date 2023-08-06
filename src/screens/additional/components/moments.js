@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 export const Moments = () => {
   const [mmntTgl, setMmntTgl] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [img, setImg] = useState(user.profile_Img);
 
   const mmntSwitch = () => {
     setMmntTgl(!mmntTgl);
@@ -136,9 +138,9 @@ export const Moments = () => {
             style={{
               height: "140px",
               width: "140px",
-              border: "1px dashed #685c55",
+              border: "1px solid #685c55",
               borderRadius: "15px",
-              background: "linear-gradient(180deg, #202020 10%, rgba(30, 30, 30, 0) 100%)",
+              // background: "linear-gradient(180deg, #202020 10%, rgba(30, 30, 30, 0) 100%)",
               backdropFilter: "grayscale(70%)"
             }}
           >
@@ -147,7 +149,7 @@ export const Moments = () => {
               style={{ display: "flex", justifyContent: "flex-start", alignItems: "center", padding: "10px" }}
             >
               <img
-                src="https://fastly.picsum.photos/id/342/2896/1944.jpg?hmac=_2cYDHi2iG1XY53gvXOrhrEWIP5R5OJlP7ySYYCA0QA"
+                src={img === "" ? "https://ucarecdn.com/3cfda29f-3620-4ce6-b488-7f0757853c6d/" : img}
                 alt="mimg"
                 style={{
                   height: "70px",
@@ -156,7 +158,7 @@ export const Moments = () => {
                   position: "absolute",
                   marginTop: "49.5px",
                   marginLeft: "-10px",
-                  borderRadius: "15px 15px 0px 0px",
+                  borderRadius: "9px 9px 0px 0px",
                   objectFit: "cover",
                   filter: "saturate(0)"
                   // borderRadius: "100px"
@@ -197,20 +199,20 @@ export const Moments = () => {
                   fontSize: "24px",
                   zIndex: "1",
                   color: "#ed6d22",
-                  background: "#262626",
+                  background: "#100f0e",
                   padding: "5px",
                   width: "36px",
                   height: "36px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  borderRadius: "9px"
-                  // border: "1px solid #ed6d22"
+                  borderRadius: "9px",
+                  border: "1px solid #363331"
                 }}
                 class="ri-add-line"
               />
               <br />
-              <div style={{ color: "#ed6d22", marginTop: "-6px", zIndex: "1" }}>Add moment</div>
+              <div style={{ color: "#ed6d22", marginTop: "-6px", zIndex: "1" }}>Your moments</div>
             </div>
           </div>
         </div>
@@ -223,7 +225,7 @@ export const Moments = () => {
                   width: "140px",
                   border: "2px solid #ed6d22",
                   strokeDashArray: "15%25%2c 13%25",
-                  borderRadius: "15px",
+                  borderRadius: "9px",
                   background: "linear-gradient(180deg, #202020 10%, rgba(30, 30, 30, 0) 100%)",
                   backdropFilter: "grayscale(70%)"
                 }}
@@ -255,7 +257,7 @@ export const Moments = () => {
                 <img
                   src={moment.content_banner}
                   alt="moment"
-                  style={{ height: "134px", width: "134px", margin: "3px", objectFit: "cover", borderRadius: "12px" }}
+                  style={{ height: "134px", width: "134px", margin: "3px", objectFit: "cover", borderRadius: "6px" }}
                 />
               </div>
             </div>

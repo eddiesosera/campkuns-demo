@@ -80,14 +80,14 @@ function CardOptions({ cardTag, post }) {
       function: reportPost,
       color: ["#ED2615", "#ED2615"],
       border: "none"
+    },
+    {
+      icon: "ri-delete-bin-fill",
+      label: "Delete",
+      function: deletePost,
+      color: ["#ED2615", "#ED2615"],
+      border: "none"
     }
-    // {
-    //   icon: "ri-delete-bin-fill",
-    //   label: "Delete",
-    //   function: deletePost,
-    //   color: ["#ED2615", "#ED2615"],
-    //   border: "block"
-    // }
     // {
     //   icon: "ri-logout-box-fill",
     //   label: "Sign out",

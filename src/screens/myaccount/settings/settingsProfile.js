@@ -154,7 +154,7 @@ function SettingsProfile() {
             placeholder="Bio"
             // onChange={e => setFormData({ ...formData, description: e.target.value })}
           />
-          <UploadAddTags tagList={getTags} type={"Contact"} symbol={"Link: "} />
+          <UploadAddTags tagList={getTags} type={"Contact"} symbol={"www."} />
         </div>
         <div className="submit-btnWrap" style={{ marginLeft: "-20px" }}>
           <button

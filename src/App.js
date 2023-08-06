@@ -30,6 +30,7 @@ import AccountStoriesView from "./screens/myaccount/route/accStoriesView";
 import { AccountCollectionsView } from "./screens/myaccount/route/accCollectionsView";
 import SettingsProfile from "./screens/myaccount/settings/settingsProfile";
 import SettingsAccount from "./screens/myaccount/settings/settingsAccount";
+import { About } from "./screens/about";
 
 function App() {
   const API_URL = process.env.REACT_APP_API;
@@ -89,7 +90,7 @@ function App() {
     <div
       className="App"
       style={{ overflow: "clip" }}
-      // onClick={(e) => { setI(i + 1); setTimeout(() => { setI(i + 1) }, 2500); }} onLoadedData={(e) => { setI(i + 1) }}
+    // onClick={(e) => { setI(i + 1); setTimeout(() => { setI(i + 1) }, 2500); }} onLoadedData={(e) => { setI(i + 1) }}
     >
       {/* <svg id='noiseOverlay' viewBox='0 0 1500 1500' xmlns='http://www.w3.org/2000/svg'>
         <filter id='noiseFilter'>
@@ -186,6 +187,7 @@ function App() {
             }
           />
           <Route path="*" element={<Error404 />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
 

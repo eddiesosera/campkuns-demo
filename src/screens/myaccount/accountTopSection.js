@@ -165,7 +165,7 @@ function AccountTopSection({ account }) {
             }}
           >
             <div style={{ color: "#fef3ec", fontFamily: "Archivo", fontSize: "32px", fontWeight: "600" }}>
-              {localStorage.getItem("username")} Sosera
+              {localStorage.getItem("username")}
             </div>
             <div
               style={{
@@ -182,7 +182,7 @@ function AccountTopSection({ account }) {
                 background: "#272727"
               }}
             >
-              Photographer
+              Artist
             </div>
             {/* <div style={{ color: '#848484', fontFamily: 'Montserrat', fontSize: '12px', fontWeight: '500', marginTop: '10px' }}>NOW Gallery, Open Window</div> */}
           </div>
